@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F930C0C0-2083-4231-B9E3-64EFF3422826}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\NuevoTeste\Domain\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IBancoRepository.cs" />
+    <Compile Include="Abstract\ICarrosselRepository.cs" />
+    <Compile Include="Abstract\IComentarioRepository.cs" />
+    <Compile Include="Abstract\IContactoMbRepository.cs" />
+    <Compile Include="Abstract\IContactoRepository.cs" />
+    <Compile Include="Abstract\IContactoStRepository.cs" />
+    <Compile Include="Abstract\IDocumentoRepository.cs" />
+    <Compile Include="Abstract\IEnderecoMbRepository.cs" />
+    <Compile Include="Abstract\IEnderecoRepository.cs" />
+    <Compile Include="Abstract\IEnderecoStRepository.cs" />
+    <Compile Include="Abstract\IMembroRepository.cs" />
+    <Compile Include="Abstract\IMembroUsuarioRepository.cs" />
+    <Compile Include="Abstract\IMovimentadorRepository.cs" />
+    <Compile Include="Abstract\INovidadeRepository.cs" />
+    <Compile Include="Abstract\IProjectoRepository.cs" />
+    <Compile Include="Abstract\IStartupRepository.cs" />
+    <Compile Include="Abstract\ISucessoRepository.cs" />
+    <Compile Include="Abstract\IUsuarioRepository.cs" />
+    <Compile Include="Concrete\BancoRepository.cs" />
+    <Compile Include="Concrete\CarrosselRepository.cs" />
+    <Compile Include="Concrete\CategoriaRepository.cs" />
+    <Compile Include="Concrete\ComentarioRepository.cs" />
+    <Compile Include="Concrete\ContactoMbRepository.cs" />
+    <Compile Include="Concrete\ContactoRepository.cs" />
+    <Compile Include="Concrete\ContactoStRepository.cs" />
+    <Compile Include="Concrete\DocumentoRepository.cs" />
+    <Compile Include="Concrete\EnderecoMbRepository.cs" />
+    <Compile Include="Concrete\EnderecoRepository.cs" />
+    <Compile Include="Concrete\EnderecoStRepository.cs" />
+    <Compile Include="Concrete\EventoRepository.cs" />
+    <Compile Include="Concrete\ManejaConta.cs" />
+    <Compile Include="Concrete\MembroRepository.cs" />
+    <Compile Include="Concrete\MembroUsuarioRepository.cs" />
+    <Compile Include="Concrete\MovimentaContext.cs" />
+    <Compile Include="Concrete\MovimentadorRepository.cs" />
+    <Compile Include="Concrete\MunicipioRepository.cs" />
+    <Compile Include="Concrete\NovidadeRepository.cs" />
+    <Compile Include="Concrete\PaisRepository.cs" />
+    <Compile Include="Concrete\ProjectoRepository.cs" />
+    <Compile Include="Concrete\ProvinciaRepository.cs" />
+    <Compile Include="Concrete\StartupRepository.cs" />
+    <Compile Include="Concrete\SucessoRepository.cs" />
+    <Compile Include="Concrete\UsuarioRepository.cs" />
+    <Compile Include="Data\DbInitializer.cs" />
+    <Compile Include="Entities\Banco.cs" />
+    <Compile Include="Entities\Carrossel.cs" />
+    <Compile Include="Entities\Categoria.cs" />
+    <Compile Include="Entities\Comentario.cs" />
+    <Compile Include="Entities\Contacto.cs" />
+    <Compile Include="Entities\ContactoMb.cs" />
+    <Compile Include="Entities\ContactoSt.cs" />
+    <Compile Include="Entities\Documento.cs" />
+    <Compile Include="Entities\DocumentoMembro.cs" />
+    <Compile Include="Entities\EnderecoCampanha.cs" />
+    <Compile Include="Entities\EnderecoMb.cs" />
+    <Compile Include="Entities\Endereco.cs" />
+    <Compile Include="Entities\EnderecoSt.cs" />
+    <Compile Include="Entities\Evento.cs" />
+    <Compile Include="Entities\Membro.cs" />
+    <Compile Include="Entities\MembroStartup.cs" />
+    <Compile Include="Entities\MembroUsuario.cs" />
+    <Compile Include="Entities\Movimentador.cs" />
+    <Compile Include="Entities\Municipio.cs" />
+    <Compile Include="Entities\Novidade.cs" />
+    <Compile Include="Entities\Pais.cs" />
+    <Compile Include="Entities\Projecto.cs" />
+    <Compile Include="Entities\Provincia.cs" />
+    <Compile Include="Entities\Recompensa.cs" />
+    <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Entities\RoleUsuario.cs" />
+    <Compile Include="Entities\Startup.cs" />
+    <Compile Include="Entities\Sucesso.cs" />
+    <Compile Include="Entities\Campanha.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

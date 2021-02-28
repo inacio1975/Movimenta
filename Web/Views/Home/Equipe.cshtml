@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Web.Models.TeamViewModel>
+@{
+    ViewBag.Title = "Equipe";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window xs-extra-style" data-parallax="scroll" data-image-src="/Content/images/background/volunteer_bg.jpg">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content xs-inner-welcome-content">
+            <h2 class="color-white">@ViewBag.Team.Nome</h2>
+            <p class="color-white xs-mb-20">Nossa missão é empoderar pessoas para unir forças em torno de ideias que impportam para elas e juntas fazer com que essa ideia se torne relaidade.</p>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> INÍCIO /</a> Equipa</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+<main class="xs-all-content-wrapper">
+    <!-- team member details section -->
+    <section class="xs-team-member-details-section fundpress-team-member-details-section xs-content-section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12 col-lg-8">
+                    <div class="fundpress-team-member-details-content">
+                        <p class="xs-mb-40 xs-content-description fundpress-content-description">Do sonho para a realidade,o grupo fundador da movimenta construiu uma comunidade
+                            que ajudam a materializar ideias. Hoje, a comunidade é mais forte, representada em diferentes províncias e a meta é conquistar todo o território nacional
+                            . Todos os dias buscamos melhorar nossos serviços, buscando novas soluções para os problemas que enfrentamos para fornecer melhor esperiência e maior segurança.</p>
+
+                        <h3 class="medium xs-extra-css color-orange xs-post-title fundpress-post-title xs-mb-20">Criado para empoderar a inovação</h3>
+                        <p class="xs-mb-30 xs-content-description fundpress-content-description">
+                            Nossos fundadores trouxeram essa solução com base nas suas próprias experiências, nas dificuldades que enfrentaram ao trazer à vida seus rpojectos.
+                            Ketson Lima ja criou vários projectos mas sempre foi difícil para ele encontrar financiamento e levar as ideias ao outro nível.
+                            Osvaldo e Inácio teinham o sonho de contruir a TelLine, uma empresa de automação e telecomunicações, foi dificil encontrar financiamento (Pedir dinheiro é difícil, encontrar a quem pedir também).
+                            Então, Ketson apesntou uma ideia à Osvaldo e Inácio - que rápidamente aderiram (tinham problemas em comun). 
+                            Usar a internet para que as pessoas, em conjunto, possam empoderar a inovação.
+                        </p>
+                        <p class="xs-mb-40 xs-content-description fundpress-content-description">
+                            Ketson, Osvaldo, e Inácio fundaram a movimenta em 2020 porque acreditam que voçê deveria escolher os projectos que deveriam sair à luz. 
+                            Tu e os seguidores das tuas ideias deveriam ter a oportunidade de mudar o mundo. Este é o tempo de descobrir a prróxima ideia brilhante.
+                        </p>
+                        <blockquote class="xs-blockquote xs-mb-0 color-white xs-extra-css xs-box-shadow xs-content-padding fundpress-blockquote xs-navy-blue-bg text-center">
+                            <span class="xs-blockquote-icon fundpress-blockquote-icon">
+                                <img src="/Content/images/quote-left-2.png" alt="">
+                            </span>
+                            “ @ViewBag.Team.Citacao ”
+
+                            <div class="xs-sign">
+                                <img src="/Content/images/signature.png" alt="">
+                            </div>
+                        </blockquote><!-- xs-blockquote xs-mb-0 color-white xs-extra-css xs-box-shadow xs-content-padding fundpress-blockquote xs-navy-blue-bg text-center -->
+                    </div><!-- xs-team-member-details-content fundpress-team-member-details-content -->
+                </div>
+                <div class="col-md-5 col-sm-12 col-lg-4">
+                    <div class="xs-team-member-info-details">
+                        <div class="xs-team-member-bio-avatar xs-box-shadow ">
+                            <img src="@ViewBag.Team.Foto" alt="">
+                            <div class="xs-team-member-info ">
+                                <ul class="xs-social-list fundpress-social-list xs-social-list-v2">
+                                    <li><a href="" class="color-facebook full-round"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="" class="color-twitter full-round"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="" class="color-dribbble full-round"><i class="fa fa-dribbble"></i></a></li>
+                                </ul>
+                            </div><!-- xs-team-member-info  -->
+                        </div><!-- xs-team-member-bio-avatar xs-box-shadow  -->
+                        <div class="xs-item-footer xs-content-padding ">
+                            <div class="xs-mb-30 fundpress-team-details text-left xs-extra-css">
+                                <a href="#" class="color-navy-blue">
+                                    @ViewBag.Team.Nome
+                                </a>
+                                <h5 class="color-orange">@ViewBag.Team.Cargo</h5>
+                            </div>
+                            <ul class="xs-list-item-icon-text">
+                                <li><i class="fa fa-phone color-orange"></i>@ViewBag.Team.Telefone</li>
+                                <li><i class="fa fa-envelope-o color-orange"></i><a href='@("mailto:" + @ViewBag.Team.Email + "")'>@ViewBag.Team.Email</a></li>
+                                <li><i class="fa fa-globe color-orange"></i><a href=""> @ViewBag.Team.Webpage</a></li>
+                            </ul>
+                        </div><!-- xs-item-footer xs-content-padding bg-color-white  fundpress-team-details text-left xs-extra-css -->
+                    </div><!-- xs-team-member-info-details -->
+                </div>
+            </div>
+        </div>
+    </section>	<!-- team member details section end -->
+    <!-- team section -->
+    <section class="xs-gray-bg xs-team-section fundpress-team-section xs-section-padding">
+        <div class="container">
+            <div class="xs-section-heading row xs-margin-0">
+                <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
+                    <h2 class="color-navy-blue">Conheça a nossa equipa</h2>
+                    <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                    <p>O nosso activo mais importante é o nosso capital. Conheça os que fazem tudo acontecer</p>
+                </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+            </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+            <div class="row">
+                @foreach (var member in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="xs-box-shadow  fundpress-single-team-member">
+                            <div class="fundpress-item-header ">
+                                <img src="@member.Foto" alt="" width="255" height="234">
+                                <div class="xs-hover-content fundpress-hover-content text-center">
+                                    <ul class="xs-social-list fundpress-social-list xs-social-list-v2">
+                                        <li><a href="" class="color-facebook full-round"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="" class="color-twitter full-round"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="" class="color-dribbble full-round"><i class="fa fa-dribbble"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--fundpress-item-header -->
+                            <div class="xs-item-footer xs-content-padding bg-color-white  fundpress-team-details text-center">
+                                @Html.ActionLink(member.Nome,"Equipe","Home",new {id=member.Id}, new {@class= "color-navy-blue" })
+                                <h5 class="color-orange">@member.Cargo</h5>
+                            </div>
+                            <!--
+                            xs-item-footer
+                            xs-content-padding
+                            bg-color-white
+                            fundpress-team-details
+                            text-center
+                            -->
+                        </div>
+                        <!--
+                        xs-box-shadow
+                        fundpress-single-team-member
+                        -->
+                    </div>
+                }
+            </div>
+        </div>
+    </section>	<!-- team section end -->
+</main>

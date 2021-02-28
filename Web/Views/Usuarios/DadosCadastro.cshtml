@@ -1,0 +1,99 @@
+﻿@model Web.Models.DadosViewModel
+@{
+    ViewBag.Title = "Dados do cadastro";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Dados do cadastro</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Início /</a> Outros dados</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here-->
+<!-- End welcome section -->
+
+<main class="xs-all-content-wrapper">
+    <section class="xs-content-section-padding xs-dashboard-section">
+        <div class="container">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Pais)</h3>
+                            @Html.DropDownList("Pais", Model.Pais, "Selecione o país", new {@class = "form-control"})
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group form-">
+                            <h3 class="h3">@Html.LabelFor(model => model.Provincia)</h3>
+                            <select id="Provincia" name="Provincia" class="form-control form-control">
+                                <option>Nenhum país selecionado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Municipio)</h3>
+                            <select id="Municipio" name="Municipio" class="form-control form-control">
+                                <option>Nenhuma provinvia selecionada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3"><label for="Rua">Endereço</label></h3>
+                            @Html.EditorFor(model => model.Rua, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.Rua, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10">
+                        <div class="xs-btn-wraper">
+                            <button type="submit" id="campaingSubmit" class="xs-submit-btn">Salvar Alterações</button>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </section>
+</main>
+
+    <script>
+        docReady(() => {
+            $("#Pais").change(function () {
+                var id = $(this).val();
+                $("#Provincia").empty();
+                $.get("ListaProvincias", { idPais: id }, function (data) {
+                    var v = "<option>Selecione a província</option>";
+                    $.each(data, function (i, v1) {
+                        v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                    });
+                    $("#Provincia").html(v);
+                });
+            });
+
+            $("#Provincia").change(function () {
+                var id = $(this).val();
+                $("#Municipio").empty();
+                $.get("ListaMunicipios", { idProvincia: id }, function (data) {
+                    var v = "<option>Selecione o municipio</option>";
+                    $.each(data, function (i, v1) {
+                        v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                    });
+                    $("#Municipio").html(v);
+                });
+            });
+        }, false);
+    </script>

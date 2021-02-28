@@ -1,0 +1,89 @@
+﻿@using Domain.Entities
+@model IEnumerable<Web.Models.ProjectosCriadosViewModel>
+@{
+    ViewBag.Title = "Meus Projectos";
+}
+
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Campanhas</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Início /</a> Campanhas</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+
+
+<main class="xs-all-content-wrapper">
+    <!-- header section -->
+    <section class="xs-content-section-padding xs-dashboard-section">
+        <div class="container">
+            <div class="xs-dashboard-header">
+                <h3 class="dashboard-title">Minhas Campanhas</h3>
+                <div class="xs-btn-wraper">
+                    @Html.ActionLink("Iniciar nova campanha", "Criar", "Projectos", null, new {target = "_blank", @class = "xs-btn round-btn orange-btn"})
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row">
+                @if (Model.Count() != 0)
+                {
+                    foreach (var projecto in Model)
+                    {
+                        <div class="col-lg-12" style="margin-bottom: 32px;">
+                            <div class="xs-campaign-info-card">
+                                <div class="xs-dashboard-header">
+                                    <h3 class="dashboard-title">@projecto.Titulo | Estado: @projecto.Estado.ToString() <span>@projecto.Autor</span></h3>
+                                    <div class="xs-btn-wraper">
+                                        @(projecto.Estado == Estado.Publicado ? Html.ActionLink("Ver", "Detalhe", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"}) : Html.ActionLink("Editar", "Editar", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"}))
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="xs-pie-chart-v3" data-percent="0">
+                                            <div class="pie-chart-info">
+                                                <div class="xs-pie-chart-percent"></div>
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="xs-campaign-card">
+                                            <h5>@projecto.Arrecadado AOA</h5>
+                                            <h6>Arrecadado</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="xs-campaign-card card-primary">
+                                            <h5>@projecto.Meta AOA</h5>
+                                            <h6>Meta</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="xs-campaign-card">
+                                            <h5>@projecto.DiasRestantes</h5>
+                                            <h6>Dias restantes</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- info cards -->
+                    }
+                }
+                else
+                {
+                    <span>Ainda não criaste nenhum projecto. @Html.ActionLink("Iniciar uma campanha", "Criar", "Projectos", null, new {@class = "xs-btn round-btn green-btn"})</span>
+                }
+            </div>
+        </div>
+    </section>
+</main>

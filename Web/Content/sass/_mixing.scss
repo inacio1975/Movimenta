@@ -1,0 +1,36 @@
+@mixin border-radius($radius) {
+	border-radius: $radius;
+}
+
+@mixin transition($name) {
+	transition: $name;
+}
+
+@mixin background-content($repeat, $size, $position) {
+	background-repeat: $repeat;
+	background-size: $size;
+	background-position: $position;
+}
+
+@mixin background-color($color) {
+	background-color: $color;
+}
+
+@mixin width($width) {
+	width: $width;
+}
+
+@mixin equal-size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex-position($display, $contet, $items) {
+	display: $display;
+	justify-content: $contet;
+	align-items: $items;
+}
+
+@mixin position($position) {
+	position: $position;
+}

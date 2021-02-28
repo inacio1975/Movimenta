@@ -1,0 +1,133 @@
+﻿@model List<Web.Models.CategoriaViewModel>
+@{
+    ViewBag.Title = "Categorias";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<section class="xs-section-padding" data-scrollax-parent="true">
+    <div class="container">
+        <h2>Categorias <span class="fa fa-plus add-mine" id="btnAddCategoria" data-bs-toggle="modal" data-bs-target="#AdicionaCategoria"></span></h2>
+        @if (TempData["erro"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>@TempData["erro"]</strong>
+                <button class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        @if (TempData["sucesso"] != null)
+        {
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>@TempData["sucesso"]</strong>
+                <button class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        <div class="row">
+            @foreach (var categoria in Model)
+            {
+                var flag = (categoria.NumProjectos != 0) ? "disabled" : "";
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-12">@categoria.Nome <span>(@categoria.NumProjectos)</span></div>
+                        <div class="col-md-5">
+                            <button type="button" class="btn btn-outline-success editarcategoria" data-bs-toggle="modal" data-bs-target="#EditarCategoria" data-path="@categoria.Id" data-name="@categoria.Nome">Editar</button>
+                        </div>
+                        <div class="col-md-5">
+                            <button type="button" class="@("btn btn-outline-danger deletecategoria " + flag)" data-bs-toggle="modal" data-bs-target="#staticBackdropLive" data-path="@Url.Action("Eliminar", "Categorias", new {id = categoria.Id})">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="AdicionaCategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="AdicionaCategoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AdicionaCategoriaLabel">Adiciona Nova Categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @using (Html.BeginForm("Adicionar", "Categorias", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    <label for="txtCategoria" class="form-label">Entre a Nova Categoria</label>
+                    <input type="text" class="form-control" name="q" id="txtCategoria" value="" placeholder="Categoria..." required="">
+
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                    <button id="btnContinueAddCat" data-dismiss="modal" type="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditarCategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="EditarCategoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EditarCategoriaLabel">Editar informação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @using (Html.BeginForm("Editar", "Categorias", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    <label for="txtcategoriaedit" class="form-label">Modifique a categoria selecionada</label>
+                    <input type="text" class="form-control" name="q" id="txtcategoriaedit" value="" placeholder="Categoria..." required="">
+                    <input type="hidden" id="idcategoria" name="idcategoria" value=""/>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                    <button id="btnContinueAddCat" data-dismiss="modal" type="submit" class="btn btn-primary">Concluir</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLiveLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Tens a certeza de que queres eliminar esse elemento?</p>
+            </div>
+            <div class="modal-footer">
+                <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                <button id="btnContinueDelete" data-bs-dismiss="modal" type="button" class="btn btn-primary">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var btns = document.querySelectorAll('.deletecategoria');
+    var data_path;
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', () => {
+            data_path = btn.getAttribute('data-path');
+        });
+    });
+
+    document.getElementById('btnContinueDelete').addEventListener('click', () => {
+        location.href = data_path;
+    });
+
+  
+</script>

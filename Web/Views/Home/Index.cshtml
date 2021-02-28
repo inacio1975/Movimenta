@@ -1,0 +1,617 @@
+﻿@model Web.Models.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- welcome section -->
+<section class="xs-screen-height xs-welcome-section xs-bg fundpress-welcome-section">
+    <div class="xs-banner-slider owl-carousel">
+        <div class="xs-banner-slider-item" style="background-image: url(/Content/images/welcome-bg-3.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content version-3">
+                            <div class="xs-welcome-wraper">
+                                <h2>Sequenciador do genoma Humano</h2>
+                                <div class="xs-skill-bar-v2" data-percent="65%">
+                                    <div class="xs-skill-track">
+                                        <p>
+                                            <span class="number-percentage-count">65</span>%
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="fundpress-welcome-list-content list-inline">
+                                    <li>$45,280<span class="d-block">Arrecadado</span></li>
+                                    <li>$87,000<span class="d-block">Meta</span></li>
+                                    <li>119<span class="d-block">Movimentadores</span></li>
+                                </ul>
+                                <div class="xs-btn-wraper">
+                                    @Html.ActionLink("Ver Campanha", "Detalhe", "Projectos", new { id = 1 }, new { @class = "xs-btn navy-blue-btn round-btn" })
+                                    @*<a href="#" class="xs-btn navy-blue-btn round-btn">Ver campanha</a>*@
+                                </div>
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content">
+                            <div class="xs-welcome-wraper">
+                                <img src="/Content/images/slider_3_1.png" alt="">
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xs-banner-slider-item" style="background-image: url(/Content/images/welcome-bg-3.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content version-3">
+                            <div class="xs-welcome-wraper">
+                                <h2>Explorador Marítimo autônomo</h2>
+                                <div class="xs-skill-bar-v2" data-percent="65%">
+                                    <div class="xs-skill-track">
+                                        <p>
+                                            <span class="number-percentage-count">65</span>%
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="fundpress-welcome-list-content list-inline">
+                                    <li>$10,280<span class="d-block">Arrecadado</span></li>
+                                    <li>$50,000<span class="d-block">Meta</span></li>
+                                    <li>19<span class="d-block">Movimentadores</span></li>
+                                </ul>
+                                <div class="xs-btn-wraper">
+                                    @Html.ActionLink("Ver Campanha","Detalhe","Projectos", new {id=1}, new {@class= "xs-btn navy-blue-btn round-btn" })
+                                    @*<a href="#" class="xs-btn navy-blue-btn round-btn">Ver campanha</a>*@
+                                </div>
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content">
+                            <div class="xs-welcome-wraper">
+                                <img src="/Content/images/slider_3_2.png" alt="">
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xs-banner-slider-item" style="background-image: url(/Content/images/welcome-bg-3.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content version-3">
+                            <div class="xs-welcome-wraper">
+                                <h2>Salve Angola</h2>
+                                <div class="xs-skill-bar-v2" data-percent="65%">
+                                    <div class="xs-skill-track">
+                                        <p>
+                                            <span class="number-percentage-count">65</span>%
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="fundpress-welcome-list-content list-inline">
+                                    <li>$55,280<span class="d-block">Arrecadado</span></li>
+                                    <li>$80,000<span class="d-block">Meta</span></li>
+                                    <li>100<span class="d-block">Movimentadores</span></li>
+                                </ul>
+                                <div class="xs-btn-wraper">
+                                    @Html.ActionLink("Ver Campanha", "Detalhe", "Projectos", new { id = 1 }, new { @class = "xs-btn navy-blue-btn round-btn" })
+                                    @*<a href="#" class="xs-btn navy-blue-btn round-btn">Ver campanha</a>*@
+                                </div>
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="xs-welcome-content">
+                            <div class="xs-welcome-wraper">
+                                <img src="/Content/images/slider_3_3.png" alt="">
+                            </div><!-- .xs-welcome-wraper END -->
+                        </div><!-- .xs-welcome-content END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End welcome section -->
+<!-- side by side product -->
+<section class="xs-full-width-section fundpress-full-width-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 xs-padding-0">
+                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/back_other_bg.jpg)">
+                    <div class="fundpress-product-hover-content-v2">
+                        <div class="fundpress-sub-title">
+                            <h2>Financia projectos</h2>
+                        </div>
+                        <div class="fundpress-product-text-content">
+                            <p>
+                                A união é um recurso sem igual. Junte força a muitos movimentadores para dar vida a projectos inovadores e seja recompensado por isso. Juntos, <em>Movimentando</em> Angola
+                            </p>
+                        </div>
+                        <div class="xs-btn-wrapre">
+                            @Html.ActionLink("Explore Projectos","Index","Projectos",null,new {@class= "xs-btn btn xs-box-shadow btn-primary btn-lg round-btn"})
+                            @*<a href="/Projectos" class="xs-btn btn xs-box-shadow btn-primary btn-lg round-btn">Explore projectos</a>*@
+                        </div>
+                    </div><!-- .fundpress-product-hover-content-v2 END -->
+                    <div class="xs-solid-overlay xs-bg-black"></div>
+                </div><!-- .fundpress-full-width-wraper-v2 END -->
+            </div>
+            <div class="col-md-12 col-lg-6 xs-padding-0">
+                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/get_funded_bg.jpg)">
+                    <div class="fundpress-product-hover-content-v2">
+                        <div class="fundpress-sub-title">
+                            <h2>Obtenha financiamento</h2>
+                        </div>
+                        <div class="fundpress-product-text-content">
+                            <p>Tens uma ideia ou um projecto e precisas de financiamento para o pôr em prática? Então estás no lugar adequado</p>
+                        </div>
+                        <div class="xs-btn-wrapre">
+                            @Html.ActionLink("Iniciar uma campanha","Criar","Projectos",null,new {@class= "xs-btn xs-box-shadow btn btn-primary btn-lg round-btn" })
+                        </div>
+                    </div><!-- .fundpress-product-hover-content-v2 END -->
+                    <div class="xs-solid-overlay xs-bg-black"></div>
+                </div><!-- .fundpress-full-width-wraper-v2 END -->
+            </div>
+        </div>
+    </div>
+</section><!-- End side by side product -->
+<!-- cause matters -->
+<section id="cause-matters" class="waypoint-tigger xs-section-padding v3">
+<div class="container">
+<div class="xs-section-heading row xs-margin-0">
+    <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
+        <h2 class="color-navy-blue">Grande ou pequena, a tua causa importa</h2>
+        <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+        <p>A MOVIMENTA foi desenhada por angolanos para angolanos o que significa uma melhor esperiencia de usuário, tanto para os apoiadores, os arrecadadores de fundo, clientes assim como o pessoal de apoio</p>
+    </div><!-- .fundpress-heading-title .xs-col-9 END -->
+    <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
+        @Html.ActionLink("Todos os projectos", "Index", "Projectos", null, new { @class = "xs-btn btn xs-box-shadow btn-primary btn-lg round-btn" })
+    </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
+</div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+<div class="xs-tab-wraper fundpress-tab-wraper">
+<div class="fundpress-tab-nav xs-tab-nav">
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var item in Model.Categorias.Select((categoria, i) => new {i, categoria}))
+        {
+            var cls = (item.i == 0) ? "nav-link active" : "nav-link";
+            <li class="nav-item">
+                @Html.ActionLink(item.categoria.nome, "Index", "Projectos", new {item.categoria.nome}, new {@class = @cls})
+            </li>
+        }
+    </ul>
+</div><!-- .xs-isotope-nav .fundpress-isotope-nav END -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane fade in active show" id="comics">
+    <div class="row">
+        @foreach (var campanha in Model.Projectos)
+        {
+            <div class="col-lg-4">
+                <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
+                    <div class="fundpress-item-header">
+                        <a href="@("/Projectos/Detalhe/" + @campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                        <div class="xs-item-header-content">
+                            <div class="xs-skill-bar">
+                                <div class="xs-skill-track">
+                                    <p>
+                                        <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>%
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .xs-item-header .fundpress-item-header END -->
+                    <div class="fundpress-item-content xs-content-padding bg-color-white">
+                        <ul class="xs-simple-tag fundpress-simple-tag">
+                            @foreach (var keyword in campanha.GetKeywords())
+                            {
+                                <li>
+                                    <a href="">@keyword</a>
+                                </li>
+                            }
+
+                        </ul>
+                    @Html.ActionLink(campanha.Titulo,"Detalhe","Projectos",new {id=campanha.ProjectoId},new {@class="d-block color-navy-blue fundpress-post-title" })
+                        
+                        <ul class="xs-list-with-content fundpress-list-item-content">
+                            <li>@campanha.Arrecadado AOA<span>Arrecadado</span></li>
+                            <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>% <span>Financiado</span></li>
+                            <li>@campanha.DiasRestantes()<span>Dias restantes</span></li>
+                        </ul>
+                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
+                        <div class="row xs-margin-0">
+                            <div class="full-round fundpress-avatar">
+                                <img src="@campanha.GetCriador().Foto" alt="Avatar">
+                            </div>
+                            <div class="xs-avatar-title">
+                                <a href="#"><span>Por</span>@campanha.GetCriador().Nome</a>
+                            </div>
+                        </div>
+                    </div><!-- .fundpress-item-content END -->
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section><!-- End cause matters -->
+<!-- square service -->
+<section class="xs-navy-blue-bg fundpress-square-service-section v3">
+    <div class="container">
+        <div class="fundpress-section-heading fundpress-heading-title fundpress-heading-title-v2 content-left">
+            <h2 class="color-white">Pedir dinheiro é difícil. A Movimenta torna-o fácil. </h2>
+        </div><!-- .xs-heading-title .fundpress-heading-title-v2 .fundpress-heading-title END -->
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-lg-3">
+                <div class="fundpress-icon-with-square-service">
+                    <i class="icon icon-cogwheel-outline" style="font-size: 50pt; color: white;"></i>
+                    <a href="#" class="color-white">Configração simples e grátis</a>
+                    <p>Criar tua campanha em minutos. Assim que for aceite, a tua campanha fará muito por ti</p>
+                </div><!-- .fundpress-icon-with-square-service END -->
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-3">
+                <div class="fundpress-icon-with-square-service">
+                    <i class="icon icon-hand" style="font-size: 50pt; color: white;"></i>
+                    <a href="#" class="color-white">113 Projetos apoiados</a>
+                    <p>Junte-se a milhões de angolanos que usam a Movimenta para alavancar seus projectos</p>
+                </div><!-- .fundpress-icon-with-square-service END -->
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-3">
+                <div class="fundpress-icon-with-square-service">
+                    <i class="icon icon-support" style="font-size: 50pt; color: white;"></i>
+                    <a href="#" class="color-white">Assitência profissional, 24/7.</a>
+                    <p>Nossa equipa o guiará em todas as fases da sua campanha. Todos os dias e a qualer momento.</p>
+                </div><!-- .fundpress-icon-with-square-service END -->
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-3">
+                <div class="fundpress-icon-with-square-service">
+                    <i class="icon icon-lock3" style="font-size: 50pt; color: white;"></i>
+                    <a href="#" class="color-white">Segurança Garantida.</a>
+                    <p>A EMIS protege as tuas doações e financiamentos. Se a campanha não for bem sucedida, todo o dinheiro volta para ti</p>
+                </div><!-- .fundpress-icon-with-square-service END -->
+            </div>
+        </div>
+    </div>
+    <div class="xs-shape-background">
+        <div class="xs-waves">
+            <div class="xs-wave xs-wave_1"></div>
+            <div class="xs-wave xs-wave_2"></div>
+            <div class="xs-wave xs-wave_3"></div>
+            <div class="xs-wave xs-wave_4"></div>
+            <div class="xs-wave xs-wave_5"></div>
+        </div>
+    </div>
+</section><!-- End square service -->
+<!-- popular campaigns -->
+<section id="popular-campaigns" class="xs-gray-bg waypoint-tigger xs-section-padding v3">
+<div class="container">
+<div class="xs-section-heading row xs-margin-0">
+    <div class="fundpress-heading-title xs-padding-0 col-xl-9 col-md-9">
+        <h2 class="color-navy-blue">Campanhas populares</h2>
+        <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+        <p>Plataforma focada em ajudar empreededores, startups e organizações a levantar capital de qualquer pessoa.</p>
+    </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+    <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
+        <a href="#" class="xs-btn round-btn navy-blue-btn">Todas as campanhas</a>
+    </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
+</div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+<div class="row">
+@foreach (var campanha in Model.Projectos)
+{
+    <div class="col-lg-4">
+        <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
+            <div class="fundpress-item-header">
+                <a href="@("/Projectos/Detalhe/" + @campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                <div class="xs-item-header-content">
+                    <div class="xs-skill-bar">
+                        <div class="xs-skill-track">
+                            <p>
+                                <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>%
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .xs-item-header .fundpress-item-header END -->
+            <div class="fundpress-item-content xs-content-padding bg-color-white">
+                <ul class="xs-simple-tag fundpress-simple-tag">
+                    @foreach (var keyword in campanha.GetKeywords())
+                    {
+                        <li>
+                            <a href="">@keyword</a>
+                        </li>
+                    }
+
+                </ul>
+                @Html.ActionLink(campanha.Titulo, "Detalhe", "Projectos", new { id = campanha.ProjectoId }, new { @class = "d-block color-navy-blue fundpress-post-title" })
+
+                <ul class="xs-list-with-content fundpress-list-item-content">
+                    <li>@campanha.Arrecadado AOA<span>Arrecadado</span></li>
+                    <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>% <span>Financiado</span></li>
+                    <li>@campanha.DiasRestantes()<span>Dias restantes</span></li>
+                </ul>
+                <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
+                <div class="row xs-margin-0">
+                    <div class="full-round fundpress-avatar">
+                        <img src="@campanha.GetCriador().Foto" alt="Avatar">
+                    </div>
+                    <div class="xs-avatar-title">
+                        <a href="#"><span>Por</span>@campanha.GetCriador().Nome</a>
+                    </div>
+                </div>
+            </div><!-- .fundpress-item-content END -->
+        </div>
+    </div>
+
+}
+</div>
+</div>
+</section><!-- End popular campaigns -->
+<!-- event section -->
+<section class="xs-bg fundpress-event-section xs-section-padding v3" style="background-image: url(/Content/images/icons-background-1.png);">
+    <div class="container">
+        <div class="xs-section-heading row xs-margin-0">
+            <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
+                <h2 class="color-navy-blue">Podes participar conosco em eventos especiais</h2>
+                <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                <p>Temos feito algumas actividades para a massificação do crowdfunding aqui em Angola. Acompanhe de perto e junte-se a nós</p>
+            </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+            <div class="xs-btn-wraper xs-padding-0 col-md-3 col-xl-3 d-flex-center-end">
+                <a href="events.html" class="xs-btn round-btn navy-blue-btn">Eventos</a>
+            </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
+        </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+        <div class="fundpress-event-wraper">
+            <div class="fundpress-single-event-wraper row">
+                <div class="col-md-3">
+                    <div class="fundpress-event-image">
+                        <img src="/Content/images/event/event-1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 fundpress-event-details">
+                    <h3 class="color-white xs-post-title fundpress-post-title">O estado do crowdfunding em Angola.</h3>
+                    <p>Parte da nossa missão é informar às pessoas sobre essa nova forma de financiamento. Estaremos a falar no Instituto Superior de Tecnologias de informação e comunicação</p>
+                    <div class="countdown-container xs-countdown-timer" data-countdown="2020/08/30"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="fundpress-btn-wraper">
+                        <a href="#" class="xs-btn round-btn green-btn">Saiba mais >></a>
+                    </div>
+                </div>
+            </div><!-- .fundpress-single-event-wraper END -->
+            <div class="fundpress-single-event-wraper row">
+                <div class="col-md-3">
+                    <div class="fundpress-event-image">
+                        <img src="/Content/images/event/event-2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 fundpress-event-details">
+                    <h3 class="color-white xs-post-title fundpress-post-title">Fnanciamento colectivo em tempos de crise</h3>
+                    <p>Todos estamos de acordo que esse tempo que estamos vivendo é trágico. Sabias que podes usar a Movimenta para ajudar a amenizar o impacto da crise? Fique atento, Nosso CEO estará dando as dicas sobre esse assunto</p>
+                    <div class="countdown-container xs-countdown-timer" data-countdown="2021/01/01"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="fundpress-btn-wraper">
+                        <a href="#" class="xs-btn round-btn green-btn">Saiba mais >></a>
+                    </div>
+                </div>
+            </div><!-- .fundpress-single-event-wraper END -->
+        </div>
+    </div>
+</section><!-- End event section -->
+<!-- journal section -->
+<section class="xs-gray-bg fundpress-journal-section xs-section-padding v3">
+    <div class="container">
+        <div class="xs-section-heading row xs-margin-0">
+            <div class="fundpress-heading-title xs-padding-0 col-md-9 col-xl-9">
+                <h2 class="color-navy-blue">Crowdfunding de sucesso</h2>
+                <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                <p>O crowdfunding em Angola é possivel sim. Te apresentamos a opinião de pessoas que usaram essa forma de financiamento aqui na Movimenta.</p>
+            </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+            <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
+                <a href="news-feed.html" class="xs-btn round-btn navy-blue-btn">Blog</a>
+            </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
+        </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
+                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
+                        <img src="/Content/images/journal/journal-1.jpg" alt="">
+                        <div class="xs-item-header-content">
+                            <a href="#" class="full-round icon-identify-btn green-btn">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div><!-- .xs-item-header .fundpress-item-header END -->
+                    <div class="fundpress-item-content xs-content-padding bg-color-white">
+                        <div class="entry-header xs-mb-30">
+                            <div class="post-author">
+                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
+                                    <li>
+                                        <span>Por</span><a href="#" rel="author">Rose</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="entry-title">
+                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">Professional Soundcard</a>
+                            </h4>
+                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
+                        </div>
+
+                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
+
+                        <div class="entry-content xs-spilit-container xs-footer-content">
+                            <div class="xs-col-6 text-left">
+                                <span class="date">
+                                    <a href="" title="" rel="bookmark">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="xs-col-6 text-right">
+                                <span class="categories-links">
+                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Project</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
+                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
+                        <img src="/Content/images/journal/journal-2.jpg" alt="">
+                        <div class="xs-item-header-content">
+                            <a href="#" class="full-round icon-identify-btn green-btn">
+                                <i class="fa fa-image"></i>
+                            </a>
+                        </div>
+                    </div><!-- .xs-item-header .fundpress-item-header END -->
+                    <div class="fundpress-item-content xs-content-padding bg-color-white">
+                        <div class="entry-header xs-mb-30">
+                            <div class="post-author">
+                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
+                                    <li>
+                                        <span>Por</span><a href="#" rel="author">Rose</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="entry-title">
+                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">A New Album by Rebecca</a>
+                            </h4>
+                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
+                        </div>
+
+                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
+
+                        <div class="entry-content xs-spilit-container xs-footer-content">
+                            <div class="xs-col-6 text-left">
+                                <span class="date">
+                                    <a href="" title="" rel="bookmark">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="xs-col-6 text-right">
+                                <span class="categories-links">
+                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Adoption</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
+                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
+                        <img src="/Content/images/journal/journal-3.jpg" alt="">
+                        <div class="xs-item-header-content">
+                            <a href="#" class="full-round icon-identify-btn green-btn">
+                                <i class="fa fa-video-camera"></i>
+                            </a>
+                        </div>
+                    </div><!-- .xs-item-header .fundpress-item-header END -->
+                    <div class="fundpress-item-content xs-content-padding bg-color-white">
+                        <div class="entry-header xs-mb-30">
+                            <div class="post-author">
+                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
+                                    <li>
+                                        <span>Por</span><a href="#" rel="author">Rose</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h4 class="entry-title">
+                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">First Bionic Wireless</a>
+                            </h4>
+                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
+                        </div>
+
+                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
+
+                        <div class="entry-content xs-spilit-container xs-footer-content">
+                            <div class="xs-col-6 text-left">
+                                <span class="date">
+                                    <a href="" title="" rel="bookmark">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="xs-col-6 text-right">
+                                <span class="categories-links">
+                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Film</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End journal section -->
+<!-- sponsor section -->
+<section class="xs-bg xs-section-padding fundpress-sponsor-section" style="background-image: url(/Content/images/background/sponsor_section_bg.jpg);">
+    <div class="xs-solid-overlay xs-bg-white"></div>
+    <div class="container fundpress-partners-wraper">
+        <div class="fundpress-heading-title">
+            <h2 class="color-navy-blue xs-mb-0">Nossos pareciros e colaboradores</h2>
+        </div><!-- .xs-heading-title .fundpress-heading-title END -->
+        <div class="content-center">
+            <ul class="fundpress-partners">
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-1.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-2.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-3.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-4.png" alt="">
+                    </a>
+                </li>
+            </ul><!-- .fundpress-partners END -->
+        </div>
+        <div class="content-center">
+            <ul class="fundpress-partners">
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-5.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-6.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-7.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-8.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="full-round fundpress-single-partner">
+                        <img src="/Content/images/partner/partner-9.png" alt="">
+                    </a>
+                </li>
+            </ul><!-- .fundpress-partners END -->
+        </div>
+    </div>
+</section><!-- End sponsor section -->

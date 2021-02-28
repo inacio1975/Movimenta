@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Movimenta -  @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="woocommerc" style="background-color: #808080;">
+    <!--[if lt IE 10]>
+                <p class="browserupgrade">Voçê está usando um navegador <strong>desactualizado</strong>. <a href="http://browsehappy.com/">Actualize seu navegador</a> para melhorar a sua experiência.</p>
+            <![endif]-->
+
+<div id="preloader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<main class="col-lg-4 bg-white" style="margin: 0 auto;">
+
+    @RenderBody()
+</main>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/js")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model Web.Models.EsqueciChaveViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutBranco.cshtml";
+}
+
+<div class="text-center mb-4">
+    <a href="/"><img class="mb-4" src="~/Content/img/logomov.svg" alt="" width="300"></a>
+    <h1 class="h3 mb-3 font-weight-normal">Recuperar senha</h1>
+    <p>Informe o e-mail usado no registro. Receberá um código de recuperação</p>
+</div>
+
+@using (Html.BeginForm("EsqueciSenha", "Conta", new {ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-signin" })){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="xs-input-group-v2">
+        <i class="icon icon-envelope"></i>
+        @Html.TextBoxFor(m => m.Email, new { @class = "xs-input-control", placeholder = "Insira o email", autofocus = "autofocus", required = "required" })
+        @*@Html.LabelFor(m => m.Email)*@<br />
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="xs-submit-wraper xs-mb-20">
+        <input type="submit" name="submit" value="Resetar Password" id="xs_contact_get_action" class="btn btn-warning btn-block">
+    </div>
+
+    <p class="mt-4 mb-3 text-muted text-center">
+        @Html.ActionLink("Entrar", "Entrar")
+        &nbsp; &nbsp; @Html.ActionLink("Registro", "Registrar")
+    </p>
+}

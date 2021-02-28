@@ -1,0 +1,2140 @@
+// all var list
+@import'variable';
+
+
+// nav bar style default by Fundpress
+.fundpress-header-main-version {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+	&.xs-menu-style-transparent {
+		background-color: rgba($color-white, .102);
+	}
+	&.xs-menu-style-border {
+		border-bottom: 1px solid $color-light-ash;
+	}
+	&.xs-menu-style-solid {
+		background-color: $color-white;
+	}
+	&.color-navy-blue {
+		.fundpress-menu ,
+		.xs-navs-button {
+			.nav-menu ,
+			.fundpress-icon-menu {
+				li {
+					a {
+						color: $color-navy-blue;
+						&.xs-btn {
+							color: $color-white;
+						}
+					}
+				}
+			}
+			.nav-menu {
+				.submenu-indicator-chevron {
+					border-color: transparent $color-navy-blue $color-navy-blue transparent;
+				}
+			}
+		}
+	}
+}
+// menu css
+.fundpress-menu {
+	.nav-menu li {
+		margin: 0 34px 0 0;
+		a {
+			padding: 45px 0;
+			text-transform: uppercase;
+			font-size: 12px;
+			@extend .semi-bold;
+			position: relative;
+
+			&:before {
+				position: absolute;
+				content: "";
+				left: 0;
+				bottom: 0;
+				height: 2px;
+				width: 0%;
+				@include background-color($color-navy-blue);
+				@extend .transition;
+			}
+			&:hover:before {
+				width: 100%;
+			}
+		}
+		.nav-submenu {
+			border-top: 0px;
+			a {
+				padding: 12px 20px;
+				border-bottom: 1px solid #F1F1F1;
+				&:before {
+					display: none;
+				}
+				&:hover {
+					color: $color-green;
+				}
+			}
+			li:last-child {
+				a {
+					border-bottom: 0px;
+				}
+			}
+		}
+	}
+	.xs-logo-wraper {
+		@include width(16.66667%);
+		position: relative;
+		.fundpress-logo-v1 {
+			@include background-color($color-white);
+			height: calc(100% + 27px);
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			box-shadow: $hover-shadow;
+			width: 100%;
+			min-height: 135px;
+			min-width: 185px;
+			max-height: 150px;
+			max-width: 200px;
+		}
+	}
+	.nav-menu {
+		@include width(50%);
+		padding: 0 15px 0 50px;
+		text-align: left;
+	}
+	.xs-navs-button {
+		@include width(33.33333%);
+		padding: 0 15px;
+		text-align: right;
+		.fundpress-icon-menu {
+			padding: 20px 0;
+			@include flex-position(flex, flex-end, center); 
+			height: 100%;
+			li {
+				margin: 0 23px 0 0;
+				&:last-child {
+					margin: 0; 
+				}
+				a {
+					text-transform: uppercase;
+					font-weight: 600;
+					color: $color-navy-blue;
+					font-size: em(12px);
+					i {
+						margin: 0 5px 0 0;
+					}
+					&.xs-btn {
+						padding: 17px 47px;
+						color: $color-white;
+						background-color: $color-green;
+						border: 0;
+					}
+					&.round-btn {
+						@include border-radius(36px);
+					}
+				}
+			}
+		}
+	}
+}
+// menu item border color green
+.xs-menu-item-border-color-green {
+	.fundpress-menu {
+		.nav-menu li {
+			a {
+				&:before {
+					background-color: $color-green;
+				}
+			}
+		}
+	}
+}
+
+// welcome section
+.fundpress-welcome-section {
+	position: relative;
+}
+
+.fundpress-animate {
+	backface-visibility: hidden;
+	position: relative;
+	width: 100%;
+	&.load {
+		animation: animInLeft 1.5s ease;
+	}
+}
+
+@keyframes animInLeft {
+	0% {
+		left: 250px;
+		opacity: 0;
+	}
+	100% {
+		left: 0px;
+		opacity: 1;
+	}
+}
+
+// fundpress welcome content
+.fundpress-welcome-content {
+	// height: 1000px;
+	// min-height: 720px;
+	.fundpress-welcome-wraper {
+		.fundpress-welcome-title {
+			h2 {
+				font-size: em(45px);
+				@extend .bold;
+				margin: 0 0 30px;
+			}
+		}
+		.xs-skill-bar {
+			margin: 0 0 67px;
+		}
+	}
+}
+
+// fundpress welcome list
+.fundpress-welcome-list-content {
+	margin: 0 0 30px;
+	li {
+		font-size: em(30px);
+		@extend .bold;
+		color: $color-green;
+		margin: 0 0 30px;
+		
+		span {
+			color: $color-semi-black;
+			font-size: 0.429em;
+			font-weight: 400;
+		}
+	}
+}
+// section heading fundpress
+.fundpress-heading-title {
+	h2 {
+		margin: 0 0 15px;
+		font-size: em(46px);
+		@extend .bold;
+		letter-spacing: -0.2px;
+		// word-spacing: 5px;
+		line-height: 1.4em;
+	}
+	p {
+		margin: 0;
+	}
+	&.fundpress-heading-title-v2 {
+		width: 58.333333%;
+		h2 {
+			margin: 0;
+		}
+	}
+}
+// fundpress separetor
+.fundpress-separetor {
+	&.dashed-separetor {
+		width: 34px;
+		border-color: $color-navy-blue;
+		margin: 0 0 19px;
+	}
+}
+
+// fundpress portfolio nav
+.fundpress-isotope-nav {
+	ul#filters {
+		padding: 0 0 40px;
+		text-align: center;
+		li {
+			margin: 0;
+			a {
+				display: inline-block;
+				position: relative;
+				@extend .z-index-1;
+				@extend .transition;
+				padding: 10px 15px;
+				border-radius: 15px;
+				font-size: em(12px);
+				text-transform: capitalize;
+				color: $color-sky-blue-light-3;
+				font-weight: 500;
+				&.selected ,
+				&:hover {
+					background-color: $color-green;
+					box-shadow: $primary-shadow;
+					color: $color-white;
+				}
+			}
+		}
+	}
+}
+
+// fundpress tab nav style
+.fundpress-tab-nav {
+	margin: 0 0 40px;
+	text-align: center;
+	ul.nav-tabs {
+		justify-content: center;
+		li.nav-item {
+			line-height: 1;
+			margin: 0 5px 0 0;
+			&:last-child {
+				margin: 0;
+			}
+			a.nav-link {
+				display: inline-block;
+				position: relative;
+				@extend .z-index-1;
+				@extend .transition;
+				padding: 11px 17px;
+				border-radius: 17.5px;
+				font-size: em(14px);
+				text-transform: capitalize;
+				color: $color-sky-blue-light-3;
+				font-weight: 500;
+				letter-spacing: .25px;
+				&:hover,
+				&.active {
+					background-color: $color-green;
+					box-shadow: $primary-shadow;
+					color: $color-white;
+				}
+			}
+		}
+	}
+}
+
+// fundpress grid item content
+.xs-col-3-isotope-grid-item {
+	.fundpress-grid-item-content {
+		margin: 0 15px;
+	}
+	.fundpress-item-header {
+		margin: 0 0 30px;
+	}
+}
+
+.fundpress-item-header {
+	position: relative;
+}
+
+.fundpress-popular-item {
+	margin-bottom: 30px;
+}
+
+// fundpress tag
+.fundpress-simple-tag {
+	margin: 0 0 15px 0;
+	li {
+		margin: 0 25px 0 0;
+		a {
+			color: $color-green-light;
+			font-size: em(12px);
+		}
+	}
+}
+
+// fundpress post title
+.fundpress-post-title {
+	font-size: em(18px);
+	@extend .semi-bold;
+	margin: 0 0 20px 0;
+	@extend .transition;
+	line-height: 1.67;
+	letter-spacing: -0.2px;
+	word-spacing: 1px;
+	&:hover {
+		color: $color-green;
+	}
+	&.xs-extra-css {
+		font-size: em(22px);
+		@extend .medium;
+	}
+}
+
+// fundpress list item contet
+.fundpress-list-item-content {
+	display: flex;
+	li {
+		flex: 0 0 33.33333%;
+		max-width: 33.33333%;
+		color: $color-navy-blue;
+		@extend .semi-bold;
+		line-height: 1.7;
+		span {
+			font-size: em(14px);
+			color: $color-dark-ash;
+			font-weight: 400;
+			&.number-percentage-count {
+				display: inline-block;
+				color: $color-navy-blue;
+				font-size: em(16px);
+				@extend .semi-bold;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+// xs square service
+.fundpress-square-service-section {
+	position: relative;
+	padding: 0 0 186px;
+	.fundpress-section-heading {
+		padding: 140px 0 70px;
+	}
+	.xs-shape-background {
+		position: absolute;
+		width: 100%;
+		pointer-events: none;
+		bottom: 0;
+		left: 0;
+	}
+}
+  
+
+.fundpress-icon-with-square-service {
+	padding: 40px 20px;
+	background-color: #012270;
+	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+	min-height: 287px;
+	@include flex-position(flex, center, flex-start);
+	flex-direction: column;
+	@extend .transition;
+	position: relative;
+	z-index: 9;
+	&:hover {
+		border-color: $color-green-light;
+	}
+	img {
+		margin: 0 0 40px;
+	}
+	a {
+		font-size: em(20px);
+		@extend .semi-bold;
+		margin: 0 0 15px;
+		@extend .transition;
+
+		&:hover {
+			color: $color-green-light;
+		}
+	}
+	p {
+		color: $color-white;
+		font-size: em(14px);
+		line-height: 1.8;
+		letter-spacing: .25px;
+	}
+}
+
+// fundpress popular items
+.fundpress-popular-item {
+	@extend .transition;
+	.fundpress-item-content {
+		.fundpress-separetor {
+			margin: 30px 0 20px 0;
+		}
+	}
+	&.xs-box-shadow:hover {
+		box-shadow: $hover-shadow;
+	}
+}
+
+.fundpress-avatar {
+	@include equal-size(40px);
+	margin: 0 20px 0 0;
+	position: relative;
+	overflow: hidden;
+}
+.fundpress-avatar-big {
+	@include equal-size(100px);
+	margin: 0 22px 0 0;
+	img {
+		@include equal-size(100px);
+		height: 100%;
+	}
+}
+.fundpress-avatar {
+	&.fundpress-avatar-medium {
+		@include equal-size(70px);
+	}
+	&.content-center {
+		margin: 0 auto 10px auto;
+	}
+}
+
+
+// side by side full width product section
+.fundpress-full-width-wraper {
+	position: relative;
+	overflow: hidden;
+	.fundpress-product-hover-content {
+		position: absolute;
+		width: 100%;
+		padding: 0 40px 50px;
+		bottom: -204px;
+		@extend .transition;
+		z-index: 1;
+		.fundpress-sub-title {
+			h2 {
+				margin: 0 0 20px;
+				font-size: em(40px);
+				@extend .bold;
+				line-height: 1;
+			}
+		}
+		.xs-separetor {
+			&.white-border {
+				border-color: $color-white;
+			}
+			&.small-separetor {
+				width: 0px;
+				transition: all .8s ease;
+			}
+		}
+		.xs-product-text-content {
+			margin: 30px 0 0 0;
+			p {
+				margin: 0 0 30px 0;
+				color: $color-white;
+			}
+		}
+	}
+	&:hover .fundpress-product-hover-content {
+		bottom: 0;
+	}
+	&:hover .xs-separetor.small-separetor {
+		width: 100px;
+	}
+	&:hover:before {
+		opacity: 0;
+	}
+	&:hover:after {
+		opacity: .6;
+	}
+}
+
+// fundpress event details
+.fundpress-single-event-wraper {
+	@include border-radius(4px);
+	padding-top: 40px;
+	padding-bottom: 40px;
+	.fundpress-event-details {
+		.fundpress-post-title {
+			font-size: em(20px);
+		}
+		@include flex-position(flex, center, flex-start);
+		padding: 0 15px;
+		flex-direction: column;
+		p {
+			font-size: em(14px);
+			color: #9eb7f2;
+			margin: 0 0 20px;
+			line-height: 1.8;
+		}
+		.fundpress-post-title:hover {
+			@extend .color-white;
+		}
+	}
+	.fundpress-event-image {
+		img {
+			width: 100%;
+		}
+	}
+	.fundpress-btn-wraper {
+		padding: 0 0px 0 10px;
+		@include flex-position(flex, flex-end, flex-end);
+		height: 100%;
+	}
+	@extend .xs-navy-blue-bg;
+	@extend .xs-mb-30;
+	@extend .xs-content-padding;
+	@extend .xs-box-shadow;
+	@extend .xs-margin-0;
+}
+
+// fundpress journal
+.fundpress-grid-item-content {
+	&.fundpress-from-journal {
+		.fundpress-item-content {
+			padding-top: 30px;
+		}
+	}
+}
+.fundpress-from-journal {
+	@extend .transition;
+	.fundpress-item-header {
+		.xs-item-header-content {
+			position: absolute;
+			padding: 20px;
+			top: 0;
+			right: 0;
+		}
+	}
+	.fundpress-item-content {
+		.entry-title {
+			margin-bottom: 15px;
+		}
+	}
+	&.xs-box-shadow:hover {
+		box-shadow: $hover-shadow;
+	}
+	&.xs-border-radius {
+		position: relative;
+		overflow: hidden;
+	}
+	.xs-btn {
+		padding: 14px 32px;
+		font-size: .9em;
+		@extend .medium;
+		height: 100%;
+	}
+}
+
+.fundpress-from-journal-v2 {
+	&:hover {
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+	}
+}
+// blog post title
+.fundpress-item-content {
+	.entry-title {
+		margin: 0;
+		font-size: inherit;
+	}
+}
+// partners
+.fundpress-sponsor-section {
+	position: relative;
+	background-attachment: fixed;
+	.fundpress-heading-title {
+		@extend .content-center;
+		@extend .xs-mb-0;
+		@extend .xs-width-83;
+		@extend .xs-section-heading;
+	}
+	.xs-solid-overlay {
+		z-index: 101;
+	}
+}
+.fundpress-partners-wraper {
+	position: relative;
+	z-index: 999;
+}
+.fundpress-partners {
+	li {
+		display: inline-block;
+		margin: 0 30px 30px 0;
+		a {
+			@include equal-size(180px);
+			@include flex-position(inline-flex, center, center);
+			box-shadow: $primary-shadow;
+			@extend .full-round;
+			background-color: $color-white;
+			img{
+				border-radius: 0%;
+			}
+		}
+		&:last-child {
+			margin: 0 0 30px; 
+		}
+	}
+}
+
+// fundpress footer section
+.fundpress-footer-section {
+	background-color: $color-blue;
+	.fundpress-footer-top-layer {
+		padding: 80px 0;
+	}
+	.xs-footer-logo {
+		margin: 0 0 40px;
+	}
+	.fundpress-footer-content {
+		width: calc(100% - 100px);
+		margin: 0 auto 30px 0;
+		p {
+			font-size: em(14px);
+			color: $color-white;
+			margin: 0;
+			line-height: 1.875;
+		}
+	}
+}
+
+// fundpress social list
+.fundpress-social-list {
+	li {
+		a {
+			@include equal-size(40px);
+			color: $color-white;
+			font-size: em(14px);
+			border: 1px solid $color-sky-blue-light-6;
+			&:hover {
+				border: 1px solid transparent;
+			}
+			&.full-round {
+				border-radius: 100%;
+			}
+		}
+	}
+	&.fundpress-social-list-v2 {
+		.xs-text-content {
+			@extend .semi-bold;
+			color: $color-navy-blue;
+			text-transform: capitalize;
+			margin-right: 30px;
+		}
+		li {
+			a {
+				color: #3B548D;
+				border-color: #3B548D;
+				&:hover {
+					border-color: $color-white;
+					box-shadow: $primary-shadow;
+					color: $color-white;
+				}
+			}
+		}
+	}
+}
+
+// fundpress footer bottom layer
+.fundpress-footer-bottom {
+	padding: 35px 0;
+	// copyright etxt
+	.fundpress-copyright-text {
+		p {
+			font-size: em(14px);
+			text-transform: capitalize;
+			color: $color-sky-blue-light-5;
+			text-align: center;
+			a {
+				color: $color-green-light;
+			}
+		}
+	}
+	// back to top
+	.xs-back-to-top-wraper {
+		top: -53px;
+	}
+}
+
+
+// inner section start 
+// inner welcome section
+
+// inner header
+.fundpress-header-inner-version {
+	.fundpress-menu {
+		.nav-menu ,
+		.fundpress-icon-menu {
+			li {
+				a {
+					color: $color-white;
+				}
+			}
+		}
+		.nav-menu {
+			.submenu-indicator-chevron {
+				border-color: transparent $color-white $color-white transparent;
+			}
+			.nav-submenu {
+				li {
+					a {
+						color: $color-navy-blue;
+					}
+				}
+			}
+		}
+	}
+}
+
+// inner erlcome section
+.fundpress-inner-welcome-section {
+	@extend .xs-bg;
+	position: relative;
+	text-align: center;
+	z-index: 999;
+	.xs-solid-overlay {
+		z-index: 101;
+	}
+	.fundpress-inner-welcome-content {
+		position: relative;
+		padding: 340px 0 240px;
+		z-index: 101;
+		h2 {
+			@extend .bold;
+			font-size: em(52px);
+			margin: 0 0 20px;
+			line-height: 1;
+		}
+		p {
+			margin: 0;
+			font-size: em(22px);
+		}
+	}
+	&.xs-extra-style {
+		.fundpress-inner-welcome-content {
+			p {
+				font-size: em(16px);
+			}
+		}
+	}
+}
+.fundpress-breadcumb {
+	li {
+		color: $color-green-light-3;
+	}
+}
+
+// parallax mirror
+.parallax-mirror {
+	z-index: 100 !important;
+}
+
+// fundpress inner about content
+.fundpress-inner-about-content {
+	height: 100%;
+	@include flex-position(inline-flex,center,flex-start);
+	flex-direction: column;
+	padding-right: 100px;
+	h2 {
+		margin: 0 0 40px;
+		@extend .bold;
+		font-size: em(42px);
+		line-height: 1.2875;
+		letter-spacing: -0.2px;
+		word-spacing: 6px;
+	}
+	p {
+		margin: 0 0 30px;
+		font-size: em(18px);
+		line-height: 1.8;
+	}
+}
+
+// fundpress video popup section
+.fundpress-video-popup-with-text {
+	padding: 0 0 50px;
+}
+.fundpress-video-top-section {
+	padding: 119px 0 284px;
+}
+.fundpress-popup-image {
+	position: relative;
+}
+// fundpress about us promo text
+.fundpress-simple-promo-text-content {
+	padding: 0 0 100px;
+}
+.fundpress-title-text-content {
+	margin: 0 0 50px;
+	h4 {
+		@extend .medium;
+		font-size: em(22px);
+		line-height: 1.5;
+	}
+}
+.fundpress-text-content {
+	p {
+		margin: 0 0 30px;
+		line-height: 1.875;
+		&:last-child {
+			margin: 0;
+		}
+	}
+	a {
+		&:hover {
+			color: $color-green;
+		}
+	}
+}
+
+// fundpress image with text side by side 1
+.fundpress-text-with-image-side-by-side-1 {
+	padding: 120px 0;
+	.fundpress-side-by-side-image-with-text {
+		padding: 10px 0 0 20px;
+	}
+}
+
+.img-100 {
+	width: 100%;
+}
+
+.fundpress-side-by-side-image-with-text {
+	h5 {
+		@extend .regular;
+		font-size: em(22px);
+		text-transform: capitalize;
+		margin: 0 0 10px;
+	}
+	p {
+		margin: 0 0 20px;
+		line-height: 1.8;
+	}
+	.fundpress-inner-title {
+		h2 {
+			margin: 0 0 30px;
+			font-size: em(42px);
+			@extend .bold;
+			letter-spacing: -.2px;
+		}
+	}
+}
+
+.xs-background-popup-wraper {
+	position: relative;
+	.fundpress-we-do-header-content {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+.fundpress-text-with-image-side-by-side-2 {
+	.fundpress-side-by-side-image-with-text {
+		padding-top: 40px;
+	}
+}
+.fundpress-side-by-side-image-with-text {
+	.xs-list-item-icon-text {
+		margin: 0 0 20px;
+		line-height: 1;
+	}
+}
+
+// fundpress team member
+.fundpress-team-details {
+	text-transform: capitalize;
+	a {
+		@extend .semi-bold;
+		font-size: em(18px);
+		margin: 0 0 15px;
+		display: block;
+		line-height: 1;
+		@extend .transition;
+		&:hover {
+			color: $color-navy-blue;
+		}
+	}
+	h5 {
+		margin: 0;
+		font-size: em(16px);
+		@extend .regular;
+	}
+}
+.fundpress-single-team-member {
+	@extend .transition;
+	.fundpress-item-header {
+		overflow: hidden;
+	}
+	.fundpress-hover-content {
+		width: 100%;
+		padding: 10px;
+		opacity: 0;
+		bottom: -50%;
+		position: absolute;
+		left: 0;
+	}
+	&:hover .fundpress-hover-content{
+		bottom: 0;
+		opacity: 1;
+	}
+	&.xs-box-shadow:hover {
+		box-shadow: $hover-shadow;
+	}
+}
+
+//  testimonial section
+.fundpress-blockquote {
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: em(14px);
+	line-height: 2.28;
+	@extend .transition;
+	&.xs-content-padding {
+		padding: 40px;
+	}
+	&.xs-extra-css {
+		&.xs-content-padding {
+			padding: 70px 60px;
+		}
+		font-size: em(22px);
+		@extend .semi-bold;
+		line-height: 1.5;
+		.fundpress-blockquote-icon {
+			opacity: 1;
+			padding: 28px 0 0 54px;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	.xs-sign {
+		margin-top: 30px;
+		line-height: 1;
+	}
+}
+.xs-testimonial-item {
+	.fundpress-blockquote-icon {
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+}
+.fundpress-testimonial-details {
+	@include flex-position(inline-flex, center, flex-start);
+	flex-direction: column;
+	a {
+		font-size: em(24px);
+	}
+}
+.fundpress-blockquote-icon {
+	opacity: .2;
+	z-index: -1;
+	padding: 20px;
+	&.fundpress-blockquote-icon-big {
+		opacity: .1;
+		color: $color-white;
+		line-height: 1;
+		font-size: em(300px);
+		padding: 0;
+	}
+}
+.fundpress-testimonial-section {
+	.xs-testimonial-item {
+		padding: 15px;
+		.fundpress-blockquote {
+			&.xs-box-shadow:hover {
+				box-shadow: $hover-shadow;
+			}
+		}
+	}
+	.owl-stage-outer {
+		margin: 0 0 25px;
+	}
+}
+
+// faq inner page
+.fundpress-faq-wraper {
+	&:not(:last-child) {
+		padding-right: 30px;
+	}
+}
+.fundpresss-ingle-faq {
+	margin: 0 0 40px;
+	&:last-child {
+		.xs-separetor {
+			display: none;
+		}
+	}
+	h4 {
+		font-size: em(18px);
+		@extend .semi-bold;
+		margin: 0 0 20px;
+		line-height: 1.6;
+	}
+	.xs-firstcharacter {
+		font-size: em(42px);
+		@extend .medium;
+		padding: 0 19px 0 0;
+	}
+	p {
+		font-size: em(14px);
+		line-height: 1.875;
+		margin: 0;
+		padding: 0 0 40px;
+	}
+}
+.xs-col-1-isotope-grid {
+	.fundpress-grid-item-content {
+		box-shadow: none;
+	}
+}
+// contact inner page
+.fundpress-widnow-wraper {
+	position: relative;
+	height: 220px;
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	.fundpress-window-top {
+		height: 100%;
+		width: 100%;
+	}
+	.fundpress-window-back {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 9;
+		@extend .transition;
+		img {
+			height: 100%;
+		}
+	}
+	.fundpress-window-nav {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		@extend .transition;
+	}
+	.fundpress-window-opener {
+		background-color: $color-green;
+		@include flex-position(inline-flex, center, center);
+		color: $color-white;
+		height: $half-circle-size * 2;
+		width: $half-circle-size;
+		border-bottom-left-radius: $half-circle-size * 2;
+		border-top-left-radius: $half-circle-size * 2;
+	}
+	&.active {
+		.fundpress-window-back {
+			left: -100%;
+		}
+		.fundpress-window-nav {
+			right: calc(100% - #{$half-circle-size});
+			transform: translateY(-50%) rotate(180deg);
+			.fundpress-window-opener {
+				background-color: $color-navy-blue;
+				i {
+					transform: rotate(-180deg);
+				}
+			}
+		}
+	}
+}
+
+// fundpress content description 
+.fundpress-content-description {
+	margin: 0;
+	font-size: em(14px);
+	color: $color-sky-blue-light-1;
+	line-height: 1.8;
+}
+
+// fundpress pagination
+.fundpress-pagination {
+	li {
+		a {
+			@include equal-size(36px);
+			border: 2px solid #C3D5FE;
+			background-color: $color-white;
+			color: $color-navy-blue;
+			&:hover ,
+			&.current {
+				box-shadow: $primary-shadow-2;
+				background-color: $color-navy-blue;
+				color: $color-white;
+				border-color: $color-navy-blue;
+			}
+		}
+	}
+	&.fundpress-pagination-v2 {
+		@include flex-position(flex, center, center);
+		li {
+			line-height: 1;
+			&.xs-pagination-next {
+				margin: 0 24px 0 0;
+			}
+			&.xs-pagination-prev {
+				margin: 0 0 0 14px;
+			}
+			&:last-child {
+				margin: 0 0 0 18px;
+				color: #D6D6D6;
+				font-size: em(12px);
+				@extend .semi-bold;
+				text-transform: capitalize;
+			}
+			a.next,
+			a.prev  {
+				border: 0px solid #C3D5FE;
+				color: #D0D0D0;
+				line-height: 1;
+				font-size: em(25px);
+			}
+			a {
+				height: 20px;
+				width: 20px;
+				border-radius: 4px;
+				border: 0px;
+				font-size: em(12px);
+				span {
+					line-height: 1;
+					display: block;
+					height: 100%;
+					width: 100%;
+				}
+				&:hover {
+					background-color: $color-green;
+					box-shadow: none;
+				}
+				&.next:hover,
+				&.prev:hover {
+					background-color: transparent;
+					box-shadow: none;
+				}
+			}
+			.current {
+				a {
+					background-color: $color-green;
+					box-shadow: none;
+					color: $color-white;
+				}
+			}
+		}
+	}
+	&.fundpress-pagination-v3 {
+		li {
+			a {
+				@include equal-size(42px);
+				border: 1px solid #EAEAEA;
+				color: #2A427A;
+				border-radius: 100%;
+				font-size: em(16px);
+				&:hover {
+					box-shadow: none;
+					color: $color-white;
+				}
+			}
+			.current {
+				a {
+					background-color: $color-navy-blue;
+					color: $color-white;
+					box-shadow: none;
+				}
+			}
+		}
+	}
+}
+
+// shop inner page
+.fundpress-simple-tag-v2 {
+	li {
+		font-size: em(18px);
+		@extend .medium;
+		display: inline-block;
+		color: $color-brick;
+		margin: 0 20px 0 0;
+		line-height: 1;
+		&.disable {
+			color: $color-brick-light;
+			text-decoration: line-through;
+		}
+	}
+}
+.fundpress-simple-tag {
+	li {
+		display: inline-block;
+		line-height: 1;
+	}
+	.disable {
+		pointer-events: none;
+	}
+}
+
+.fundpress-single-shop {
+	@extend .xs-mb-30;
+	@extend .xs-box-shadow;
+	.fundpress-item-content {
+		@extend .xs-content-padding;
+		@extend .bg-color-white;
+	}
+	.fundpress-simple-tag {
+		li {
+			a {
+				font-size: em(16px);
+			}
+		}
+	}
+	.fundpress-post-title {
+		font-size: em(22px);
+		letter-spacing: -.5px;
+		line-height: 1.5;
+	}
+}
+
+// what we do inner page
+.fundpress-we-do-header-content {
+	padding: 40px;
+}
+.fundpress-side-by-side-image-with-text-v2 {
+	@extend .xs-equal-height-and-content-center;
+	flex-direction: column;
+}
+
+// portfolio grid items
+.fundpress-portfolio-grid-item {
+	position: relative;
+	overflow: hidden;
+	.xs-solid-overlay {
+		transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+		transform: scale(0);
+		border-radius: 100%;
+	}
+	&:hover .xs-solid-overlay {
+		transform: scale(2);
+	}
+}
+
+// fundpress nav tab version 2
+.fundpress-tab-nav-v2 {
+	ul {
+		&.nav-tabs {
+			li {
+				a {
+					padding: 0 25px 15px;
+					position: relative;
+					color: $color-navy-blue;
+					font-size: em(12px);
+					text-transform: capitalize;
+					@extend .transition;
+					&:before {
+						position: absolute;
+						content: "";
+						left: 0;
+						bottom: 0;
+						width: 0%;
+						height: 2px;
+						background-color: $color-green;
+						@extend .transition;
+					}
+					&.active {
+						color: $color-navy-blue;
+						&:before {
+							width: 100%;
+						}
+					}
+					&:hover {
+						&:before {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// fundpress pie cahrt wraper
+.xs-single-sidebar {
+	.fundpress-pie-chart-wraper {
+		display: inline-block;
+	}
+}
+
+// fundpress simple list
+.fundpress-simple-list-content {
+	li {
+		font-size: em(42px);
+		text-transform: uppercase;
+		line-height: 1.2;
+		span {
+			font-size: 0.429em;
+			text-transform: capitalize;
+		}
+	}
+}
+
+.xs-sidebar-wraper {
+	.xs-single-sidebar {
+		.xs-btn-wraper {
+			margin: 0 12px 0 0;
+		}
+	}
+}
+
+.xs-sidebar-wraper {
+	.xs-single-sidebar {
+		.xs-social-list-wraper {
+			align-self: center;
+		}
+	}
+}
+
+// xs side bar fundpress avatar
+.xs-spilit-container {
+	&.xs-spilit-container-v2 {
+		flex-wrap: nowrap;
+		.xs-avatar {
+			width: 100px;
+		}
+		.xs-avatar-title {
+			width: calc(100% - 100px);
+			padding: 0 0 0 20px;
+		}
+	}
+}
+.fundpress-avatar-title-v2 {
+	a {
+		font-size: em(24px);
+		@extend .semi-bold;
+		text-transform: capitalize;
+		display: block;
+	}
+	.fundpress-content-description {
+		line-height: 1;
+	}
+	.xs-list-item-icon-text {
+		li {
+			p {
+				line-height: 1.8;
+			}
+		}
+	}
+}
+
+// fundpress info card
+.fundpress-info-card {
+	h3 {
+		@extend .bold;
+		font-size: em(24px);
+		margin: 0;
+	}
+	h4 {
+		font-size: em(18px);
+		@extend .regular;
+		margin: 0;
+	}
+	.fundpress-content-description {
+		color: $color-white;
+	}
+	span {
+		display: block;
+		font-size: em(14px);
+		line-height: 1;
+	}
+	&.xs-purple-bg {
+		span {
+			color: #B8A3FD;
+		}
+		h5 {
+			color: #B8A3FD;
+		}
+	}
+	&.xs-pink-bg {
+		span {
+			color: #E1A4FD;
+		}
+		h5 {
+			color: #E1A5FD;
+		}
+	}
+}
+.xs-info-card-times {
+	padding: 0 40px 0 0;
+	&:last-child {
+		padding: 0;
+	}
+	h5 {
+		margin: 0 0 8px;
+		font-size: em(12px);
+		@extend .regular;
+	}
+	h6 {
+		@extend .medium;
+		font-size: em(18px);
+		margin: 0;
+	}
+}
+
+// fundpress list style with content
+.fundpress-content-text-list {
+	li {
+		list-style: circle;
+		list-style-position: outside;
+		color: $color-green;
+		width: calc(100% - 100px);
+		margin: 0 auto 35px 0;
+		.fundpress-content-description {
+			&.color-navy-blue {
+				color: $color-navy-blue;
+			}
+		}
+		.fundpress-title-text-content {
+			margin: 0 0 20px;
+		}
+		a {
+			font-size: em(14px);
+		}
+	}
+}
+
+.fundpress-porject-lunch {
+	width: calc(100% - 200px);
+	h3 {
+		text-transform: uppercase;
+		font-size: em(14px);
+	}
+	h4 {
+		font-size: em(22px);
+		text-transform: capitalize
+	}
+}
+
+//fundpress backer list
+.fundpress-backer-lsit {
+	li {
+		align-items: center;
+		margin-bottom: 20px;
+		padding: 20px;
+		box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		background-color: $color-white;
+		.xs-avatar {
+			@include equal-size(70px);
+			margin: 0 20px 0 0;
+			img {
+				height: inherit;
+			}
+		}
+		.fundpress-backer-info {
+			align-self: center;
+			h3 {
+				font-size: em(18px);
+				margin-bottom: 8px;
+			}
+			h4 {
+				font-size: em(12px);
+			}
+		}
+		.xs-btn {
+			font-size: em(12px);
+		}
+		&:last-child {
+			border-radius: 0;
+			box-shadow: none;
+			margin-bottom: 0;
+		}
+	}
+}
+.xs-backers-lsit-wraprer {
+	position: relative;
+	.xs-animate-btn-wraper {
+		min-height: 230px;
+		width: 100%;
+		@include flex-position(inline-flex, center, center);
+		flex-direction: column;
+		bottom: -75px;
+		left: 0;
+		position: absolute;
+	}
+}
+.xs-animate-btn {
+	display: block;
+	font-size: em(30px);
+	text-align: center;
+	position: relative;
+	z-index: 9;
+	@extend .transition;
+	animation: animateTop 1.2s linear 0s alternate infinite none running;
+	&:hover {
+		color: $color-navy-blue;
+	}
+}
+@keyframes animateTop {
+	0% {
+		top: 0;
+		opacity: 0.5;
+	}
+	50% {
+		top: 10px;
+		opacity: 0.8;
+	}
+	100% {
+		top: 20px;
+		opacity: 1;
+	}
+}
+
+
+//fundpress journal footer
+.fundpress-from-journal {
+	.xs-footer-content {
+		.categories-links {
+			display: inline-block;
+		}
+	}
+}
+.fundpress-from-journal {
+	.xs-spilit-container {
+		&.xs-footer-content {
+			align-items: center;
+		}
+	}
+}
+
+
+// fundpress version 2 start 
+// fundpress menu version 2
+.fundpress-menu-v2 {
+	.nav-menu {
+		width: 66.666667%;
+		padding: 0;
+		text-align: center;
+		li {
+			a {
+				color: $color-white;
+				@extend .medium;
+				&:before {
+					background-color: $color-white;
+				}
+			}
+			.nav-submenu {
+				a {
+					color: $v2-dark-navy-blue;
+				}
+			}
+		}
+	}
+	.xs-navs-button {
+		width: 16.666666%;
+		.fundpress-icon-menu {
+			li {
+				a {
+					color: $color-white;
+				}
+			}
+		}
+	}
+	.fundpress-logo-v2 {
+		padding: 16px 0;
+		text-align: center;
+	}
+}
+.fundpress-menu-v2 .nav-menu .submenu-indicator-chevron {
+	border-color: transparent $color-white $color-white transparent;
+}
+// welcome version 2
+.fundpress-welcome-content-v2 {
+	height: 862px;
+	h2 {
+		color: $color-white;
+		font-size: em(62px);
+		margin-bottom: 40px;
+		font-weight: 700;
+	}
+	.fundpress-welcome-list-content {
+		margin-bottom: 50px;
+		li {
+			color: $color-white;
+			font-size: em(32px);
+			@extend .medium;
+			display: inline-block;
+			margin-bottom: 0;
+			margin-right: 57px;
+			line-height: 1.3;
+			&:last-child {
+				margin-right: 0;
+			}
+			span {
+				font-size: 0.563em;
+				color: #B5BCD8;
+			}
+		}
+	}
+	.xs-btn-wraper {
+		.btn-primary ,
+		.btn-outline-primary {
+			font-size: em(14px);
+			@extend .medium;
+			background-color: $v2-color-blue;
+			padding: 17px 55px;
+			text-transform: uppercase;
+		}
+		.btn-outline-primary {
+			border-color: #273468;
+			color: $color-white;
+			background-color: transparent;
+			box-shadow: $primary-shadow;
+			padding: 15px 34px;
+			border-width: 2px;
+		}
+	}
+}
+
+// fundpress heading title
+.fundpress-heading-title-v3 {
+	padding-bottom: 60px;
+	position: relative;
+	h2 {
+		color: $v2-dark-navy-blue;
+		font-weight: 700;
+		font-size: em(46px);
+		letter-spacing: -.2px;
+		margin-bottom: 20px;
+		position: relative;
+		span {
+			font-family: $fontCursive;
+			font-style: italic;
+		}
+	}
+	p {
+		font-size: em(16px);
+		color: $v2-ash-color;
+		margin-bottom: 0;
+	}
+}
+
+.fundpress-heading-title-content {
+	position: relative;
+	z-index: 1;
+}
+.parallax-title {
+	display: block;
+	font-size: em(200px);
+	color: #F8F8F8;
+	pointer-events: none;
+	text-transform: uppercase;
+	line-height: 1;
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	font-weight: 700;
+	transform: translateX(-50%);
+}
+.xs-gray-bg-2 {
+	.parallax-title {
+		color: #F3F3F3;
+	}
+}
+
+// fundpress service section
+.fundpress-icon-with-square-service-v2 {
+	text-align: center;
+	margin-bottom: 50px;
+	i {
+		font-size: em(60px);
+		color: $v2-dark-navy-blue;
+		display: inline-block;
+		margin-bottom: 40px;
+		position: relative;
+		&:after {
+			position: absolute;
+			content: '\e93f';
+			font-family: $iconFont2;
+			background-color: $v2-color-blue;
+			@include equal-size(38px);
+			border-radius: 100%;
+			font-size: em(3px);
+			color: $color-white;
+			line-height: 34px;
+			border: 3px solid $color-white;
+			right: -16px;
+			bottom: -12px;
+		}
+	}
+	h4 {
+		font-size: em(22px);
+		font-weight: 700;
+		color: $v2-dark-navy-blue;
+		margin-bottom: 20px;
+	}
+	p {
+		margin-bottom: 0;
+		color: $v2-ash-color;
+		line-height: 1.7;
+	}
+}
+// feature version 2
+.fundpress-cause-matters-v2 {
+	&.xs-section-padding {
+		padding-bottom: 70px;
+	}
+}
+
+// fundpress features section version 2
+.fundpress-grid-item-content-v2 {
+	background-color: $color-white;
+	@extend .transition;
+	.xs-item-header-content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 20px;
+	}
+	.fundpress-item-content {
+		@extend .xs-content-padding;
+		p {
+			margin-bottom: 0;
+			color: #666666;
+			font-size: em(12px);
+			line-height: 2;
+		}
+	}
+	.fundpress-post-title {
+		color: $v2-dark-navy-blue;
+		font-size: em(26px);
+		@extend .bold;
+		line-height: 1.3;
+		@extend .transition;
+		&:hover {
+			color: $v2-color-blue;
+		}
+	}
+	.xs-avatar-title {
+		a {
+			color: #999999;
+		}
+		span {
+			color: $v2-dark-navy-blue;
+		}
+	}
+	.xs-separetor {
+		border-color: #EEEEEE;
+		margin-bottom: 16px;
+		margin-top: 30px;
+	}
+	.fundpress-list-cat {
+		i ,
+		a {
+			color: #666666;
+			font-size: em(12px);
+			line-height: 1;
+		}
+		i {
+			font-size: em(14px);
+			padding-right: 8px;
+		}
+		span {
+			margin-right: 12px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	.border {
+		border-color: $color-light-ash !important;
+	}
+	&:hover {
+		box-shadow: 0 10px 40px rgba(0,0,0,.1);
+	}
+}
+
+.fundpress-tab-nav-v3 {
+	text-align: center;
+	.nav {
+		justify-content: center;
+		margin-bottom: 30px;
+		border-bottom: 1px solid #E7E7E7;
+		.nav-item {
+			margin-right: 30px;
+			&:last-child {
+				margin-right: 0;
+			}
+			.nav-link {
+				color: #6E6E6E;
+				text-transform: uppercase;
+				@extend .semi-bold;
+				padding: 0;
+				padding-bottom: 15px;
+				line-height: 1;
+				background-color: transparent;
+				position: relative;
+				&:before {
+					position: absolute;
+					content: "";
+					bottom: -1px;
+					left: 50%;
+					height: 2px;
+					width: 0;
+					transform: translateX(-50%);
+					background-color: $v2-color-blue;
+					@extend .transition;
+				}
+				&:hover ,
+				&.active {
+					&:before {
+						width: 36px;
+					}
+				}
+			}
+		}
+	}
+}
+// list item content
+.fundpress-list-item-content-v2 {
+	display: table;
+	width: 100%;
+	text-align: left;
+	li {
+		display: table-cell;
+		width: 33.3333333%;
+		vertical-align: middle;
+		color: $v2-dark-navy-blue;
+		font-size: em(12px);
+		@extend .bold;
+		span {
+			color: #666666;
+			@extend .regular;
+		}
+	}
+	.number-percentage {
+		display: inline-block;
+		color: $v2-dark-navy-blue;
+		@extend .bold;
+	}
+	.xs-pie-chart-v2 {
+		font-size: em(16px);
+		span {
+			display: inline-block;
+			color: $v2-dark-navy-blue;
+			@extend .bold;
+		}
+	}
+}
+//  pie chart version 2
+.xs-pie-chart-v2 {
+	position: relative;
+	text-align: center;
+	color: $v2-dark-navy-blue;
+	@extend .bold;
+	span ,
+	.xs-pie-chart-percent {
+		display: inline-block;
+	}
+	span {
+		vertical-align: top;
+		font-size: em(10px);
+	}
+}
+
+// fundpress big thumb
+.fundpress-full-width-wraper-v2 {
+	position: relative;
+	padding: 130px 30px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	.xs-solid-overlay{
+		@extend .transition;
+		&.xs-bg-black {
+			background-color: rgba($color-black, .2);
+		}
+	}
+	.fundpress-product-hover-content-v2 {
+		position: relative;
+		text-align: center;
+		z-index: 9;
+		color: $color-white;
+		@extend .transition;
+	}
+	.fundpress-sub-title {
+		h2 {
+			font-size: em(40px);
+			font-weight: 700;
+			margin-bottom: 30px;
+			line-height: 1;
+		}
+	}
+	.fundpress-product-text-content {
+		margin-bottom: 30px;
+		p {
+			font-size: em(16px);
+			margin-bottom: 0;
+		}
+	}
+	.xs-btn-wrapre {
+		opacity: 0;
+		@extend .transition;
+	}
+	&:hover {
+		.xs-btn-wrapre {
+			opacity: 1;
+		}
+		.xs-solid-overlay{
+			&.xs-bg-black {
+				background-color: rgba($color-black, .5);
+			}
+		}
+	}
+}
+
+// tab nav v4
+.fundpress-tab-nav-v4 {
+	.nav-tabs {
+		justify-content: center;
+		margin-bottom: 30px;
+		.nav-item {
+			margin-right: 30px;
+			&:last-child {
+				margin-right: 0px;
+			}
+			.nav-link {
+				display: inline-block;
+				border: 2px solid #F1F1F1;
+				border-radius: 4px;
+				text-align: center;
+				color: #373B4C;
+				font-size: em(22px);
+				font-weight: 700;
+				text-transform: uppercase;
+				line-height: 1;
+				padding: 26px 66px;
+				@extend .transition;
+				background-color: $color-white;
+				span {
+					display: block;
+					font-size: 0.636em;
+					font-weight: 400;
+					color: #615F5F;
+					text-transform: capitalize;
+					margin-top: 18px;
+				}
+				&:hover ,
+				&.active {
+					background-color: $v2-color-blue;
+					color: $color-white;
+					border-color: $v2-color-blue;
+					span {
+						color: $color-white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.fundpress-tab-wraper {
+	position: relative;
+	z-index: 9;
+}
+
+.fundpress-single-event {
+	margin-bottom: 30px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&.rounded {
+		position: relative;
+		overflow: hidden;
+	}
+	img {
+		width: 100%;
+	}
+}
+.fundpress-event-content {
+	h5 {
+		margin-bottom: 20px;
+		font-size: em(18px);
+		font-weight: 400;
+		color: $v2-color-blue;
+	}
+	a {
+		display: inline-block;
+		font-size: em(24px);
+		font-weight: 700;
+		color: $v2-dark-navy-blue;
+		line-height: 1;
+	}
+}
+
+.xs-countdown-timer-v3 {
+	width: 90%;
+	.timer-count {
+		color: $v2-color-blue;
+		font-weight: 600;
+		font-size: em(26px);
+		line-height: 1;
+		.timer-text {
+			color: #615F5F;
+			font-weight: 400;
+			font-size: 0.538em;
+			margin-top: 10px;
+		}
+	}
+}
+
+.fundpress-event-text-content {
+	padding-left: 80px;
+	border-left: 1px solid #F1F1F1;
+	p {
+		margin-bottom: 0;
+		color: #615F5F;
+		strong {
+			color: $v2-dark-navy-blue;
+			font-weight: 600;
+		}
+	}
+}
+
+.fundpress-event-wraper-v2 {
+	border: 1px solid #F1F1F1;
+	margin-left: 0;
+	margin-right: 0;
+	@include flex-position(inline-flex, center, center);
+	padding: 0 30px;
+	position: relative;
+	&:before {
+		position: absolute;
+		content: "";
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 1px;
+		width: calc(100% - 60px);
+		background-color: #F1F1F1;
+	}
+}
+
+// sponsor
+.fundpress-single-sponsor-v2 {
+	border: 2px solid #F9F9F9;
+	min-height: 186px;
+	min-width: 232px;
+	@include flex-position(inline-flex, center, center);
+	margin: 0 auto;
+	background-color: $color-white;
+}
+
+// footer version
+.fundpress-footer-version-2 {
+	background-color: $v2-dark-navy-blue;
+	.fundpress-footer-top-layer {
+		padding: 80px 0;
+	}
+	.fundpress-footer-bottom-v2 {
+		padding: 40px 0;
+		background-color: darken($v2-dark-navy-blue, 2.5%);
+	}
+}
+
+// extra css
+.fundpress-from-journal-v2 {
+	.fundpress-item-content {
+		.entry-title {
+			a:hover {
+				color: $v2-color-blue;
+			}
+		}
+	}
+}
+
+.fundpress-menu-v4 {
+	.nav-menu {
+		li {
+			
+		}
+	}
+}
+
+.fundpress-grid-item-content {
+	background-color: $color-white;
+	box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.08);
+	.fundpress-item-content {
+		padding: 30px;
+		padding-top: 0;
+	}
+}

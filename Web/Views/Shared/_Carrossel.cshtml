@@ -1,0 +1,59 @@
+﻿@{
+    var i = 0;
+}
+<div class="carousel slide" id="carrosel" data-ride="carousel" style="height: 294.333px;">
+    <!--Indicadores-->
+    <ol class="carousel-indicators"></ol>
+    <!--Conteudo-->
+    <div class="carousel-inner">
+        @foreach (var slide in ViewBag.slides)
+        {
+            var classe = (i == 0) ? "carousel-item active" : "carousel-item";
+            
+            <div class='@classe'>
+                <div class='@("img " + slide.BgColor)'>
+                    @if (slide.BackImage != null)
+                    {
+                    var classeimage = slide.BackImage.ToString() == "" ? "dp-none" : "d-block w-100";
+                    <img class='@classeimage' src='@("/Content/img/" + slide.BackImage)' />
+                    }
+                   
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class='@slide.FgColor'>@slide.Titulo</h2><br/>
+                        <h5 class='@slide.FgColor'>@slide.Descricao</h5><br/>
+                        @*<p><button type="button" class="btn btn-lg btn-block btn-outline-primary">Saiba como &raquo;</button></p>*@
+                        <a href='@slide.GoLink' id="carrosel-GoBtn" class="btn btn-lg btn-block btn-outline-primary" style="width: 200px;">Saiba como &raquo;</a>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            i++;
+        }
+     </div>
+    <!--Controles-->
+    <a class="carousel-control-prev" href="#carrosel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carrosel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Seguinte</span>
+    </a>
+
+
+    <script>
+        /*************************************************************************************************/
+
+        //const carrossel = document.getElementById("carrosel");
+        //const carrosel_slides = carrossel.querySelectorAll(".carousel-item");
+        //const carrossel_indicators = carrossel.querySelector(".carousel-indicators");
+
+        //var numi = 0, classe = "";
+        //carrosel_slides.forEach(() => {
+        //    classe = (numi === 0) ? "active" : "";
+        //    carrossel_indicators.innerHTML += '<li data-target="#carrosel" data-slide-to="' + numi + '" class="' + classe + '"></li>';
+        //    numi++;
+        //});
+    </script>
+</div>
+

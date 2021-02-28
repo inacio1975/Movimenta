@@ -1,0 +1,27 @@
+﻿@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = "form-inline my-2 my-lg-0"}))
+{
+    @Html.AntiForgeryToken()
+    if (Request.IsAuthenticated)
+    {
+        <div class="dropdown">
+            <img src="@ViewBag.Membro.Foto" class="dropdown-toggle img-fluid ml-2 rounded-circle" alt="@ViewBag.Membro.Nome" width="40" id="navbarDropdown" role="button" data-toggle="dropdown">
+            <div class="dropdown-menu shadow" style="margin-left: -150px; margin-top: 8px;">
+                @Html.ActionLink("Perfil Público","Perfil","Usuarios",null,new {@class= "dropdown-item" })
+                @Html.ActionLink("Outros Dados", "DadosCadastro", "Usuarios", null, new { @class = "dropdown-item" })
+                <div class="dropdown-divider"></div>
+                @Html.ActionLink("Projectos Criados", "Projectos", "Usuarios", null, new { @class = "dropdown-item" })
+                @Html.ActionLink("Projectos que Apoiei", "Apoios", "Usuarios", null, new { @class = "dropdown-item" })
+                <div class="dropdown-divider"></div>
+                @Html.ActionLink("Mudar a Senha", "ResetPassword", "Conta", new {code="default"}, new { @class = "dropdown-item" })
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <a href="/Conta/Entrar" style="width: 70px;"><i class="fa fa-unlock-alt color-orange"></i>Entrar</a>
+        @*<a href="/Conta/Entrar" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-unlock-alt color-orange"></i>Entrar</a>*@
+        @*@Html.ActionLink("Entrar", "Entrar", "Conta", null, new { @class = "btn btn-outline-primary ml-2 my-2 my-sm-0 rounded-pill" })*@
+    }
+}

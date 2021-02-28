@@ -1,0 +1,76 @@
+﻿/*Custom styles Movimenta*/
+body a {
+    text-decoration: none;
+}
+
+.radio-group .radio:first-child {
+    font-weight: bold;
+    padding: 40px;
+    font-size: 14pt;
+}
+
+.radio-group .radio {
+    margin: 16px 0;
+    background-color: #083A6C;
+    border: 4px solid #e78300;
+}
+
+ .radio-group .radio:hover {
+        border: 4px solid #083A6C;
+        background-color: rgba(231,131,0,0.5);
+        cursor: pointer;
+    }   
+
+    .radio-group .radio.selected {
+        border: 4px solid #083A6C;
+        background-color: rgba(231,131,0,100);
+    }
+
+    .radio-group .radio .form-group {
+        margin-top: 16px;
+    }
+
+    .radio-group .radio.selected .form-group {
+        margin-top: 16px;
+    }
+
+    .radio-group .radio .moeda {
+        padding: 0 8px;
+        background-color: #007bff;
+        font-size: 14pt;
+    }
+
+.option-pagamentos .option .descricao {
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+
+.row .metodo {
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    font-size: 16pt;
+}
+
+.option-pagamentos .option {
+    border: 3px solid #ffffff;
+}
+
+.option-pagamentos .option img {
+    width: 122px;
+    height: 122px;
+}
+
+.option-pagamentos .option:hover {
+    border: 3px solid #e78300;
+    cursor: pointer;
+}
+
+.option-pagamentos .option.selected {
+    border: 3px solid #e78300;
+}
+
+.xs-item-header-content {
+    margin-left: 8px !important;
+}

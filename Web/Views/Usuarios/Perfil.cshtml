@@ -1,0 +1,95 @@
+﻿@model Web.Models.UsuarioPerfilViewModel
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section id="perfilheader" class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Meu Perfil</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Início /</a> Perfil</li>
+            </ul>
+            <img src="@ViewBag.Membro.Foto" class="img-fluid ml-2 rounded-circle" alt="@ViewBag.Membro.Nome" width="160">
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+
+<main class="xs-all-content-wrapper" id="perfil">
+    <section class="xs-content-section-padding xs-dashboard-section">
+        <div class="container">
+            @using (Html.BeginForm("Perfil","Usuarios",FormMethod.Post,new {@class= "xs-campaign xs-dashboard-form", enctype="multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+
+                @Html.HiddenFor(model => model.Foto, new {value=@Model.Foto})
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h3 class="h3">Foto</h3>
+                                @Html.TextBoxFor(model => model.Foto, new { @class = "form-control-file", type = "file"})
+                                @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
+                             </div>
+                               
+                            </div>
+                        </div>
+                   
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Email)</h3>
+                            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", disabled = "disabled"}})
+                            @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Nome)</h3>
+                            @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control", required = "required"}})
+                            @Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3">Organização</h3>
+                            @Html.EditorFor(model => model.Startup, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", disabled = "disabled"}})
+                            @Html.ValidationMessageFor(model => model.Startup, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Cargo)</h3>
+                            @Html.EditorFor(model => model.Cargo, new {htmlAttributes = new {@class = "form-control", @readonly = "readonly", disabled = "disabled"}})
+                            @Html.ValidationMessageFor(model => model.Cargo, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <h3 class="h3">@Html.LabelFor(model => model.Bio)</h3>
+                            @Html.TextAreaFor(model => model.Bio, new {@class = "form-control form-control-sm", rows = "3"})
+                        </div>
+                    </div>
+
+                    <div class="xs-btn-wraper">
+                        <button type="submit" id="perfilSubmit" class="xs-submit-btn">Salvar Alterações</button>
+                    </div>
+
+
+                </div>
+
+            }
+        </div>
+    </section>
+</main>

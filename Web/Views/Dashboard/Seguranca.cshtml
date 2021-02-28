@@ -1,0 +1,40 @@
+﻿@model Web.Models.SegurancaViewModel
+@{
+    ViewBag.Title = "Seguranca";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="clearfix"></div>
+<main class="xs-all-content-wrapper">
+    <section class="xs-content-section-padding xs-dashboard-section">
+        <div class="container">
+            <div class="xs-dashboard-header">
+                <h3 class="dashboard-title">Minhas Campanhas</h3>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="row dashboard-usuarios">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">Nome</div>
+                        <div class="col-md-2">E-mail</div>
+                        <div class="col-md-2">Grupos</div>
+                    </div>
+                </div>
+                @if (Model.Usuarios.Count != 0)
+                {
+                    foreach (var usuario in Model.Usuarios)
+                    {
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-2">@usuario.Nome</div>
+                                <div class="col-md-2">@usuario.Email</div>
+                                <div class="col-md-2">@usuario.GeRoles()</div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</main>

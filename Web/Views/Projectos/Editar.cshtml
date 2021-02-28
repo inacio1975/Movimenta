@@ -1,0 +1,490 @@
+﻿@using System.Web.UI.WebControls
+@using Domain.Entities
+@model Web.Models.EditarViewModel
+@{
+    ViewBag.Title = "Editar";
+    //Layout = "~/Views/Shared/_LayoutProjecto.cshtml";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Editor de campanha</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Home /</a> Editor de campanha</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+
+<main class="xs-all-content-wrapper">
+<section class="xs-content-section-padding xs-dashboard-section">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+    <ul class="nav flex-column xs-nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <li class="nav-item">
+            <a class="nav-link active show" data-toggle="pill" href="#campanha">Minha Campanha</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#editor">Informações Iniciais</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#localizacao">Localização</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#recompensas">Recompensas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#resumo">Resumo</a>
+        </li>
+    </ul>
+</div><!-- .xs-nav-pills -->
+<div class="col-lg-9 ">
+<div class="tab-content xs-v-tab-content" id="v-pills-tabContent">
+<div class="tab-pane slideUp active show" id="campanha" role="tabpanel">
+    <div class="xs-campaign xs-dashboard">
+        <div class="dashboard-content-title text-center xs-mb-10 xs-content-padding">
+            <h4 class="color-navy-blue">Bem-vindo ao editor da sua campanha</h4>
+        </div><!-- .xs-heading-title .fundpress-heading-title END -->
+        <div class="row">
+            <div class="col-lg-6 xs-ml">
+                <h4 class="h4">Estado: @Model.Estado.ToString().ToUpper()</h4>
+            </div>
+            @if (Model.Estado == Estado.Rascunho)
+            {
+                <div class="col-lg-8 xs-content-padding">
+                    Agora começa a jornada da criação e planejamento da sua campanha.
+                    Preenca cada informação com calma. Pode levar o tempo que quiser antes de que submetas o projecto
+                    para ser revisado.
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="tab-pane slideUp xs-dashboard xs-add-to-chart-form" id="editor" role="tabpanel">
+    @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign", enctype="multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div class="form-group">
+            <h4 class="h4">Titulo do projecto</h4>
+            @Html.EditorFor(model => model.Titulo, new {htmlAttributes = new {@class = "form-control"}})
+            <small class="form-text">O titulo deve ser sugestivo. Um nome que pode ser facilmente lembrado</small>
+            @Html.ValidationMessageFor(model => model.Titulo, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="form-group">
+            <h4 class="h4">Descrição curta</h4>
+            @Html.TextBoxFor(model => model.Descricao,new {@class = "form-control form-control-sm"})
+            <small class="form-text">
+                Sabe, voçê conhece seu projecto mais do que ninguém. Tente transmitir a sua paixão. É importante apresentar a forma como o dinheiro será usado, quais as pessoas por trás do mesmo e os prazos do mesmo. Quanto mais transparentes fores mais apoiadores atrairás.
+                Lembre sempre, estamos te dando a oportunidade de fazer com que pessoas decidam apoiar o seu projecto. Seja criativo!
+            </small>
+            @Html.ValidationMessageFor(model => model.Descricao, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="form-group">
+            <h4 class="h4">Fale sobre o seu projecto</h4>
+            @Html.EditorFor(model => model.Sobre, new {htmlAttributes = new {@class = "form-control form-control-sm", rows = "2"}})
+            <small class="form-text">
+                Sabe, voçê conhece seu projecto mais do que ninguém. Tente transmitir a sua paixão. É importante apresentar a forma como o dinheiro será usado, quais as pessoas por trás do mesmo e os prazos do mesmo. Quanto mais transparentes fores mais apoiadores atrairás.
+                Lembre sempre, estamos te dando a oportunidade de fazer com que pessoas decidam apoiar o seu projecto. Seja criativo!
+            </small>
+            @Html.ValidationMessageFor(model => model.Sobre, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h4 class="h4">Categoria</h4>
+                    @Html.DropDownListFor(model => model.CategoriaSelecionada, Model.Categoria, new {@class = "form-control"})
+                    <small class="form-text">Escolha a categoria que mais se adequa ao sua campanha</small>
+                    @Html.ValidationMessageFor(model => model.Categoria, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h4 class="h4">Palavras chaves</h4>
+                    @Html.EditorFor(model => model.Keywords, new {htmlAttributes = new {@class = "form-control", placeholder = "Palavras chaves"}})
+                    <small class="form-text">
+                        Entre as palavras chaves (separadas por vírgulas) relacionadas ao seu projecto para facilitar os apoiadores a encontra-lo
+                    </small>
+                    @Html.ValidationMessageFor(model => model.Keywords, "", new {@class = "text-danger"})
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4 class="h4">Imagem da campanha</h4>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="ficherofoto" id="ficherofoto" acept="image/*" />
+                <label class="custom-file-label" for="ficherofoto"></label>
+                <span class="file-name"></span>
+                <small class="form-text">
+                    A primeira impressão é a que fica. Reflita no ditado anterior e crie um cartão inspirador para o seu projecto. (PNG, JPG, tamanho 720 x 400)
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4 class="h4">Video</h4>
+            @Html.TextBoxFor(model => model.Video, new {type="url", @class= "form-control", placeholder="http://" })
+            @*<input type="url" class="form-control" id="campaign_video" placeholder="http://">*@
+            <small class="form-text">Coloque aqui o video da sua campanha</small>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h4 class="h4">Duração da campanha</h4>
+                    <div class="w-quantity">
+                        <div class="quantity xs_input_number">
+                            @Html.TextBoxFor(model => model.DiasArrecadacao, new {@type = "number", @step = "1", min = "1", max = "5000000"})
+                        </div>
+                    </div>
+                    <small class="form-text">O dias de duração da campanha</small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h4 class="h4">Meta </h4>
+                    <div class="w-quantity">
+                        <div class="quantity xs_input_number">
+                            @Html.TextBoxFor(model => model.Meta, new {@type = "number", @step = "1", min = "1", max = "5000000"})
+                        </div>
+                    </div>
+                    <small class="form-text">Quanto é que o projecto necessita? Seja relista</small>
+                    @Html.ValidationMessageFor(model => model.Meta, "", new {@class = "text-danger"})
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4 class="h4">Objectivo do fundo</h4>
+            @Html.EditorFor(model => model.Objectivofundo, new { htmlAttributes = new { @class = "form-control form-control-sm", rows = "2" } })
+            <small class="form-text">
+                Tente dizer como o dinheiro será usado. Mostre transparências às pessoas
+            </small>
+            @Html.ValidationMessageFor(model => model.Objectivofundo, "", new { @class = "text-danger" })
+        </div>
+        <div class="xs-campaing-from-submit-wraper">
+            <hr>
+            @*<div class="form-group">
+                                        <div class="custom-control">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                            <label class="custom-control-label" for="customCheck3">Li e aceito os termos e condições.</label>
+                                        </div>
+                                    </div>*@
+            <div class="clearfix">
+                <button type="reset" class="btn btn-danger rounded">Limpar tudo</button>
+                <button type="submit" id="campaingSubmit1" class="btn btn-primary float-right rounded">Salvar dados</button>
+            </div>
+        </div>
+    }
+</div>
+<div class="tab-pane slideUp xs-dashboard" id="localizacao" role="tabpanel">
+    @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div class="form-group">
+            <h4 class="h4">@Html.LabelFor(model => model.Pais)</h4>
+            @Html.DropDownListFor(model => model.PaisSelecionado, Model.Pais, "Selecione o país", new {@class = "form-control"})
+            <small class="form-text">Indique o país onde o projecto resultante da campanha será implementada. Se for em muitos lugares, uma boa dica é escolher o lugar onde pode ter mais seguidores</small>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h3 class="h4">@Html.LabelFor(model => model.ProvinciaSelecionada)</h3>
+                    @Html.DropDownListFor(model => model.ProvinciaSelecionada, Model.Provincia, "Selecione a provincia", new {@class = "form-control"})
+                    @*<select id="ProvinciaSelecionada" name="ProvinciaSelecionada" class="form-control">
+                        <option>Nenhum país selecionado</option>
+                    </select>*@
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <h3 class="h4">@Html.LabelFor(model => model.MunicipioSelecionado)</h3>
+                    @Html.DropDownListFor(model => model.MunicipioSelecionado, Model.Municipio, "Selecione o municipio", new {@class = "form-control"})
+                    @*<select id="MunicipioSelecionado" name="MunicipioSelecionado" class="form-control">
+                        <option>Nenhuma província selecionada</option>
+                    </select>*@
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <h4 class="h4">Endereço</h4>
+            @Html.EditorFor(model => model.Rua, new {htmlAttributes = new {@class = "form-control"}})
+            <small class="form-text">Escreva a localização</small>
+        </div>
+
+        <div class="xs-campaing-from-submit-wraper">
+            <hr>
+            <div class="clearfix">
+                <button type="reset" class="btn btn-danger rounded">Limpar tudo</button>
+                <button type="submit" id="campaingSubmit2" class="btn btn-primary float-right rounded">Salvar dados</button>
+            </div>
+        </div>
+    }
+</div>
+<div class="tab-pane slideUp xs-dashboard" id="recompensas" role="tabpanel">
+    @foreach (var recompensa in Model.Recompensas)
+    {
+        <div class="col-lg-12" style="margin-bottom: 32px;">
+            <div class="xs-campaign-info-card">
+                <div class="xs-dashboard-header">
+                    <h3 class="dashboard-title">@recompensa.Item</h3>
+                    <div class="xs-btn-wraper">
+                        @Html.ActionLink("Eliminar", "EliminarRecompensa", "Projectos", new { id = recompensa.Id }, new { @class = "btn btn-outline-success" })
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="xs-dashboard-header">
+                    <div class="col-md-12">
+                        @recompensa.RecDescricao
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="xs-campaign-card">
+                            <h5>@recompensa.Quantidade</h5>
+                            <h6>Quantidade</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="xs-campaign-card card-primary">
+                            <h5>@recompensa.ValorDoado AOA</h5>
+                            <h6>Apartir de </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="xs-campaign-card">
+                            <h5>@recompensa.PrazoEntregaEstimado</h5>
+                            <h6>Data de Entrega</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- info cards -->
+            <hr>
+    }
+    @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div class="xs-reward-wraper">
+            <h4 class="h4">
+                <strong>Opções de recompensas</strong>
+            </h4>
+            <hr>
+
+            <div class="xs-reward-input-filed">
+                <div class="form-group">
+                    <h4 class="h4">Valor da doação</h4>
+                    <div class="w-quantity">
+                        <div class="quantity xs_input_number">
+                            @Html.TextBoxFor(model => model.ValorDoado, new {@type = "number", @step = "1", min = "1", max = "5000000"})
+                        </div>
+                    </div>
+                    <small class="form-text">O valor apartir do qual pretendes dar a recompensa</small>
+                </div>
+                <div class="form-group">
+                    <h4 class="h4">Recompensa</h4>
+                    @Html.TextBoxFor(model => model.Item, new {@class = "form-control form-control-sm"})
+                    <small class="form-text">Texto curto e descritivo</small>
+                </div>
+                <div class="form-group">
+                    <h4 class="h4">Descrição</h4>
+                    @Html.TextAreaFor(model => model.RecDescricao, new {@class = "form-control form-control-sm"})
+                    <small class="form-text">Descreva o a tua oferta</small>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h4 class="h4">Data de entrega estimada</h4>
+                            @Html.TextBoxFor(model => model.PrazoEntregaEstimado, new {@type = "Date", @class= "form-control" })
+                            <small class="form-text">Dê uma estimativa de quando é que entregarás a recompensa</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <h4 class="h4">Quantidade</h4>
+                            <div class="w-quantity">
+                                <div class="quantity xs_input_number">
+                                    @Html.TextBoxFor(model => model.Quantidade, new {@type = "number", @step = "1", min = "1", max = "5000000"})
+                                </div>
+                            </div>
+                            <small class="form-text">A quantidade do bem, serviço ou similar que estás ofertando</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h4 class="h4">Local vde Entrega</h4>
+                    @Html.TextBoxFor(model => model.LugarEntrega, new { @class = "form-control form-control-sm" })
+                    <small class="form-text">Onde é que se efectuará a entrega da recompensa</small>
+                </div>
+            </div>
+        </div>
+        <div class="xs-campaing-from-submit-wraper">
+            <hr>
+            <div class="clearfix">
+                <button type="reset" class="btn btn-danger rounded">Limpar tudo</button>
+                <button type="submit" id="campaingSubmit" class="btn btn-primary float-right rounded">Adicionar Recompensa</button>
+            </div>
+        </div>
+    }
+</div>
+<div class="tab-pane slideUp xs-dashboard" id="resumo" role="tabpanel">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-7">
+            <div class="xs-sync-slider-wraper xs-mb-50">
+                <div class="xs-sync-slider-preview-content">
+                    <img src="/Content/images/product/product_1.jpg" alt="">
+                </div>
+            </div><!-- xs-sync-slider-wraper -->
+            <h5 class="color-navy-blue xs-mb-30">We are a group of 41 leaders from Ascension Leadership Academy. As a team we are committed to creating a world of Freedom, Love, and Transformation.</h5>
+            <p class="xs-content-description fundpress-content-description xs-mb-30">
+                Why I am supporting Safelight's cause... It took me a long time to admit outloud that I had been in an abusive relationship for roughly the last year an d half of my college career. I studied domestic violence/interpersonal <span class="color-navy-blue">partner violence during that time</span>, but continued to do what many people trapped in those relationships do...
+            </p>
+            <p class="xs-content-description fundpress-content-description xs-mb-30">I"is it worth it?", "do you really think that's what love is?", and yes, even when said "you study this stuff, you know what this is, why do you let yourself go through this?"</p>
+            <h3 class="bold color-green xs-post-title fundpress-post-title xs-mb-30">Our Mission:</h3>
+            <p class="xs-content-description fundpress-content-description xs-mb-30">To raise AOA 85,000 by October 14, 2017, in support of the Coalition to Abolish Slavery and Trafficking Los Angeles (CAST LA) and it's mission to build a future where Human Trafficking exists.</p>
+            <p class="xs-content-description fundpress-content-description xs-mb-40">NYC Marathon 2016 was the most awesome race of all to date. The day was beautiful, the crowd fantastic, and I had a great day in the Big Apple even after taking a spill at Mile 13. Now, seriously ~ who breaks an arm running a marathon? And who keeps running because 'broken' didn't cross her mind? That would be me. What a learning curve!</p>
+            <h3 class="bold color-green xs-post-title fundpress-post-title xs-mb-30">Our Vission:</h3>
+            <p class="xs-content-description fundpress-content-description xs-mb-0">
+                Why I am supporting Safelight's cause... <span class="color-green">It took me a long time to admit outloud that</span> I had been in an abusive relationship for roughly the last year an d half of my college career. I studied domestic violence/interpersonal partner violence during that time, but continued to do what many people trapped in those relationships do... I stayed; even when asked "why?", "is it worth it?", "do you really think that's what love is?", and yes, even when said "you study this stuff, you know what this is, why do you let yourself go through this?"
+            </p>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-5">
+            <div class="xs-sidebar-wraper">
+                <div class="xs-single-sidebar xs-mb-30">
+                    <ul class="xs-list-with-content fundpress-simple-list-content">
+                        <li class="color-navy-blue bold xs-mb-20">AOA 75,280<span class="color-semi-black regular">Arrecadado</span></li>
+
+                        <li class="color-green bold xs-mb-20">AOA 87,000<span class="color-semi-black regular">Meta</span></li>
+                        <li class="color-brick-light-2 bold">119<span class="color-semi-black regular">Movimentadores</span></li>
+                    </ul><!-- xs-list-with-content fundpress-simple-list-content -->
+
+                    <div class="xs-single-sidebar xs-mb-50">
+                        <div class="xs-spilit-container">
+                            <div class="xs-btn-wraper">
+                                @Html.ActionLink("Enviar para revisão", "EviarRevisao", "Projectos", new {id = 1}, new {@class = "xs-btn radius-btn green-btn xs-btn-medium"})
+                                @*<a href="#" class="xs-btn radius-btn green-btn xs-btn-medium">Enviar para revisão</a>*@
+                            </div>
+                            <div class="xs-social-list-wraper">
+                                <ul class="xs-social-list xs-social-list-v3 fundpress-social-list">
+                                    <li>
+                                        <a href="" class="color-facebook xs-box-shadow full-round">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="xs-box-shadow color-google-plus full-round">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="xs-box-shadow color-twitter full-round">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- xs buttons and social list -->
+                    </div>
+                    <div class="xs-single-sidebar">
+                        <div class="xs-sidebar-title fundpress-sidebar-title xs-mb-30">
+                            <h3 class="color-navy-blue">Recompensas</h3>
+                        </div>
+                        <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white">
+                            <h3 class="xs-mb-30">Pledge AOA 500 or more</h3>
+                            <h4 class="xs-mb-20">HIS and HERS (or For Parents)</h4>
+                            <p class="xs-mb-20 xs-content-description fundpress-content-description">Two XpeedX Smart Systems beautifully packaged (will retail for AOA 500 for two). </p>
+                            <span class="xs-mb-40">Free access to DynoLife App.</span>
+                            <div class="xs-spilit-container">
+                                <div class="xs-info-card-times">
+                                    <h5>Estimated Delivery</h5>
+                                    <h6>17Th Aug 2017</h6>
+                                </div>
+                                <div class="xs-info-card-times">
+                                    <h5>Ships To</h5>
+                                    <h6>Anywhere in the world</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xs-info-card xs-pink-bg fundpress-info-card xs-box-shadow color-white">
+                            <h3 class="xs-mb-30">Pledge AOA 700 or more</h3>
+                            <h4 class="xs-mb-20">Trainer Special</h4>
+                            <p class="xs-mb-20 xs-content-description fundpress-content-description">Ten XpeedX Smart Systems beautifully packaged individually for each of your trainees (will retail for AOA 1380 for ten). </p>
+                            <span class="xs-mb-40">Free access to DynoLife App.</span>
+                            <div class="xs-spilit-container">
+                                <div class="xs-info-card-times">
+                                    <h5>Estimated Delivery</h5>
+                                    <h6>20Th Jun 2017</h6>
+                                </div>
+                                <div class="xs-info-card-times">
+                                    <h5>Ships To</h5>
+                                    <h6>Anywhere in the world</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+    docReady(() => {
+        $("#PaisSelecionado").change(function() {
+            var id = $(this).val();
+            $("#ProvinciaSelecionada").empty();
+            $.get("ListaProvincias", { idPais: id }, function(data) {
+                console.log(id);
+                var v = "<option>Selecione a província</option>";
+                $.each(data, function(i, v1) {
+                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                });
+
+                $("#ProvinciaSelecionada").html(v);
+            });
+        });
+
+        $("#ProvinciaSelecionada").change(function() {
+            var id = $(this).val();
+            $("#MunicipioSelecionado").empty();
+            $.get("ListaMunicipios", { idProvincia: id }, function(data) {
+                var v = "<option>Selecione o municipio</option>";
+                $.each(data, function(i, v1) {
+                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                });
+                $("#MunicipioSelecionado").html(v);
+            });
+        });
+
+        CKEDITOR.replace('Sobre');
+        CKEDITOR.replace('Objectivofundo');
+    }, false);
+
+
+    
+</script>

@@ -1,0 +1,438 @@
+﻿@model Web.Models.DetalheViewModel
+@{
+    ViewBag.Title = "Detalhe";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/details-bg.jpg">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content xs-inner-welcome-content">
+            <!-- End xs rating -->
+            <h2 class="color-white" id="campanha_title">@Model.Titulo</h2>
+            <ul class="xs-tag-category-with-icon xs-mb-30">
+                <li>
+                    <a href="" class="color-white">
+                        <i class="fa fa-tags color-orange"></i>@Model.Keywords</a>
+                </li>
+            </ul>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Inicio /</a> Detalhes</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+<main class="xs-all-content-wrapper">
+<!-- fund details -->
+<section class="xs-content-section-padding xs-fund-details fundpress-fund-details">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 col-lg-7">
+<div class="xs-sync-slider-wraper xs-mb-50">
+    <div class="owl-carousel xs-sync-slider-preview xs-mb-10">
+        <div class="xs-sync-slider-preview-content">
+            <img src="/Content/images/campaigns/@Model.FotoUrl" alt="">
+        </div>
+        <div class="xs-sync-slider-preview-content">
+            @if (!Model.Video.IsEmpty())
+            {
+               
+                                <div class="fundpress-popup-image xs-box-shadow">
+                                    <img src="/Content/images/about_2.jpg" alt="">
+                                    <div class="xs-popup-content icon-position-center">
+                                        <a href="@Model.Video" class="xs-video-popup full-round icon-identify-btn orange-btn xs-box-shadow xs-big-button"><i class="fa fa-play"></i></a>
+                                        @*<a href="http://www.youtube.com/watch?v=0O2aH4XLbto" class="xs-video-popup full-round icon-identify-btn orange-btn xs-box-shadow xs-big-button"><i class="fa fa-play"></i></a>*@
+                                    </div>
+                                </div>
+            }
+        </div>
+    </div>
+    <div class="owl-carousel xs-sync-slider-thumb">
+        <div class="xs-sync-slider-thumb-content">
+            <img src="@Model.FotoUrl" alt="">
+        </div>
+        <div class="xs-sync-slider-thumb-content">
+            <img src="@Model.FotoUrl" alt="">
+        </div>
+    </div>
+</div><!-- xs-sync-slider-wraper -->
+<div class="xs-text-content-tab">
+    <!-- Nav tabs -->
+    <div class="xs-tab-nav fundpress-tab-nav-v2 xs-mb-30">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#description" role="tab" data-toggle="tab">
+                    Descrição
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#updates" role="tab" data-toggle="tab">
+                    Novidades
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#comments_panel" role="tab" data-toggle="tab">
+                    Comentários <span class="color-orange">(@Model.Comentarios.Count())</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#backers" role="tab" data-toggle="tab">
+                    Movimentadores <span class="color-orange">(@Model.Movimentadores.Count())</span>
+                </a>
+            </li>
+        </ul>
+    </div><!-- xs-tab-nav fundpress-tab-nav-v2 xs-mb-30 -->
+    <!-- Tab panes -->
+    <div class="tab-content xs-text-tab-content">
+        <div role="tabpanel" class="tab-pane fadeInRights show fade in active" id="description">
+            <h5 class="color-navy-blue xs-mb-30">@Model.DescricaoCurta</h5>
+            <p class="xs-content-description fundpress-content-description xs-mb-30">
+                @Html.Raw(Model.SobreCampanha)
+
+            </p>
+            <h3 class="bold color-orange xs-post-title fundpress-post-title xs-mb-30">Objectivo dos fundos:</h3>
+            <p class="xs-content-description fundpress-content-description xs-mb-30">@Html.Raw(Model.UsoFundo)</p>
+        </div><!-- tab-pane fadeInRights -->
+        <div role="tabpanel" class="tab-pane fadeInRights fade" id="updates">
+            <div class="xs-ul-list fundpress-content-text-list-wraper">
+                <ul class="fundpress-content-text-list xs-content-text-list">
+                    @foreach (var novidade in Model.Novidades)
+                    {
+                        <li>
+                            <p class="xs-content-description fundpress-content-description color-navy-blue">@novidade.Data</p>
+                            <div class="fundpress-title-text-content">
+                                <h4 class="color-navy-blue medium margin-bottom-0">@novidade.Titulo</h4>
+                            </div>
+                            <p class="xs-content-description fundpress-content-description xs-mb-30">
+                                @novidade.Descricao
+                            </p>
+                        </li>
+                    }
+                </ul>
+                <div class="xs-navy-blue-bg fundpress-porject-lunch xs-content-padding text-center content-left">
+                    <h3 class="color-white xs-mb-10 regular">@Model.DataInicio.ToString("yyyy, dd 'de' MMMM")</h3>
+                    <h4 class="color-white xs-mb-0 semi-bold">Campanha publicada!</h4>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fadeInRights fade" id="comments_panel">
+            <div class="xs-blog-post-comment border xs-content-padding">
+                <!-- post comment -->
+                <div id="comments" class="comments-area">
+                    <h4 class="comments-title"> Comentários</h4>
+                    <!-- start comment -->
+                    <ol class="comment-list" id="commentlist">
+                        @foreach (var comentario in Model.Comentarios)
+                        {
+                            <li id="comment-1" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+                                <article id="div-comment-1" class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img alt="comment avatar image" src="@comentario.GetMembro().Foto" class="avatar avatar-34 photo">
+                                            <b class="fn">@comentario.GetMembro().Nome</b>
+                                        </div><!-- .comment-author -->
+                                        <div class="comment-metadata">
+                                            <a>
+                                                <time datetime="@comentario.Data">@comentario.Data.ToString("D")</time>
+                                            </a>
+                                        </div><!-- .comment-metadata -->
+                                    </footer><!-- .comment-meta -->
+                                    <div class="comment-content">
+                                        <p>@comentario.comentario</p>
+                                    </div><!-- .comment-content -->
+                                    <div class="Responder">
+                                        <a href="" aria-label="Responder to admin">
+                                            <i class="fa fa-mail-forward" aria-hidden="true"></i>
+                                            Responder
+                                        </a>
+                                    </div>
+                                </article><!-- .comment-body -->
+                            </li>
+                            <!-- #comment-## -->
+                        }
+                    </ol>
+                    <!-- end comment -->
+                    <!-- start respond form -->
+                    <div id="respond" class="comment-respond">
+                        <h3 id="Responder-title" class="comment-Responder-title">
+                            Comentar
+
+                        </h3>
+                        <div class="separator">
+                            <span></span><span></span><span></span>
+                        </div>
+                        @using (Html.BeginForm("Comentar", "Projectos", FormMethod.Post, new {@class = "comment-form", id = "commentform"}))
+                        {
+                            @Html.HiddenFor(model => model.ProjectoId)
+                                @*<div class="comment-info">
+                                    <input placeholder="Nome *" id="author" class="comment-100" name="author" type="text" value="" size="30" aria-required="true">
+                                    <input placeholder="E - mail *" class="comment-50" id="email" name="email" type="email" value="" size="30" aria-required="true">
+                                    <input placeholder="Entre a web" class="comment-50" id="url" name="url" type="url" value="" size="30">
+                                </div>*@
+                            <div class="commentright ">
+                                <textarea placeholder="Seu comentário *" id="Comentario" name="Comentario" cols="45" rows="8" aria-required="true"></textarea>
+                            </div>
+                            <div class="clearfix"></div>
+                            <p class="form-submit">
+                                <input name="submit" type="submit" id="submit" class="premix-btn light-red-btn coment-btn" value="Comentar">
+                                <input type="hidden" name="comment_post_ID" value="165" id="comment_post_ID">
+                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                            </p>
+                        }
+                        <div id="divProcessing">
+                            <p>
+                                <img src="/Content/images/ajax-loader.gif"/>
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                        docReady(() => {
+
+                            $("#divProcessing").hide();
+
+                            $("#submit").click(() => {
+                                $("#commentform").submit();
+                            });
+
+                            $("#commentform").on("submit", function(e) {
+                                e.preventDefault();
+
+                                $("#divProcessing").show();
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Projectos/Comentar/", //'@Url.Action("Comentar", "Projectos")',
+                                    data: $(this).serialize(),
+                                    dataType: "json",
+                                    sucess: function(result) {
+                                        console.log(JSON.stringify(result));
+                                    },
+                                    error: function(result) {
+                                        console.log(result);
+                                        return false;
+                                    },
+                                    timeout: 15000
+                                });
+                                $("#divProcessing").hide();
+                            });
+                        });
+                    </script>
+                    <!-- end respond form -->
+                </div>
+                <!-- end post comment -->
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fadeInRights fade" id="backers">
+            <div class="xs-backers-lsit-wraprer">
+                <ul class="fundpress-backer-lsit">
+                    @foreach (var movimentador in Model.Movimentadores)
+                    {
+                        <li class="row xs-margin-0">
+                            <div class="row xs-margin-0 col-md-6 text-left">
+                                <div class="xs-avatar full-round">
+                                    <img src="@movimentador.Membro.Foto" alt="">
+                                </div>
+                                <div class="fundpress-backer-info">
+                                    <h3 class="color-navy-blue semi-bold">@movimentador.Membro.Nome</h3>
+                                    <h4 class="color-orange regular xs-mb-0">@movimentador.Valor AOA -Sem recompensa</h4>
+                                </div>
+                            </div>
+                            <div class="xs-btn-wraper col-md-6 text-right">
+                                <a href="#" class="xs-btn round-btn navy-blue-btn">Ver Perfil</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                @*<div class="xs-animate-btn-wraper xs-gradient-overlay white-gradient-overlay">
+                                        <a href="#" class="xs-animate-btn color-navy-blue">
+                                            <i class="fa fa-long-arrow-down"></i>
+                                        </a>
+                                    </div>*@
+            </div>
+        </div>
+    </div><!-- tab-content xs-text-tab-content -->
+</div><!-- xs-text-content-tab -->
+        <div class="col-md-12 col-sm-12 col-lg-7">
+            
+        </div>
+    </div>
+<div class="col-md-12 col-sm-12 col-lg-5">
+    <div class="xs-sidebar-wraper">
+        <div class="xs-single-sidebar xs-mb-20">
+            <div class="xs-pie-chart-wraper fundpress-pie-chart-wraper">
+                <div class="xs-pie-chart" data-percent="@Model.Progresso">
+                    <div class="xs-pie-chart-percent-wraper icon-position-center bold color-navy-blue xs-spilit-container">
+                        <div class="xs-pie-chart-percent"></div>
+                        <span>%</span>
+                    </div>
+                </div>
+                <div class="xs-pie-chart-label">Financiado</div>
+            </div><!-- xs-pie-chart-wraper -->
+        </div>
+        <div class="xs-single-sidebar xs-mb-30">
+            <ul class="xs-list-with-content fundpress-simple-list-content">
+                <li class="color-navy-blue bold xs-mb-20">@Model.Arrecadado AOA<span class="color-semi-black regular">Arrecadado</span></li>
+
+                <li class="color-green bold xs-mb-20">@Model.Meta AOA<span class="color-semi-black regular">Meta</span></li>
+                <li class="color-brick-light-2 bold">
+                    @Model.Movimentadores.Count()<span class="color-semi-black regular">Movimentadores</span></li>
+            </ul><!-- xs-list-with-content fundpress-simple-list-content -->
+        </div>
+        <div class="xs-single-sidebar xs-mb-40">
+            <div class="xs-countdown-timer-wraper">
+                <div class="countdown-container xs-countdown-timer-v2" data-countdown="@Model.DataFim.ToString("yyyy/MM/dd")"></div>
+            </div><!-- xs-countdown-timer-wraper -->
+        </div>
+        <div class="xs-single-sidebar xs-mb-50">
+            <div class="xs-spilit-container">
+                <div class="xs-btn-wraper">
+                    <a href="@("/Pagamentos/EscoherPagamento/" + Model.ProjectoId)" class="icon-btn xs-btn radius-btn green-btn xs-btn-medium"><i class="fa fa-heart"></i>Apoiar este projecto</a>
+                </div>
+                <div class="xs-social-list-wraper">
+                    <ul class="xs-social-list xs-social-list-v3 fundpress-social-list">
+                        <li>
+                            <a href="@("#" + Model.LinkFb)" id="facebook_sharer" class="color-facebook xs-box-shadow full-round" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@("#" + Model.LinkTt)" id="twitter_sharer" class="xs-box-shadow color-twitter full-round" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- xs buttons and social list -->
+        </div>
+        <div class="xs-single-sidebar xs-mb-50">
+            <div class="xs-spilit-container xs-spilit-container-v2">
+                <div class="xs-avatar xs-avatar-big full-round fundpress-avatar">
+                    <img src="@Model.Autor.Foto" alt="">
+                </div>
+                <div class="xs-avatar-title fundpress-avatar-title fundpress-avatar-title-v2">
+                    <a href="#" class="xs-mb-10">@Model.Autor.Nome</a>
+                    <p class="xs-content-description fundpress-content-description xs-mb-20">@Model.Autor.Cargo, @Model.Autor.GetStartup().Nome</p>
+                    <ul class="xs-list-item-icon-text">
+                        <li class="xs-mb-0">
+                            <p class="xs-content-description fundpress-content-description">
+                                <i class="fa fa-map-marker color-orange"></i>
+                                @Model.Autor.ToString()
+                            </p>
+                        </li>
+                    </ul>
+                </div><!-- xs-avatar-title fundpress-avatar-title fundpress-avatar-title-v2 -->
+            </div>
+        </div>
+        <div class="xs-single-sidebar">
+            <div class="xs-sidebar-title fundpress-sidebar-title xs-mb-30">
+                <h3 class="color-navy-blue">Recompensas</h3>
+            </div>
+            @foreach (var recompensa in Model.Recompensas)
+            {
+                <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white">
+                    <h3 class="xs-mb-30">Apoiar com @recompensa.ValorDoado AOA ou mais</h3>
+                    <h4 class="xs-mb-20">@recompensa.Item</h4>
+                    <p class="xs-mb-20 xs-content-description fundpress-content-description">
+                        @recompensa.Descricao
+                    </p>
+                    <span class="xs-mb-40">Quantidade: @recompensa.Quantidade</span>
+                    <div class="xs-spilit-container">
+                        <div class="xs-info-card-times">
+                            <h5>Tempo de entrega estimado</h5>
+                            <h6>@recompensa.PrazoEntregaEstimado</h6>
+                        </div>
+                        <div class="xs-info-card-times">
+                            <h5>Entregado em</h5>
+                            <h6>@recompensa.LugarEntrega</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section> <!-- End fund details -->
+
+<!-- popular campaigns -->
+<section class="waypoint-tigger xs-gray-bg xs-section-padding">
+    <div class="container">
+        <div class="xs-section-heading row xs-margin-0">
+            <div class="fundpress-heading-title xs-padding-0 col-xl-9 col-md-9">
+                <h2 class="color-navy-blue">Projectos similares</h2>
+                <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                <p>Te apresentamos projetos que te podem interessar.</p>
+            </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+            <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
+                <a href="#" class="xs-btn round-btn navy-blue-btn">Todos os projectos</a>
+            </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
+        </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+        <div class="row">
+            @foreach (var campanha in Model.Projectos)
+            {
+                <div class="col-lg-4">
+                    <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
+                        <div class="fundpress-item-header">
+                            <img src="/Content/images/campaigns/@campanha.Foto" alt="">
+                            <div class="xs-item-header-content">
+                                <div class="xs-skill-bar">
+                                    <div class="xs-skill-track">
+                                        <p>
+                                            <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>%
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- .xs-item-header .fundpress-item-header END -->
+                        <div class="fundpress-item-content xs-content-padding bg-color-white">
+                            <ul class="xs-simple-tag fundpress-simple-tag">
+                                @foreach (var keyword in campanha.GetKeywords())
+                                {
+                                    <li>
+                                        <a href="">@keyword</a>
+                                    </li>
+                                }
+
+                            </ul>
+                            <a href="#" class="d-block color-navy-blue fundpress-post-title">@campanha.Titulo</a>
+                            <ul class="xs-list-with-content fundpress-list-item-content">
+                                <li>@campanha.Arrecadado AOA<span>Arrecadado</span></li>
+                                <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>% <span>Financiado</span></li>
+                                <li>
+                                    @campanha.DiasRestantes()<span>Dias restantes</span></li>
+                            </ul>
+                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
+                            <div class="row xs-margin-0">
+                                <div class="full-round fundpress-avatar">
+                                    <img src="@campanha.Criador.Foto" alt="Avatar">
+                                </div>
+                                <div class="xs-avatar-title">
+                                    <a href="#">
+                                        <span>Por</span>@campanha.Criador.Nome</a>
+                                </div>
+                            </div>
+                        </div><!-- .fundpress-item-content END -->
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section> <!-- End popular campaigns -->
+</main>
+
+<script>
+    docReady(() => {
+        document.getElementById('facebook_sharer').href = "https://www.facebook.com/sharer/share.php?u=" + encodeURIComponent(window.location.href);
+
+        var url = encodeURIComponent(window.location.href);
+        var titutlo = encodeURIComponent('Movimenta - ' + document.getElementById('campanha_title').innerText);
+        //var via = encodeURIComponent("movimenta.ao"); //Nome da conta movimenta no twitter
+
+        document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo;
+        //com a pagina da movimenta
+        //document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo + "&via=" + via;
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Movimenta - @ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        function docReady(fn) {
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
+    </script>
+</head>
+<body class="woocommerce">
+    <!--[if lt IE 10]>
+                <p class="browserupgrade">Voçê está usando um navegador <strong>desactualizado</strong>. <a href="http://browsehappy.com/">Actualize seu navegador</a> para melhorar a sua experiência.</p>
+            <![endif]-->
+
+    <div id="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div><!-- #preloader -->
+
+    @Html.Partial("_HeadMenu")
+
+    @RenderBody()
+
+   
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/js")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

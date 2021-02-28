@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Web.Models.EventoViewModel>
+@{
+    ViewBag.Title = "Eventos";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<br/>
+
+
+<section class="xs-section-padding" data-scrollax-parent="true">
+    <div class="container">
+        <h2>Eventos <span class="fa fa-plus" data-bs-toggle="modal" data-bs-target="#AdicionaEvento"></span></h2>
+        <div class="fundpress-event-wraper">
+            @if (Model.Any())
+            {
+                foreach (var evento in Model)
+                {
+                    <div class="fundpress-single-event-wraper row">
+                        <div class="col-md-3">
+                            <div class="fundpress-event-image">
+                                <img src="@evento.FotoUrl" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 fundpress-event-details">
+                            <h3 class="color-white xs-post-title fundpress-post-title">@evento.Titulo.</h3>
+                            <p>@evento.DescricaoCurta</p>
+                            <div class="countdown-container xs-countdown-timer" data-countdown="@evento.Data.ToString("yyyy/MM/dd")">
+                                <span class="timer-count">0 <span class="timer-text">Dias</span></span>  <span class="timer-count">00 <span class="timer-text">Horas</span></span> <span class="timer-count">00 <span class="timer-text">Minutos</span></span> <span class="timer-count">00 <span class="timer-text">Segundos</span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="fundpress-btn-wraper">
+                                <button type="button" class="btn round-btn btn-outline-success btnEditarEvento" data-id="@evento.EventoId" data-bs-toggle="modal" data-bs-target="#EditarEvento">Editar</button>
+                                <button type="button" class="btn round-btn btn-outline-danger btnEliminarEvento" data-id="@evento.EventoId" data-bs-toggle="modal" data-bs-target="#eliminarEvento">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .fundpress-single-event-wraper END -->
+                }
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            Não existem eventos. <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#AdicionaEvento">Adicionar Eventos</button>
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+</section>
+<div class="modal fade" id="AdicionaEvento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="AdicionaEventoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AdicionaEventoLabel">Adiciona Novo Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @using (Html.BeginForm("AdicionarEvento", "Dashboard", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    <label for="TituloEvento" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" name="TituloEvento" id="TituloEvento" value="" placeholder="Titulo do evento..." required="">
+                    <label for="shortdesc" class="form-label">Descrição curta</label>
+                    <input type="text" class="form-control" name="shortdesc" id="shortdesc" value="" placeholder="Insere uma descricção curta..." required="">
+                    <label for="longdesc" class="form-label">Descrição Larga</label>
+                    <textarea class="form-control" name="longdesc" id="longdesc" required></textarea>
+                    <label for="local" class="form-label">Local</label>
+                    <input type="text" class="form-control" name="local" id="local" value="" placeholder="" required="">
+                    <label for="data" class="form-label">Data</label>
+                    <input type="date" class="form-control" name="data" id="data" value="" placeholder="" required="">
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                    <button id="btnContinueAddCat" type="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditarEvento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="EditarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EditarEventoLabel">Editar Evento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @using (Html.BeginForm("Editar", "Eventos", FormMethod.Post,new {id="editarEventoForm"}))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <input type="hidden" name="EventoId" id="idEvento"/>
+                    <label for="TituloEvento" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" name="Titulo" id="TituloEvento" value="" placeholder="Titulo do evento..." required="">
+                    <label for="shortdesc" class="form-label">Descrição curta</label>
+                    <input type="text" class="form-control" name="DescricaoCurta" id="shortdesc" value="" placeholder="Insere uma descricção curta..." required="">
+                    <label for="longdesc" class="form-label">Descrição Larga</label>
+                    <textarea class="form-control" name="DescricaoLarga" id="longdesc" required></textarea>
+                    <label for="local" class="form-label">Local</label>
+                    <input type="text" class="form-control" name="Local" id="local" value="" placeholder="" required="">
+                    <label for="data" class="form-label">Data</label>
+                    <input type="date" class="form-control" name="Data" id="data" placeholder="" required="">
+                    <input type="hidden" name="FotoUrl"/>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                    <button id="btnContinueEditEvento" type="submit" class="btn btn-primary">Concluir</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="eliminarEvento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-20" aria-labelledby="eliminarEventoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eliminarEventoLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @using (Html.BeginForm("Eliminar", "Eventos", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <p>Tens a certeza de que queres eliminar esse elemento?</p>
+                    <input type="hidden" id="idevento" name="idevento" value=""/>
+                </div>
+                <div class="modal-footer">
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                    <button id="btnContinueDelete" type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

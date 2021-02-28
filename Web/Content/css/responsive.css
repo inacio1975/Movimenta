@@ -1,0 +1,538 @@
+
+
+/*
+Author: XpeedStudio
+Author URI: http://themeforest.net/user/XpeedStudio/portfolio
+*/
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+	body {
+		font-size: 14px;
+	}
+	/* menus */
+	.fundpress-menu .nav-menu li {
+		margin: 0 30px 0 0;
+	}
+	.fundpress-menu .nav-menu {
+		width: 70%;
+	}
+	.fundpress-menu .xs-logo-wraper {
+		width: 26.66667%;
+	}
+
+}
+
+/* Portrait tablets and small desktops */
+@media  (max-width: 992px) {
+	html {
+		font-size: 90%;
+	}
+	/* content margin bottom list */
+	.fundpress-heading-title ,
+	.fundpress-grid-item-content ,
+	.fundpress-icon-with-square-service ,
+	.fundpress-event-image ,
+	.fundpress-event-details ,
+	.fundpress-inner-about-content ,
+	.fundpress-single-team-member ,
+	.fundpress-inner-about-content ,
+	.fundpress-text-with-image-side-by-side-2 .fundpress-side-by-side-image-with-text ,
+	.xs-single-post-footer.xs-post-author-meta .post-author .float-left ,
+	.post-navigation .nav-links ,
+	.fundpress-contact-details ,
+	.xs-text-tab-content ,
+	.fundpress-team-member-details-content ,
+	.xs-background-popup-wraper {
+		margin-bottom: 30px;
+	}
+	/*menus*/
+	.xs-menus .nav-menus-wrapper {
+		flex-direction: column;
+	}
+	.xs-menus.xs_nav-portrait .nav-menus-wrapper-close-button {
+		margin: 0 0 0 auto;
+		width: 40px;
+	}
+	.fundpress-menu .xs-logo-wraper .fundpress-logo-v1 {
+		position: static;
+	}
+	.fundpress-menu .xs-logo-wraper {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.fundpress-menu .xs-logo-wraper .fundpress-logo-v1 {
+		box-shadow: none;
+		height: auto;
+	}
+	.fundpress-menu .xs-logo-wraper ,
+	.fundpress-menu .nav-menu ,
+	.fundpress-menu .xs-navs-button {
+		width: 100%;
+	}
+	.fundpress-menu .nav-menu {
+		padding: 0 20px;
+	}
+	.fundpress-menu .nav-menu li a {
+		padding: 16px 0;
+	}
+	.fundpress-menu .xs-navs-button .fundpress-icon-menu {
+		flex-wrap: wrap;
+	}
+	.fundpress-menu .xs-navs-button .fundpress-icon-menu li {
+		margin-bottom: 20px;
+	}
+	.fundpress-header-inner-version {
+		background-color: #fff;
+	}
+	.fundpress-header-inner-version .fundpress-menu .nav-menu li a ,
+	.fundpress-header-inner-version .fundpress-menu .fundpress-icon-menu li a {
+		color: #041D57;
+	}
+
+	.fundpress-about-promo-image img ,
+	.fundpress-text-with-image-side-by-side-1 .xs-box-shadow-2 img ,
+	.fundpress-text-with-image-side-by-side-2 .xs-box-shadow-2 img ,
+	.fundpress-item-header img {
+		width: 100%;
+	}
+	
+	/* footer */
+	.fundpress-single-footer {
+		margin-bottom: 50px;
+	}
+
+	/* about us promo */
+	.fundpress-side-by-side-image-with-text,
+	.fundpress-inner-about-content {
+		padding-right: 0;
+	}
+	/* blog details */
+	.xs-blog-details-wraper {
+		margin-bottom: 50px;
+	}
+	/* events inner page */
+	.fundpress-single-event-wraper .fundpress-btn {
+		padding: 10px 15px;
+		font-size: 1em;
+	}
+	.xs-countdown-timer {
+		width: 100%;
+	}
+	/* faq page */
+	.fundpress-isotope-nav ul#filters li a {
+		margin-bottom: 10px;
+	}
+	/* index version 2 */
+	.parallax-title {
+		font-size: 8.28571em;
+		margin-left: 0px !important;
+	}
+	/*menu*/
+	.fundpress-menu-v2 .nav-menu li a {
+		color: #050C24;
+	}
+	/* welcome */
+	.fundpress-welcome-content-v2 .fundpress-welcome-list-content li {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	.xs-btn-wraper a:first-child {
+		margin-bottom: 20px;
+	}
+	/*spaonsor */
+	.fundpress-single-sponsor-v2 {
+		margin-bottom: 30px
+	}
+	.fundpress-tab-nav-v3 .nav .nav-item .nav-link:before {
+		display: none;
+	}
+	/*grid content*/
+	.fundpress-grid-item-content-v2 {
+		margin-bottom: 30px;
+	}
+	/* tab */
+	.fundpress-tab-nav-v4 .nav-tabs .nav-item .nav-link span {
+		margin-top: 9px;
+	}
+	.fundpress-tab-nav-v4 .nav-tabs .nav-item .nav-link {
+		font-size: 1em;
+		padding: 13px 20px;
+	}
+	.fundpress-event-wraper-v2:before {
+		display: none;
+	}
+	.fundpress-event-wraper-v2 .fundpress-event-content {
+		padding: 30px 0;
+	}
+	.fundpress-event-text-content {
+		padding-left: 40px;
+		border-left: 1px solid #F1F1F1;
+	}
+	.xs-countdown-timer ,
+	.fundpress-event-text-content {
+		margin-bottom: 30px;
+	}
+
+	/* index.html */
+	.xs-welcome-content {
+		height: auto !important;
+		padding: 30px 0;
+	}
+	.xs-welcome-content .xs-btn-wraper a:first-child {
+		margin-bottom: 0;
+	}
+	.fundpress-menu .nav-menu li a:before {
+		display: none;
+	}
+	.xs_nav-portrait .submenu-indicator-chevron {
+		border-color: transparent rgb(49, 49, 49) rgb(49, 49, 49) transparent !important;
+	}
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	html {
+		font-size: 80%;
+	}
+	/* content margin bottom list */
+	.fundpress-heading-title ,
+	.fundpress-grid-item-content ,
+	.fundpress-icon-with-square-service ,
+	.fundpress-event-image ,
+	.fundpress-event-details ,
+	.fundpress-inner-about-content ,
+	.fundpress-single-team-member ,
+	.fundpress-inner-about-content ,
+	.fundpress-text-with-image-side-by-side-2 .fundpress-side-by-side-image-with-text ,
+	.xs-single-post-footer.xs-post-author-meta .post-author .float-left ,
+	.post-navigation .nav-links ,
+	.fundpress-contact-details ,
+	.xs-text-tab-content ,
+	.fundpress-team-member-details-content ,
+	.xs-background-popup-wraper {
+		margin-bottom: 30px;
+	}
+	.xs-background-popup-wraper {
+		margin-top: 30px;
+	}
+	/*menus*/
+	.xs-menus .nav-menus-wrapper {
+		flex-direction: column;
+	}
+	.xs-menus.xs_nav-portrait .nav-menus-wrapper-close-button {
+		margin: 0 0 0 auto;
+		width: 40px;
+	}
+	.fundpress-menu .xs-logo-wraper .fundpress-logo-v1 {
+		position: static;
+	}
+	.fundpress-menu .xs-logo-wraper {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.fundpress-menu .xs-logo-wraper .fundpress-logo-v1 {
+		box-shadow: none;
+		height: auto;
+	}
+	.fundpress-menu .xs-logo-wraper ,
+	.fundpress-menu .nav-menu ,
+	.fundpress-menu .xs-navs-button {
+		width: 100%;
+	}
+	.fundpress-menu .nav-menu {
+		padding: 0 20px;
+	}
+	.fundpress-menu .nav-menu li a {
+		padding: 16px 0;
+	}
+	.fundpress-header-inner-version {
+		background-color: #fff;
+	}
+	.fundpress-header-inner-version .fundpress-menu .nav-menu li a ,
+	.fundpress-header-inner-version .fundpress-menu .fundpress-icon-menu li a {
+		color: #041D57;
+	}
+	.fundpress-menu .xs-navs-button .fundpress-icon-menu {
+		flex-wrap: wrap;
+	}
+	.fundpress-menu .nav-menu li a:before {
+		display: none;
+	}
+	.fundpress-menu .xs-navs-button .fundpress-icon-menu li {
+		margin-bottom: 20px;
+	}
+	.fundpress-menu-v2 .nav-menu li a {
+		color: #050C24;
+	}
+	/*footer*/
+	.xs-footer-section.xs-fixed-footer.xs_footer_sticky {
+		position: static !important;
+	}
+	.xs-all-content-wrapper {
+		margin-bottom: 0px !important;
+	}
+
+	/* welcome buttons */
+	.fundpress-welcome-wraper .xs-btn-wraper .xs-btn {
+		font-size: 1em;
+	}
+	/* buttons */
+	.xs-btn.icon-btn {
+		padding: 17px 28px;
+		height: auto;
+	}
+	/* section heading */
+	.fundpress-heading-title h2 {
+		font-size: 2em;
+	}
+	.fundpress-heading-title.fundpress-heading-title-v2 {
+		width: 100%;
+	}
+	.fundpress-single-footer {
+		margin-bottom: 50px;
+	}
+
+	.xs-section-heading .d-flex-center-end {
+		justify-content: end;
+	}
+	/* tab nav */
+	.fundpress-tab-nav ul.nav-tabs li.nav-item a.nav-link {
+		margin-bottom: 10px;
+	}
+	.fundpress-item-header img {
+		width: 100%;
+	}
+	/* event section */
+	.fundpress-single-event-wraper .fundpress-btn-wraper {
+		justify-content: center;
+	}
+	.xs-countdown-timer {
+		width: 100%;
+	}
+	/* partnres */
+	.fundpress-partners li {
+		margin-right: 0;
+		display: block;
+	}
+
+	/* about us page */
+	.fundpress-inner-about-content {
+		padding-right: 0;
+	}
+	.fundpress-inner-about-content h2 {
+		font-size: 2em;
+	}
+	.fundpress-text-with-image-side-by-side-1 .fundpress-side-by-side-image-with-text {
+		margin-top: 30px;
+		padding: 0;
+	}
+	.xs-list-item-icon-text.xs-side-by-side-list {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.fundpress-side-by-side-image-with-text .fundpress-inner-title h2 {
+		font-size: 2em;
+	}
+	.fundpress-text-with-image-side-by-side-2 .fundpress-side-by-side-image-with-text {
+		padding-top: 0;
+		padding-right: 0;
+	}
+	/* content padding */
+	.post .xs-content-padding, .post .fundpress-single-event-wraper {
+		padding: 30px;
+	}
+	/* post meta */
+	.post-meta:after {
+		display: table;
+		content: "";
+		clear: both;
+	}
+	.entry-header .xs-post-meta-date {
+		float: left;
+	}
+	.entry-header .xs-post-author  {
+		float: right;
+	}
+	.xs-post-meta-list span {
+		display: block;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+	.xs-blog-details-wraper {
+		margin-bottom: 50px;
+	}
+	/* blog post details */
+	.xs-blog-post-details .xs-post-meta-list .post-meta-date {
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+	.xs-blog-post-details .w-50 {
+		width: 100% !important;
+	}
+	.xs-post-share-meta .text-right {
+		text-align: left !important;
+	}
+	.fundpress-social-list.xs-social-list-v4 li {
+		margin-right: 0;
+	}
+	.xs-single-post-footer.xs-post-author-meta .post-author .float-right ,
+	.xs-single-post-footer.xs-post-author-meta .post-author .float-left {
+		width: 100%;
+	}
+	.xs-blog-post-comment .children {
+		padding-left: 15px;
+	}
+	.xs-blog-post-comment .comment-respond input:not([type="submit"]).comment-50 {
+		width: 100%;
+		float: none;
+	}
+	.xs-pr-15 {
+		padding-right: 0;
+	}
+	.xs-pl-15 {
+		padding-left: 0;
+	}
+	.xs-input-group {
+		margin-bottom: 30px;
+	}
+	/* faq page */
+	.fundpress-isotope-nav ul#filters li a {
+		margin-bottom: 10px;
+	}
+	/* fund details */
+	.fundpress-tab-nav-v2 ul.nav-tabs li a {
+		padding: 0 10px 15px;
+	}
+	.fundpress-content-text-list li a {
+		word-break: break-all;
+	}
+	.fundpress-content-text-list li {
+		width: 100%;
+	}
+	.fundpress-backer-lsit li .xs-btn-wraper {
+		text-align: center !important;
+		margin-top: 20px;
+	}
+	.countdown-container.xs-countdown-timer-v2 > div {
+		margin-right: 10px;
+	}
+	.xs-single-sidebar .xs-social-list-wraper {
+		margin-top: 20px;
+	}
+	.fundpress-porject-lunch {
+		width: calc(100% - 50px);
+	}
+	/* inner welcome section */
+	.fundpress-inner-welcome-section .fundpress-inner-welcome-content h2 {
+		font-size: 2.71429em;
+		line-height: 1.5;
+	}
+	/* single shop */
+	.woocommerce .xs-woocommerce-product-details-wraper .w-quantity-btn {
+		margin-left: 11px;
+	}
+	.xs-add-to-chart-form > form {
+		margin-bottom: 20px;
+	}
+	/*index version 2 welcome */
+	.fundpress-welcome-content-v2 h2 {
+		font-size: 3.42857em;
+	}
+	.fundpress-welcome-content-v2 .fundpress-welcome-list-content li {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	.xs-btn-wraper a:first-child {
+		margin-bottom: 20px;
+	}
+	.fundpress-tab-nav-v3 .nav .nav-item .nav-link:before {
+		display: none;
+	}
+	.fundpress-grid-item-content-v2 {
+		margin-bottom: 30px;
+	}
+	.fundpress-full-width-wraper-v2 .fundpress-product-hover-content-v2 {
+		padding: 10px;
+	}
+	.fundpress-full-width-wraper-v2 .fundpress-sub-title h2 {
+		font-size: 1.85714em;
+	}
+	.fundpress-full-width-wraper-v2 .fundpress-product-text-content p {
+		font-size: 1em;
+	}
+	.fundpress-full-width-wraper-v2 .fundpress-product-text-content {
+		margin-bottom: 10px;
+	}
+	.fundpress-event-wraper-v2 .fundpress-event-text-content {
+		padding: 20px 0;
+		margin-top: 20px;
+		border-top: 1px solid #F1F1F1;
+		border-left: 0px solid #F1F1F1;
+	}
+	.fundpress-event-wraper-v2:before {
+		display: none;
+	}
+	.fundpress-event-wraper-v2 .fundpress-event-content {
+		padding: 20px 0;
+	}
+	.fundpress-single-footer-v2 {
+	    margin-top: 50px;
+	}
+	.fundpress-footer-bottom-v2 {
+		text-align: center;
+	}
+	.fundpress-copyright-text-v2 p {
+		margin-bottom: 10px;
+	}
+	.fundpress-footer-bottom-v2 .xs-social-list.xs-social-list-v7 {
+		text-align: center;
+	}
+	/* section heading */
+	.xs-section-padding {
+		padding: 60px 0;
+	}
+	.fundpress-heading-title-v3 h2 {
+		font-size: 2.28571em;
+	}
+	.parallax-title {
+		display: none;
+	}
+	/* tab */
+	.fundpress-tab-nav-v4 .nav-tabs .nav-item .nav-link span {
+		margin-top: 9px;
+	}
+	.fundpress-tab-nav-v4 .nav-tabs .nav-item .nav-link {
+		font-size: 1em;
+		padding: 13px 20px;
+	}
+	.fundpress-tab-nav-v4 .nav-tabs .nav-item {
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+
+	.xs_nav-portrait .submenu-indicator-chevron {
+		border-color: transparent rgb(49, 49, 49) rgb(49, 49, 49) transparent !important;
+	}
+}
+
+
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	html {
+		font-size: 65%;
+	}
+
+   
+
+}
+
+
+
+@media (max-width: 320px) {
+
+
+	html {
+		font-size: 60.5%;
+	}
+}
+

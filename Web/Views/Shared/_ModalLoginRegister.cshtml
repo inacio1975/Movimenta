@@ -1,0 +1,83 @@
+﻿<!-- modal -->
+<div class="modal fade bd-example-modal-lg xs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="fundpress-tab-nav-v5">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#login" role="tab" data-toggle="tab">
+                            Entrar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#signup" role="tab" data-toggle="tab">
+                            Registro
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#passrecovery" role="tab" data-toggle="tab">
+                            Recuperar senha
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- fundpress-tab-nav-v3 -->
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fadeInRights show fade in active" id="login">
+                    <form action="#" method="POST" id="xs-login-form">
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-envelope"></i>
+                            <input type="text" name="name" id="xs_user_login_name" class="xs-input-control" placeholder="Entre o e-mail" required>
+                        </div>
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-key2"></i>
+                            <input type="password" name="name" id="xs_login_password" class="xs-input-control" placeholder="Entre a password" required>
+                        </div>
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="Entrar" id="xs_contact_get_action" class="btn btn-warning btn-block">
+                        </div>
+                        <p class="xs-mb-20">ou</p>
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="Entre com a tua conta do gmail" id="xs_login_facebook" class="btn btn-info btn-block">
+                        </div>
+                    </form>
+                </div><!-- tab-pane -->
+                <div role="tabpanel" class="tab-pane fadeInRights fade" id="signup">
+                    <form action="#" method="POST" id="xs-register-form">
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-envelope2"></i>
+                            <input type="email" name="email" id="xs_register_email" class="xs-input-control" placeholder="Entre o seu e-mail" required>
+                        </div>
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-key2"></i>
+                            <input type="password" name="name" id="xs_register_password" class="xs-input-control" placeholder="Entre a senha" required>
+                        </div>
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-key2"></i>
+                            <input type="password" name="name" id="xs_register_repeat_pass" class="xs-input-control" placeholder="Entre a senha novamente" required>
+                        </div>
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="Registrar" id="xs_register_get_action" class="btn btn-warning btn-block">
+                        </div>
+                        <p class="xs-mb-20">ou</p>
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="Entre com a tua conta do gmail" id="xs_signup_facebook" class="btn btn-info btn-block">
+                        </div>
+                    </form>
+                </div><!-- tab-pane -->
+                <!-- tab-pane -->
+                <div role="tabpanel" class="tab-pane fadeInRights fade" id="passrecovery">
+                    <form action="#" method="POST" id="xs-recovery-form">
+                        <div class="xs-input-group-v2">
+                            <i class="icon icon-envelope2"></i>
+                            <input type="email" name="email" id="xs_recovery_email" class="xs-input-control" placeholder="Insre o seu e-mail" required>
+                        </div>
+                        <div class="xs-submit-wraper xs-mb-20">
+                            <input type="submit" name="submit" value="Recuperar conta" id="xs_recovery_facebook" class="btn btn-warning btn-block">
+                        </div>
+                    </form>
+                </div><!-- tab-pane -->
+            </div><!-- tab-content -->
+        </div>
+    </div>
+</div><!-- End modal --><!-- End home section -->

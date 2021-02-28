@@ -1,0 +1,43 @@
+﻿@model Web.Models.EntrarViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutBranco.cshtml";
+}
+
+    <div class="text-center mb-4">
+        <a href="/"><img class="mb-4" src="~/Content/img/logomov.svg" alt="" width="300"></a>
+        <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
+        <p>Insere teus dados para poder aceder a conteúdos da plataforma</p>
+    </div>
+
+    @using (Html.BeginForm("Entrar", "Conta", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "xs-login-form",id= "xs-login-form" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+
+        <div class="xs-input-group-v2">
+            <i class="icon icon-envelope"></i>
+            @Html.TextBoxFor(m => m.Email, new {@class = "xs-input-control", placeholder = "Insira o email", autofocus = "autofocus", required="required"})
+            @*@Html.LabelFor(m => m.Email)*@<br/>
+            @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="xs-input-group-v2">
+            <i class="icon icon-key2"></i>
+            @Html.PasswordFor(m => m.Password, new {@class = "xs-input-control", placeholder = "Insira a senha", required = "required" })
+            @*@Html.LabelFor(m => m.Password)*@<br/>
+            @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="xs-submit-wraper xs-mb-20">
+            <input type="submit" name="submit" value="Entrar" id="xs_contact_get_action" class="btn btn-warning btn-block">
+        </div>
+
+        <p class="mt-4 mb-3 text-muted text-center">Não tens conta? @Html.ActionLink("Registre-se", "Registrar")</p>
+        <p class="mt-2 mb-3 text-muted text-center">@Html.ActionLink("Esqueci a senha", "EsqueciSenha")</p>
+
+        <p class="xs-mb-20 text-lg-center">ou</p>
+        <div class="xs-submit-wraper mb-20" style="padding-bottom: 16px;">
+            <a href="#" id="xs_login_gmail" class="btn btn-info btn-block">Entre com a tua conta do gmail</a>
+        </div>
+    }

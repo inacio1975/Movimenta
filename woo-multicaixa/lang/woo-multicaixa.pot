@@ -1,0 +1,334 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Payment Multicaixa (ProxyPay gateway) for WooCommerce\n"
+"POT-Creation-Date: 2019-04-12 12:22+0100\n"
+"PO-Revision-Date: 2018-11-19 10:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: multicaixa-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/class-multicaixa-woocommerce.php:81
+msgid "Multicaixa settings"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:158
+msgid "Multicaixa payment details"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:166
+msgid "Multicaixa"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:167
+#: includes/class-wc-multicaixa-woocommerce.php:142
+#: includes/class-wc-multicaixa-woocommerce.php:445
+#: includes/class-wc-multicaixa-woocommerce.php:564
+msgid "Entity"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:168
+#: includes/class-wc-multicaixa-woocommerce.php:449
+#: includes/class-wc-multicaixa-woocommerce.php:568
+msgid "Reference"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:169
+#: includes/class-wc-multicaixa-woocommerce.php:453
+#: includes/class-wc-multicaixa-woocommerce.php:572
+msgid "Value"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:170
+#: includes/class-wc-multicaixa-woocommerce.php:457
+#: includes/class-wc-multicaixa-woocommerce.php:576
+msgid "Validity"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:172
+#: includes/class-wc-multicaixa-woocommerce.php:609
+msgid "Awaiting Multicaixa payment."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:178
+msgid "No details available"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:178
+msgid ""
+"This must be an error because the payment method of this order is Multicaixa"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:181
+msgid "This order does not have Multicaixa as the payment gateway."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:217
+#, php-format
+msgid "It's not possible to use Multicaixa to pay values under %s Kz."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:221
+#, php-format
+msgid "It's not possible to use Multicaixa to pay values above %s Kz."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:264
+msgid "ProxyPay API error."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:269
+msgid "Entity missing"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:272
+msgid "API key missing"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:276
+msgid ""
+"Configuration error. This payment method is disabled because required "
+"information was not set."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:282
+msgid "Configuration error. This store currency is not Kwanza (Kz)."
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:418
+msgid "Commercial information"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:419
+#: includes/class-multicaixa-woocommerce.php:421
+#, php-format
+msgid "Please contact %s"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:420
+msgid "Technical support or custom WordPress/WooCommerce development"
+msgstr ""
+
+#: includes/class-multicaixa-woocommerce.php:422
+msgid "Please rate our plugin at WordPress.org"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:45
+msgid "Pagamento por Referência no Multicaixa (ProxyPay)"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:46
+msgid ""
+"Easy and simple payment using \"Pagamento por Referência\" at any "
+"\"Multicaixa\" ATM terminal or your Home Banking service. (Only available to "
+"customers of Angolan banks.)"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:136
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:138
+msgid "Enable \"Pagamento por Referência no Multicaixa\" (using ProxyPay)"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:144
+msgid "Entity provided by your bank."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:157
+msgid "API key"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:159
+msgid "The API key provided by ProxyPay."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:162
+msgid "Test mode enabled."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:164
+msgid "Live mode enabled."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:168
+msgid "Title"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:170
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:171
+#: includes/class-wc-multicaixa-woocommerce.php:178
+#: includes/class-wc-multicaixa-woocommerce.php:185
+msgid ""
+"You should translate this string in <a href=\"admin.php?page=wpml-string-"
+"translation%2Fmenu%2Fstring-translation.php\">WPML - String Translation</a> "
+"after saving the settings"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:172
+msgid "Pagamento por Referência no Multicaixa"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:175
+msgid "Description"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:177
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:182
+msgid "Extra instructions"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:184
+msgid ""
+"This controls the text which the user sees below the payment details on the "
+"\"Thank you\" page and \"New order\" email."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:186
+msgid "The receipt issued by the ATM machine is a proof of payment. Keep it."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:189
+msgid "Send instructions to admin?"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:191
+msgid "Should the payment details also be sent to admin?"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:195
+msgid "Debug Log"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:197
+msgid "Enable logging"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:200
+#, php-format
+msgid "Log plugin events in %s"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:203
+msgid "WooCommerce &gt; Status &gt; Logs"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:209
+msgid "Debug to email"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:211
+msgid "Enable email logging"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:213
+msgid "Send plugin events to this email address."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:236
+msgid "In order to use this plugin you <u>must</u>:"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:238
+#: includes/class-wc-multicaixa-woocommerce.php:287
+#, php-format
+msgid "Set WooCommerce currency to <strong>Angolan Kwanza</strong> %1$s"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:239
+#, php-format
+msgid ""
+"Sign a contract with a bank and %1$s. To know more about this service, "
+"please go to %2$s."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:240
+msgid ""
+"Fill out all the details (Entity and API key) provided by your bank and "
+"<strong>ProxyPay</strong> in the fields below."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:257
+msgid "Invalid Entity (exactly 5 numeric characters) and/or API key."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:263
+msgid ""
+"Set the Entity and API key and Save changes to set other plugin options."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:287
+msgid "ERROR!"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:287
+msgid "here"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:374
+#: includes/class-wc-multicaixa-woocommerce.php:528
+msgid "Error getting Multicaixa payment details"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:429
+#: includes/class-wc-multicaixa-woocommerce.php:558
+msgid "Payment instructions"
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:593
+msgid "Multicaixa payment received."
+msgstr ""
+
+#: includes/class-wc-multicaixa-woocommerce.php:595
+msgid "We will now process your order."
+msgstr ""
+
+#: multicaixa-woocommerce.php:78
+msgid ""
+"<strong>Payment Multicaixa (ProxyPay gateway) for WooCommerce</strong> is "
+"installed and active but <strong>WooCommerce (3.0.1 or above)</strong> is "
+"not."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Payment Multicaixa (ProxyPay gateway) for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://multicaixa-woocommerce.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin allows customers with an Angolan bank account to pay WooCommerce "
+"orders in Kwanzas using Multicaixa (Pagamentos por Referência), through "
+"ProxyPay’s payment gateway."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Webdados"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.webdados.pt"
+msgstr ""

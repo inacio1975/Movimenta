@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimenta - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css/colors.css")
+    @Styles.Render("~/Content/css/site2.css")
+    @Styles.Render("~/Content/css/dashboard.css")
+    <link rel="stylesheet" href="/Content/fontawesome/css/all.css" />
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/">MOVIMENTA</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sair</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+    <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <span data-feather="home"></span>
+                        Minha Campanha <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#basico">
+                        <span data-feather="file"></span>
+                        Basico
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#financiamento">
+                        <span data-feather="shopping-cart"></span>
+                        Financiamento
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#descricao">
+                        <span data-feather="users"></span>
+                        Descrição
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#orcamento">
+                        <span data-feather="bar-chart-2"></span>
+                        Orçamento
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cartao">
+                        <span data-feather="layers"></span>
+                        Cartão do projecto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#recompensas">
+                        <span data-feather="layers"></span>
+                        Recompensas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#perfilp">
+                        <span data-feather="layers"></span>
+                        Perfil Público
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#preview">
+                        <span data-feather="layers"></span>
+                        Pré Visualização
+                    </a>
+                </li>
+            </ul>
+           
+        </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+       @RenderBody()
+    </main>
+    </div>
+    </div>
+
+    @section scripts{
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+        @RenderSection("scripts", required: false)
+    }
+    
+</body>
+</html>
+

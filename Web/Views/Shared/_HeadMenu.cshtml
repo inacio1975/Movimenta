@@ -1,0 +1,40 @@
+﻿<!-- header version inner menu -->
+<header class="xs-header-height xs-menu-style-solid xs-menu-style-border fundpress-header-main-version color-navy-blue  v3">
+    <div class="container">
+        <nav class="xs-menus fundpress-menu">
+            <div class="nav-header">
+                <div class="nav-toggle"></div>
+                <a class="nav-brand nav-logo" href="index.html">
+                    <img src="/Content/images/logo1.png" alt="">
+                </a>
+            </div><!-- . END -->
+            <div class="nav-menus-wrapper">
+                <div class="xs-logo-wraper">
+                    <a class="nav-brand xs-logo fundpress-logo-v1" href="/">
+                        <img src="/Content/images/logo0.png" alt="">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>
+                        <a href="#">Como funciona</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Como iniciar uma campanha</a></li>
+                            <li><a href="#">Requisitos</a></li>
+                            <li><a href="#">Como financiar</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Contacte-nos","Contact","Home")</li>
+                </ul>
+                <div class="xs-navs-button">
+                    <ul class="xs-icon-with-text fundpress-icon-menu">
+                        <li class="d-block d-lg-none d-xl-block">@Html.ActionLink("Iniciar uma campanha", "Criar","Projectos",null, new {@class= "xs-btn round-btn green-btn" })</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </div>
+            </div><!-- .nav-menus-wrapper END -->
+        </nav><!-- .xs-menus .fundpress-menu END -->
+    </div>
+</header>
+<!-- header version inner menu closed -->

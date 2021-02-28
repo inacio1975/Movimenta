@@ -1,0 +1,71 @@
+﻿@model Web.Models.CriarViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Iniciar a tua campanha</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Início /</a> Iniciar Campanha</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<main class="xs-all-content-wrapper">
+
+    <section class="xs-section-padding xs-gray-bg-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 content-center">
+                    <div class="xs-section-heading fundpress-section-heading">
+                        <div class="xs-heading-title fundpress-heading-title">
+                            <h2 class="color-navy-blue">Inicia a tua campanha de crowdfunding</h2>
+                            <span class="xs-separetor dashed-separetor fundpress-separetor"></span>
+                            <p>Estamos empolgados que tenhas decidido iniciar a tua campanha de crowdfunding</p>
+                            <p>Queremos assegurar-nos de que entendas todo o ciclo da sua campanha, por isso, temos conteúdos esspecial para si.</p>
+                        </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
+                    </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
+                </div>
+            </div>
+            <div class="xs-campaign-form">
+                <div class="col-md-8 content-center">
+                    <div class="xs-contact-form-wraper">
+                        @using (Html.BeginForm("Criar","Projectos",FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="xs-input-group xs-mb-30">
+                                @Html.LabelFor(model => model.Titulo)
+                                <p>O titutlo da campanha deve ser o mais sugestivo possível, não pode ser muito largo. Poderás edita-lo até antes de que seja publicado</p>
+                                <div class="xs-input-group-addon">
+                                    <i class="fa fa-sticky-note color-orange xs-input-addon"></i>
+                                    @Html.EditorFor(model => model.Titulo, new {htmlAttributes = new {@class = "xs-input-control", placeholder = "Titutlo da Campanha", @required = "required"}})
+                                    @Html.ValidationMessageFor(model => model.Titulo, "", new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="xs-input-group xs-mb-30">
+                                        @Html.LabelFor(model => model.CampanhaSelecionada)
+
+                                        @Html.DropDownListFor(model => model.CampanhaSelecionada, Model.Campanha, new {@class = "form-control"})
+                                        @Html.ValidationMessageFor(model => model.CampanhaSelecionada, "", new {@class = "text-danger"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <a href="/" class="btn btn-danger rounded">Cancelar</a>
+                                <input type="submit" class="btn xs-submit-btn" value="Avançar">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>	<!-- End contact us section -->
+</main>
