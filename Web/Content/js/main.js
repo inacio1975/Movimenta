@@ -206,7 +206,7 @@ $(window).on('load', function() {
 	// init text parallax
 	initparallax();
 
-	// prleoader
+	// preloader
 	setTimeout(function() {
 		$("#preloader").fadeOut();
 		$('.fundpress-animate').addClass('load');
@@ -865,12 +865,12 @@ $(document).ready(function() {
 			xs_contact_submit.before().hide().fadeIn();
 			$.ajax({
 					type: "POST",
-					url: "assets/php/contact-form.php",
+					url: "/home/SendMessage",
 					data: {
-					'xs_contact_name' : xs_contact_name.val(),
-					'xs_contact_email' : xs_contact_email.val(),
-					'xs_contact_subject' : xs_contact_subject.val(),
-					'x_contact_massage' : x_contact_massage.val(),
+					'name' : xs_contact_name.val(),
+					'email' : xs_contact_email.val(),
+					'subject' : xs_contact_subject.val(),
+					'massage' : x_contact_massage.val(),
 				},
 				success: function(result){
 					xs_contact_submit.after('<span class="xpeedStudio_success_message">' + result + '</span>').hide().fadeIn();

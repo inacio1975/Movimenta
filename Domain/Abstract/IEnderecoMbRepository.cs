@@ -14,6 +14,6 @@ namespace Domain.Abstract
 
         List<EnderecoMb> GetEnderecos();
         List<EnderecoMb> GetEnderecos(string selector);
-        EnderecoMb GetEnderecos(int id);
+        EnderecoMb GetEndereco(Membro author);
     }
 }

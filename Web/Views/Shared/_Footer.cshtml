@@ -44,10 +44,10 @@
                         <nav class="xs-footer-menu">
                             <ul>
                                 <li>@Html.ActionLink("Sobre Nós","About","Home")</li>
-                                <li><a href="#">Como funciona</a></li>
-                                <li><a href="#">Serviços</a></li>
-                                <li><a href="#">Parceiros</a></li>
-                                <li><a href="news-feed.html">Blog</a></li>
+                                <li>@Html.ActionLink("Como funciona","About","Home")</li>
+                                
+                                <li><a href="/Home/#partners">Parceiros</a></li>
+                                <li><a href="http://blog.movimenta.ao">Blog</a></li>
                                 <li>@Html.ActionLink("Contácte-nos", "Contact", "Home")</li>
                             </ul>
                         </nav><!-- .xs-footer-menu .xs-block-menu END -->
@@ -60,12 +60,12 @@
                         </div><!-- .xs-footer-title END -->
                         <nav class="xs-footer-menu">
                             <ul>
-                                <li><a href="faq.html">Perguntas Frequentes</a></li>
-                                <li><a href="#">Nossas regras</a></li>
-                                <li><a href="#">Confiança e segurança</a></li>
-                                <li><a href="#">Suporte</a></li>
-                                <li><a href="#">Termos de uso</a></li>
-                                <li><a href="#">Política de privacidade</a></li>
+                                <li>@Html.ActionLink("Perguntas Frequentes", "Faq", "Support")</li>
+                                <li>@Html.ActionLink("Nossas Regras", "Rules", "Support")</li>
+                                <li><a href="/Home/#security">Confiança e segurança</a></li>
+                                <li>@Html.ActionLink("Suporte", "Index", "Support")</li>
+                                <li>@Html.ActionLink("Termos de uso", "Terms", "Support")</li>
+                                <li>@Html.ActionLink("Política de privacidade", "Privacy", "Support")</li>
                             </ul>
                         </nav><!-- .xs-footer-menu .xs-block-menu END -->
                     </div><!-- .fundpress-single-footer END -->

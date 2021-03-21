@@ -79,6 +79,39 @@ namespace Domain.Concrete
             }
         }
 
+        public List<Projecto> GetRelatedProjects(Projecto projecto)
+        {
+            using (var context = new MovimentaContext())
+            {
+                var projectos = context.Projectos.Where(p => p.MembroId == projecto.MembroId).ToList();
+                
+                return projectos;
+            }
+        }
+
+        public List<Projecto> GetPopularProjects()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var projectos = context.Projectos.ToList().OrderByDescending(p => p.GetMovimentadores().Count).ToList();
+
+
+                return projectos;
+            }
+        } 
+
+        public List<Projecto> GetProjectosWithPage(int start, int productPerPage)
+        {
+            using (var context = new MovimentaContext())
+            {
+                var projectos = context.Projectos.ToList()
+                                                 .OrderBy(p => p.ProjectoId)
+                                                 .Skip((start-1)*productPerPage)
+                                                 .Take(productPerPage).ToList();
+                return projectos;
+            }
+        }
+
         /// <summary>
         /// Localiza um Projecto pelo seu ID
         /// </summary>

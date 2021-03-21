@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -19,7 +24,82 @@ namespace Web
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+
+            
+
             return Task.FromResult(0);
+        }
+    }
+
+    public class MailMovimenta
+    {
+        private string from, subject, message;
+
+        public MailMovimenta(string from, string subject, StringBuilder message)
+        {
+            this.from = from;
+            this.subject = subject;
+            this.message = message.ToString();
+        }
+
+        public void Send()
+        {
+            try
+            {
+                using (var mail = new MailMessage())
+                {
+                    const string email = "info@movimenta.ao";
+                    const string password = "Criar2020!";
+
+                    var logInfo = new NetworkCredential(email, password);
+
+                    mail.From = new MailAddress(from);
+                    mail.To.Add(new MailAddress("info@movimenta.ao"));
+                    mail.Subject = subject;
+                    mail.Body = message;
+                    mail.IsBodyHtml = true;
+
+                    try
+                    {
+                        using (var smtpClient = new SmtpClient("mail.movimenta.ao", 25))
+                        {
+                            smtpClient.EnableSsl = true;
+                            smtpClient.UseDefaultCredentials = false;
+                            smtpClient.Credentials = logInfo;
+                            smtpClient.Send(mail);
+                        }
+                    }
+                    finally
+                    {
+                        mail.Dispose();
+                    }
+                }
+            }
+            catch (SmtpFailedRecipientsException ex)
+            {
+                foreach (var t in ex.InnerExceptions)
+                {
+                    var status = t.StatusCode;
+                    if (status == SmtpStatusCode.MailboxBusy || status == SmtpStatusCode.MailboxUnavailable)
+                    {
+                        Debug.WriteLine("O envío falhou");
+                        System.Threading.Thread.Sleep(5000);
+                        //smtpClient.Send(mail);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Falha ao mandar a mensagem a {0}", t.FailedRecipient);
+                    }
+                }
+            }
+            catch (SmtpException se)
+            {
+                Debug.WriteLine(se.ToString());
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.ToString());
+            }
         }
     }
 

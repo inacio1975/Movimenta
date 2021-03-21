@@ -11,7 +11,6 @@ namespace Domain.Entities
     public class Usuario
     {
         [Key]
-        //[DefaultValue(Guid.newG)]
         public Guid UsuarioId { get; set; }
         [Required]
         public string Email { get; set; }

@@ -12,17 +12,39 @@ namespace Domain.Concrete
     {
         public void AddEndereco(EnderecoMb enderecoMb)
         {
-            throw new NotImplementedException();
+            using (var context = new MovimentaContext())
+            {
+                context.EnderecoDosMembros.Add(enderecoMb);
+                context.SaveChanges();
+            }
         }
 
         public bool EliminEndereco(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new MovimentaContext())
+                {
+                    var address = (from endereco in context.EnderecoDosMembros
+                        where endereco.EnderecoId == id
+                        select endereco).Single();
+                    context.EnderecoDosMembros.Remove(address);
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<EnderecoMb> GetEnderecos()
         {
-            throw new NotImplementedException();
+            using (var context = new MovimentaContext())
+            {
+                return context.EnderecoDosMembros.ToList();
+            }
         }
 
         public List<EnderecoMb> GetEnderecos(string selector)
@@ -30,9 +52,15 @@ namespace Domain.Concrete
             throw new NotImplementedException();
         }
 
-        public EnderecoMb GetEnderecos(int id)
+        public EnderecoMb GetEndereco(Membro author)
         {
-            throw new NotImplementedException();
+            using (var context = new MovimentaContext())
+            {
+                var address = (from endereco in context.EnderecoDosMembros
+                    where endereco.MembroId == author.MembroId
+                    select endereco).SingleOrDefault();
+                return address;
+            }
         }
     }
 }

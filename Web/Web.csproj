@@ -198,11 +198,13 @@
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagamentosController.cs" />
     <Compile Include="Controllers\ProjectosController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,6 +220,7 @@
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MailViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PagamentosViewModel.cs" />
     <Compile Include="Models\ProjectoViewModel.cs" />
@@ -229,6 +232,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\back_other_bg1.jpg" />
     <Content Include="Content\img\Ativo 15.svg" />
     <Content Include="Content\img\avatar_1.jpg" />
     <Content Include="Content\img\avatar_2.jpg" />
@@ -272,8 +276,8 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\criar.pubxml" />
     <None Include="Properties\PublishProfiles\CriarFtp.pubxml" />
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -352,6 +356,12 @@
     <Content Include="Views\Dashboard\Seguranca.cshtml" />
     <Content Include="Views\Dashboard\Categorias.cshtml" />
     <Content Include="Views\Dashboard\Eventos.cshtml" />
+    <Content Include="Views\Support\Faq.cshtml" />
+    <Content Include="Views\Support\Terms.cshtml" />
+    <Content Include="Views\Support\Rules.cshtml" />
+    <None Include="Web.Default Settings %283%29.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,6 +369,7 @@
     <Folder Include="Content\sass\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Categorias\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\Eventos\" />
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,36 @@ function docReady(fn) {
     }
 }
 
+const fotoPerfil = document.getElementById('navbarDropdown');
+if(fotoPerfil){
+fotoPerfil.addEventListener('click', () => {
+    const userOptions = document.getElementById('user-options');
+    if (userOptions.style.display === '' || userOptions.style.display === 'none')
+        userOptions.style.display = 'block';
+    else {
+        userOptions.style.display = 'none';
+    }
+});
+}
+
+const projMenu = document.querySelectorAll('#v-pills-tab .nav-item');
+const tabs = document.querySelectorAll('#v-pills-tabContent .tab-pane');
+projMenu.forEach((item, index) => {
+    //item.classList.remove('active');
+       
+    item.addEventListener('click', () => {
+        projMenu.forEach((element) => {
+            element.getElementsByTagName('a')[0].classList.remove('active');
+        });
+        item.getElementsByTagName('a')[0].classList.add('active');
+
+        tabs.forEach((tab) => {
+            tab.classList.remove('active');
+        });
+        tabs[index].classList.add('active');
+    });
+});
+
 const btnEditarCategoria = document.querySelectorAll(".editarcategoria");
 btnEditarCategoria.forEach(function (btn) {
     btn.addEventListener("click", () => {
@@ -68,3 +98,4 @@ function correctDate(d) {
     let m = d.match(/\/Date\((\d+)\)\//);
     return m ? (new Date(m[1])).toLocaleDateString("MM/dd/yyyy") : d;
 }
+

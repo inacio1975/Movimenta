@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Domain.Concrete;
 using Domain.Entities;
 
 namespace Web.Models
@@ -143,7 +145,15 @@ namespace Web.Models
         public Membro Autor { get; set; }
 
         public IEnumerable<Recompensa> Recompensas { get; set; } 
-        public IEnumerable<Projecto> Projectos { get; set; } 
+        public IEnumerable<Projecto> Projectos { get; set; }
+
+
+        public string GetAuthorAddress()
+        {
+            var endereco = new EnderecoMbRepository().GetEndereco(Autor);
+
+            return endereco?.ToString() ?? "Enderço não definido";
+        }
     }
 
     public class RecompensaViewModel
@@ -178,6 +188,26 @@ namespace Web.Models
         public string Data { get; set; }
         public string Foto { get; set; }
         public  string Comentario { get; set; }
+    }
+
+    public class CampanhaViewModel
+    {
+        public List<Projecto> Projectos { get; set; }
+        public Paginator paginator { get; set; }
+
+        public class Paginator
+        {
+            public int start { get; }
+            public double pages { get; }
+
+            private static int PROJECTPERPAGE = 6;
+
+            public Paginator(int page, List<Projecto> projectos)
+            {
+                start = page;
+                pages = Math.Ceiling(projectos.Count * 1.0 / PROJECTPERPAGE);
+            }
+        } 
     }
 
 

@@ -1,6 +1,6 @@
 ﻿@model Web.Models.HomeViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Plataforma de Crowfunding";
 }
 
 <!-- welcome section -->
@@ -121,7 +121,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-lg-6 xs-padding-0">
-                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/back_other_bg.jpg)">
+                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/back_other_bg1.jpeg)">
                     <div class="fundpress-product-hover-content-v2">
                         <div class="fundpress-sub-title">
                             <h2>Financia projectos</h2>
@@ -191,7 +191,9 @@
             <div class="col-lg-4">
                 <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
                     <div class="fundpress-item-header">
-                        <a href="@("/Projectos/Detalhe/" + @campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                        @if (!campanha.Foto.IsEmpty()) { 
+                            <a href="@("/Projectos/Detalhe/" + campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                        }
                         <div class="xs-item-header-content">
                             <div class="xs-skill-bar">
                                 <div class="xs-skill-track">
@@ -240,7 +242,7 @@
 </div>
 </section><!-- End cause matters -->
 <!-- square service -->
-<section class="xs-navy-blue-bg fundpress-square-service-section v3">
+<section class="xs-navy-blue-bg fundpress-square-service-section v3" id="security">
     <div class="container">
         <div class="fundpress-section-heading fundpress-heading-title fundpress-heading-title-v2 content-left">
             <h2 class="color-white">Pedir dinheiro é difícil. A Movimenta torna-o fácil. </h2>
@@ -300,12 +302,15 @@
     </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
 </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
 <div class="row">
-@foreach (var campanha in Model.Projectos)
+@foreach (var campanha in Model.CampanhasPopulares)
 {
     <div class="col-lg-4">
         <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
             <div class="fundpress-item-header">
-                <a href="@("/Projectos/Detalhe/" + @campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                @if (!campanha.Foto.IsEmpty())
+                {
+                    <a href="@("/Projectos/Detalhe/" + campanha.ProjectoId)"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                }
                 <div class="xs-item-header-content">
                     <div class="xs-skill-bar">
                         <div class="xs-skill-track">
@@ -556,7 +561,7 @@
 <!-- sponsor section -->
 <section class="xs-bg xs-section-padding fundpress-sponsor-section" style="background-image: url(/Content/images/background/sponsor_section_bg.jpg);">
     <div class="xs-solid-overlay xs-bg-white"></div>
-    <div class="container fundpress-partners-wraper">
+    <div class="container fundpress-partners-wraper" id="partners">
         <div class="fundpress-heading-title">
             <h2 class="color-navy-blue xs-mb-0">Nossos pareciros e colaboradores</h2>
         </div><!-- .xs-heading-title .fundpress-heading-title END -->

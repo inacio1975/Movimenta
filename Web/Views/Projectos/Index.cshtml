@@ -1,7 +1,98 @@
-﻿@model IEnumerable<Domain.Entities.Projecto>
+﻿@using System.Diagnostics
+@model Web.Models.CampanhaViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Campanhas";
 }
 
-<h2>Index</h2>
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/discover_bg.jpg">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">Todas as capanhas</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/" class="color-white"> Início /</a>  Capmanhas</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->
+<main class="xs-all-content-wrapper">
+    <!-- in progress explore section -->
+    <section class="waypoint-tigger xs-content-section-padding">
+        <div class="container">
+            <div class="xs-isotope-grid-wraper xs-mb-40">
+                <div class="xs-isotope-nav fundpress-isotope-nav">
+                    <ul id="filters" class="option-set clearfix">
+                        <li><a href="#" class="selected">All</a></li>
+                        <li><a href="#"> Comics</a></li>
+                        <li><a href="#"> Crafts</a></li>
+                        <li><a href="#"> Dance</a></li>
+                        <li><a href="#"> Design</a></li>
+                        <li><a href="#"> Fashion</a></li>
+                        <li><a href="#"> Food</a></li>
+                        <li><a href="#"> Games</a></li>
+                        <li><a href="#"> video">Film & Video</a></li>
+                        <li><a href="#"> lism">Journalism</a></li>
+                        <li><a href="#"> Music</a></li>
+                    </ul>
+                </div><!-- .xs-isotope-nav .fundpress-isotope-nav END -->
+                <div class="xs-col-3-isotope-grid">
+    @foreach (var campanha in Model.Projectos)
+    {
+        <div class="xs-col-3-isotope-grid-item comics crafts">
+            <div class="fundpress-grid-item-content xs-mb-30">
+                <div class="xs-item-header fundpress-item-header">
+                    <img src="/Content/images/product/@campanha.Foto" alt="">
+                    <div class="xs-item-header-content">
+                        <div class="xs-skill-bar">
+                            <div class="xs-skill-track">
+                                <p>
+                                    <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3500">0</span>%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .xs-item-header .fundpress-item-header END -->
+                <div class="xs-item-content fundpress-item-content">
+                    <ul class="xs-simple-tag fundpress-simple-tag">
+                        @foreach (var tag in campanha.GetKeywords())
+                        {
+                            <li><a href="#">@tag</a></li>
+                        }
+                    </ul>
+                    <a href="#" class="xs-post-title color-navy-blue fundpress-post-title">@campanha.Descricao</a>
+                    <ul class="xs-list-with-content fundpress-list-item-content">
+                        <li>@campanha.Arrecadado AOA<span> Levantado</span></li>
+                        <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3500">0</span>% <span>Funded</span></li>
+                        <li>@campanha.DiasRestantes()<span> Restantes</span></li>
+                    </ul>
+            </div><!-- .xs-item-content .fundpress-item-content END -->
+            </div></div>
+                }
+                
+            </div><!-- .xs-col-3-isotope-grid END -->
+        </div>
+            <div class="xs-pagination-wraper text-center">
+                <ul class="xs-pagination fundpress-pagination">
+
+                    <li><a href="/projectos/?page=@(Model.paginator.start - 1)"><i class="fa fa-angle-left"></i></a></li>
+                    @for (var i = 1; i <= Model.paginator.pages; i++)
+                    {
+                        if (i == 1)
+                        {
+                            <li>@Html.ActionLink(i.ToString(), "Index", "Projectos", new {@page = i}, new {@class = "current"})</li>
+                            continue;
+                        }
+                        <li>@Html.ActionLink(i.ToString(), "Index", "Projectos", new { @page = i }, null)</li>
+                    }
+
+                    <li><a href="/projectos/?page=@(Model.paginator.start + 1)"><i class="fa fa-angle-right"></i></a></li>
+
+                </ul>
+            </div>
+            </div>
+    </section> <!-- End in progress explore section -->
+</main>

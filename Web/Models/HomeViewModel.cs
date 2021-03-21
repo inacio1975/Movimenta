@@ -10,6 +10,7 @@ namespace Web.Models
         public Membro Membro;
 
         public IEnumerable<Projecto> Projectos { get; set; }
+        public IEnumerable<Projecto> CampanhasPopulares { get; set; } 
         public List<Sucesso> Sucessos { get; set; }
         public List<Categoria> Categorias { get; set; } 
     }

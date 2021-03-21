@@ -1,4 +1,5 @@
 ﻿@model Web.Models.DetalheViewModel
+
 @{
     ViewBag.Title = "Detalhe";
 }
@@ -33,7 +34,7 @@
 <div class="xs-sync-slider-wraper xs-mb-50">
     <div class="owl-carousel xs-sync-slider-preview xs-mb-10">
         <div class="xs-sync-slider-preview-content">
-            <img src="/Content/images/campaigns/@Model.FotoUrl" alt="">
+            <img src="/Content/images/campaigns/@Model.FotoUrl" alt="" id="campanha_image">
         </div>
         <div class="xs-sync-slider-preview-content">
             @if (!Model.Video.IsEmpty())
@@ -51,10 +52,10 @@
     </div>
     <div class="owl-carousel xs-sync-slider-thumb">
         <div class="xs-sync-slider-thumb-content">
-            <img src="@Model.FotoUrl" alt="">
+            <img src="/Content/images/campaigns/@Model.FotoUrl" alt="">
         </div>
         <div class="xs-sync-slider-thumb-content">
-            <img src="@Model.FotoUrl" alt="">
+            <img src="/Content/images/campaigns/@Model.FotoUrl" alt="">
         </div>
     </div>
 </div><!-- xs-sync-slider-wraper -->
@@ -293,14 +294,23 @@
                 <div class="xs-social-list-wraper">
                     <ul class="xs-social-list xs-social-list-v3 fundpress-social-list">
                         <li>
-                            <a href="@("#" + Model.LinkFb)" id="facebook_sharer" class="color-facebook xs-box-shadow full-round" target="_blank">
+                            @*<a href="@("#" + Model.LinkFb)" id="facebook_sharer" class="color-facebook xs-box-shadow full-round" target="_blank">
                                 <i class="fa fa-facebook"></i>
-                            </a>
+                            </a>*@
+                            <!-- Your share button code -->
+                            <div class="fb-share-button" id="facebook_sharer1"
+                                 data-href="https://www.your-domain.com/your-page.html"
+                                 data-size="large"
+                                 data-layout="button_count">
+                            </div>
                         </li>
+
                         <li>
-                            <a href="@("#" + Model.LinkTt)" id="twitter_sharer" class="xs-box-shadow color-twitter full-round" target="_blank">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Olá!! Dê uma olhada nessa campanha na movimenta" data-hashtags="#movimenta #movimentaagola #crowdfunding" data-dnt="true" data-show-count="true">Tweet</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            @*<a href="@("#" + Model.LinkTt)" id="twitter_sharer" class="xs-box-shadow color-twitter full-round" target="_blank">
                                 <i class="fa fa-twitter"></i>
-                            </a>
+                            </a>*@
                         </li>
                     </ul>
                 </div>
@@ -318,7 +328,7 @@
                         <li class="xs-mb-0">
                             <p class="xs-content-description fundpress-content-description">
                                 <i class="fa fa-map-marker color-orange"></i>
-                                @Model.Autor.ToString()
+                                @Model.GetAuthorAddress();
                             </p>
                         </li>
                     </ul>
@@ -370,9 +380,13 @@
                 <a href="#" class="xs-btn round-btn navy-blue-btn">Todos os projectos</a>
             </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
         </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-        <div class="row">
+        @*<div class="row">
             @foreach (var campanha in Model.Projectos)
             {
+                if (campanha == null)
+                {
+                    continue;
+                }
                 <div class="col-lg-4">
                     <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
                         <div class="fundpress-item-header">
@@ -418,21 +432,32 @@
                     </div>
                 </div>
             }
-        </div>
+        </div>*@
     </div>
 </section> <!-- End popular campaigns -->
 </main>
 
 <script>
     docReady(() => {
-        document.getElementById('facebook_sharer').href = "https://www.facebook.com/sharer/share.php?u=" + encodeURIComponent(window.location.href);
+        var url = window.location.href;
+        var imagePath = document.getElementById('campanha_image').src;
+        url = url.replace('localhost:51496', 'movimenta.ao');
+        imagePath = imagePath.replace('localhost:51496', 'movimenta.ao');
 
-        var url = encodeURIComponent(window.location.href);
-        var titutlo = encodeURIComponent('Movimenta - ' + document.getElementById('campanha_title').innerText);
-        //var via = encodeURIComponent("movimenta.ao"); //Nome da conta movimenta no twitter
+        $('head').append('<meta property="og:url"         content="'+ url +'" />');
+        $('head').append('<meta property="og:type"        content="website" />');
+        $('head').append('<meta property="og:title"       content="' + document.getElementById('campanha_title').innerText + '" />');
+        $('head').append('<meta property="og:description" content="Apoie a minha campanha na Movimenta" />');
+        $('head').append('<meta property="og:image"       content="' + imagePath + '" />');
 
-        document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo;
-        //com a pagina da movimenta
-        //document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo + "&via=" + via;
+        //document.getElementById('facebook_sharer').href = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+        document.getElementById('facebook_sharer1').setAttribute('data-href',url);
+        ////var url = encodeURIComponent(window.location.href);
+        //var titutlo = encodeURIComponent('Movimenta - ' + document.getElementById('campanha_title').innerText);
+        ////var via = encodeURIComponent("movimenta.ao"); //Nome da conta movimenta no twitter
+
+        //document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo;
+        ////com a pagina da movimenta
+        ////document.getElementById('twitter_sharer').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + titutlo + "&via=" + via;
     });
 </script>

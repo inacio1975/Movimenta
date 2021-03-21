@@ -540,7 +540,7 @@ ul, li {
         .xs-skill-bar-v3 .xs-skill-track p {
             position: absolute;
             right: 0;
-            background-color: #4CC899;
+            background-color: #E78300;
             width: 40px;
             height: 40px;
             font-size: 0.85714em;
@@ -4026,7 +4026,7 @@ ul, li {
     }
 
         .fundpress-simple-tag li a {
-            color: #42B992;
+            color: #E78300;
             font-size: 0.85714em;
         }
 

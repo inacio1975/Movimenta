@@ -33,6 +33,7 @@ namespace Web.Controllers
             }
             catch (NullReferenceException e)
             {
+                System.Console.WriteLine(e.Message);
             }
         }
 
@@ -47,11 +48,19 @@ namespace Web.Controllers
         }
 
         // GET: Projectos
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            //var projectos = db.Projectos.Include(p => p.Criador);
-            var projectos = projectoRepository.GetProjectos().ToList();
-            return View(projectos);
+            var intpage = 1;
+            if (page != null) intpage = page.Value;
+
+            Debug.WriteLine("page: " + intpage);
+            var projectos = projectoRepository.GetProjectosWithPage(intpage, 6).ToList();
+            var model = new CampanhaViewModel
+            {
+                Projectos = projectos,
+                paginator = new CampanhaViewModel.Paginator(intpage, projectoRepository.GetProjectos())
+            };
+            return View(model);
         }
 
         // GET: Projectos/Detalhe/5
@@ -88,13 +97,11 @@ namespace Web.Controllers
                 Movimentadores = db.Movimentadores.Where(mov => mov.ProjectoId == projecto.ProjectoId),
                 Recompensas = db.Recompensas.Where(rec => rec.ProjectoId == projecto.ProjectoId),
                 Autor = db.Membros.Find(projecto.MembroId),
-                Projectos = db.Projectos.ToList().Take(3)
+                Projectos = new MovimentaContext().Projectos.Take(3)
             };
-
+            model.Projectos = new MovimentaContext().Projectos.ToList().Take(3);
             Debug.WriteLine("Debug detalhe: " + model.Projectos.Count());
-
-
-
+            
             return View(model);
         }
 
