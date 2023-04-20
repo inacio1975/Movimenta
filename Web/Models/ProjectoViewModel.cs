@@ -24,6 +24,8 @@ namespace Web.Models
 
     public class EditarViewModel
     {
+        public int ProjectoId { get; set; }
+
         [DisplayName("Titulo")]
         public string Titulo { get; set; }
 
@@ -145,7 +147,7 @@ namespace Web.Models
         public Membro Autor { get; set; }
 
         public IEnumerable<Recompensa> Recompensas { get; set; } 
-        public IEnumerable<Projecto> Projectos { get; set; }
+        public List<Projecto> Projectos { get; set; }
 
 
         public string GetAuthorAddress()

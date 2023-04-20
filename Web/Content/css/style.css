@@ -4431,7 +4431,7 @@ ul, li {
 
     .fundpress-footer-bottom .fundpress-copyright-text p {
         font-size: 1em;
-        text-transform: capitalize;
+        /*text-transform: capitalize;*/
         color: #99B1E8;
         text-align: center;
     }
@@ -6052,6 +6052,7 @@ ul, li {
 .custom-file {
     width: 100%;
     height: 47px;
+    position: relative;
 }
 
 .custom-file-input {

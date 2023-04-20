@@ -10,7 +10,7 @@ using Domain.Concrete;
 
 namespace Domain.Entities
 {
-    public enum Estado { Rascunho, Analise, Aprovado, Publicado}
+    public enum Estado { Rascunho, Analise, Aprovado, Publicado,Terminado, Completado ,Ocultado}
 
     public class Projecto
     {

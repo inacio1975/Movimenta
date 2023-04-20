@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Sobre Nós";
 }
 
 <!-- welcome section -->
@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-12 col-sm-12 col-lg-6">
                     <div class="xs-text-content fundpress-text-content">
-                        <p>Juntar dinheiro e apoiar uma causa nunca foi tão fácil. Só queremos que você tenha pensamento do tipo: “Melhor lugar para levantar fundos online para as suas causas favoritas.” Se ainda não sabes como é fácil levantar financiamento para seus projectos e/ começar uma campanha de caridade, por favor visite a página <a href="#" class="color-orange">Como funciona</a> ou @Html.ActionLink("Contácte-nos", "Contact", "Home", new {@class = "color-orange"})</p>
+                        <p>Juntar dinheiro e apoiar uma causa nunca foi tão fácil. Só queremos que você tenha pensamento do tipo: “Melhor lugar para levantar fundos online para as suas causas favoritas.” Se ainda não sabes como é fácil levantar financiamento para seus projectos e/ começar uma campanha de caridade, por favor visite a página <a href="#" class="color-orange">Como funciona</a> ou @Html.ActionLink("Contácte-nos", "Contact", "Home", null, new {@class = "color-orange"})</p>
                                         </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                             <li><i class="fa fa-check color-orange"></i>Suporte imediato</li>
                         </ul>
                         <p>Graças ao árduo trabalho dessa equipe, o caminho áspero ja foi trilhado. Agora te resta desfrutar e contribuir a alavancar a economia na tua localidade</p>
-                        <a href="#" class="xs-btn round-btn orange-btn">Iniciar uma Campanha</a>
+                        @Html.ActionLink("Iniciar uma campanha", "Criar", "Projectos", null, new { @class = "xs-btn round-btn orange-btn" })
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                             <h2 class="color-navy-blue">Tornar as campanhas de Crowdfundig mais fáceis e divertidas do que nunca</h2>
                         </div>
                         <p>Criamos a Movimenta para ajudar com que projectos criativos ganhem vida. Medimos o nosso sucesso como empresa em como cumpimos a noss missão, não pelo tamanho das nossas rendas. Por isso que além das campanhas de recompensas também habilitamos as campanhas de doação.</p>
-                        <a href="#" class="xs-btn round-btn orange-btn">Iniciar uma campanha</a>
+                        @Html.ActionLink("Iniciar uma campanha","Criar","Projectos",null, new {@class= "xs-btn round-btn orange-btn" })
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
@@ -163,7 +163,7 @@
                     <p>A equipe por detras do trablho que desenvolvemos</p>
                 </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
                 <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                    @Html.ActionLink("Conhecer a Equipe","Equipe","Home",new {@class= "xs-btn round-btn orange-btn" })
+                    @Html.ActionLink("Conhecer a Equipe","Equipe","Home",null, new {@class= "xs-btn round-btn orange-btn" })
                 </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
             </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
         </div>

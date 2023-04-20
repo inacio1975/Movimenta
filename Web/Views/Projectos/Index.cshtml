@@ -26,17 +26,11 @@
             <div class="xs-isotope-grid-wraper xs-mb-40">
                 <div class="xs-isotope-nav fundpress-isotope-nav">
                     <ul id="filters" class="option-set clearfix">
-                        <li><a href="#" class="selected">All</a></li>
-                        <li><a href="#"> Comics</a></li>
-                        <li><a href="#"> Crafts</a></li>
-                        <li><a href="#"> Dance</a></li>
-                        <li><a href="#"> Design</a></li>
-                        <li><a href="#"> Fashion</a></li>
-                        <li><a href="#"> Food</a></li>
-                        <li><a href="#"> Games</a></li>
-                        <li><a href="#"> video">Film & Video</a></li>
-                        <li><a href="#"> lism">Journalism</a></li>
-                        <li><a href="#"> Music</a></li>
+                        <li><a href="#" class="selected">Activos</a></li>
+                        <li><a href="#"> Completados</a></li>
+                        <li><a href="#"> Por terminar</a></li>
+                        <li><a href="#"> Tecnologia</a></li>
+              
                     </ul>
                 </div><!-- .xs-isotope-nav .fundpress-isotope-nav END -->
                 <div class="xs-col-3-isotope-grid">
@@ -45,7 +39,7 @@
         <div class="xs-col-3-isotope-grid-item comics crafts">
             <div class="fundpress-grid-item-content xs-mb-30">
                 <div class="xs-item-header fundpress-item-header">
-                    <img src="/Content/images/product/@campanha.Foto" alt="">
+                    <a href="/projectos/detalhe/@campanha.ProjectoId"><img src="/Content/images/product/@campanha.Foto" alt=""></a>
                     <div class="xs-item-header-content">
                         <div class="xs-skill-bar">
                             <div class="xs-skill-track">
@@ -63,7 +57,7 @@
                             <li><a href="#">@tag</a></li>
                         }
                     </ul>
-                    <a href="#" class="xs-post-title color-navy-blue fundpress-post-title">@campanha.Descricao</a>
+                    <a href="/projectos/detalhe/@campanha.ProjectoId" class="xs-post-title color-navy-blue fundpress-post-title">@campanha.Titulo</a>
                     <ul class="xs-list-with-content fundpress-list-item-content">
                         <li>@campanha.Arrecadado AOA<span> Levantado</span></li>
                         <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3500">0</span>% <span>Funded</span></li>

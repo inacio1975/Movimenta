@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Domain.Concrete;
 using Domain.Entities;
 
 namespace Web.Models
@@ -17,7 +18,18 @@ namespace Web.Models
         public int ProjectoId { get; set; }
         public Projecto Projecto { get; set; }
 
+        public IEnumerable<MetodoPagamentoViewHelp> MetodosPagamentos { get; set; } 
+
         public IEnumerable<Recompensa> Recompensas { get; set; }
+    }
+
+    public enum MetodosPagamentos { Transferencias = 1,Ekawanza,Aki}
+
+    public class MetodoPagamentoViewModel
+    {
+        public int PagamentoId { get; set; }
+        public string Descricao { get; set; }
+        public string Foto { get; set; }
     }
 
     public class DetalhePagamentoViewModel

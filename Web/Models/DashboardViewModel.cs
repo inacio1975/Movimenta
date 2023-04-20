@@ -49,4 +49,10 @@ namespace Web.Models
         public string Local { get; set; }
         public DateTime Data { get; set; }
     }
+
+    public class ProjectoViewModel
+    {
+        public int ProjectoId { get; set; }
+        public string Titulo { get; set; }
+    }
 }

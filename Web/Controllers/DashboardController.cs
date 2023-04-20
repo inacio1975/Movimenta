@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Abstract;
@@ -16,7 +17,7 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "adm")]
     public class DashboardController : Controller
     {
         private readonly MovimentaContext db = new MovimentaContext();
@@ -46,6 +47,44 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        //GET: Dashboard
+        public ActionResult Projectos()
+        {
+            var projectRepository = new ProjectoRepository();
+            var projectos = projectRepository.ListaProjectosGestao();
+            var model = projectos.Select(projecto => new ProjectosCriadosViewModel
+            {
+                Id = projecto.ProjectoId,
+                Titulo = projecto.Titulo,
+                Autor = db.Membros.Find(projecto.MembroId).Nome,
+                Estado = projecto.Estado,
+                Arrecadado = projecto.Arrecadado,
+                Meta = projecto.Meta,
+                DiasRestantes = (projecto.DataFim - DateTime.Now)?.Days ?? 0
+            }).ToList();
+            return View(model);
+        }
+
+        public ActionResult DetalheProjecto(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+            var model = new ProjectoViewModel
+            {
+                ProjectoId = projecto.ProjectoId,
+                Titulo = projecto.Titulo
+            };
+            return View(model);
         }
 
         // GET: Dashboard
@@ -163,6 +202,102 @@ namespace Web.Controllers
             
                 eventoRepository.Eliminar(idevento.Value);
             return RedirectToAction("Eventos");
+        }
+
+        public ActionResult OcultarCampanha(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+            if (projecto.Estado != Estado.Publicado) return View();
+            projecto.Estado = Estado.Ocultado;
+            db.Entry(projecto).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Projectos");
+        }
+
+       
+
+        public ActionResult PublicarCampanha(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (projecto.Estado != Estado.Analise) return View();
+            projecto.DataInicio = DateTime.Now;
+            projecto.DataFim = projecto.DataInicio.Value.Add(new TimeSpan(projecto.Duracao.Value,0,0,0));
+            projecto.Estado = Estado.Publicado;
+            db.Entry(projecto).State = EntityState.Modified;
+            db.SaveChanges();
+            var email = db.Membros.Find(projecto.MembroId).Nome;
+            var msg = new StringBuilder();
+            msg.Append("Caro " + db.Membros.Find(projecto.MembroId) + ", \n");
+            msg.Append("Somos de informar que a sua campanha foi ocultada da lista das campanhas da nossa plataforma.\n");
+            msg.Append("\nPara mais informações, por favor, contacte à nossa equipe respondendo a este email\n");
+            msg.Append("Atenciosamente, \n");
+            msg.Append("A equipe Movimenta\n");
+            var mail = new MailMovimenta(email,"Actualização de estado",msg);
+            mail.Send();
+
+            return RedirectToAction("Projectos");
+        }
+
+        public ActionResult TornarVisivel(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (projecto.Estado != Estado.Ocultado) return RedirectToAction("Projectos");
+           
+            projecto.Estado = Estado.Publicado;
+            db.Entry(projecto).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Projectos");
+        }
+
+        public ActionResult DevolverCampanha(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (projecto.Estado != Estado.Analise) return RedirectToAction("Projectos");
+            projecto.Estado = Estado.Rascunho;
+            db.Entry(projecto).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Projectos");
         }
     }
 }

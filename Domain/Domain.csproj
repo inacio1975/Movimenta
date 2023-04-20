@@ -111,6 +111,7 @@
     <Compile Include="Concrete\MunicipioRepository.cs" />
     <Compile Include="Concrete\NovidadeRepository.cs" />
     <Compile Include="Concrete\PaisRepository.cs" />
+    <Compile Include="Concrete\PartnersViewHelp.cs" />
     <Compile Include="Concrete\ProjectoRepository.cs" />
     <Compile Include="Concrete\ProvinciaRepository.cs" />
     <Compile Include="Concrete\StartupRepository.cs" />

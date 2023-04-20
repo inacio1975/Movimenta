@@ -1,5 +1,4 @@
-﻿@using System.Web.UI.WebControls
-@using Domain.Entities
+﻿@using Domain.Entities
 @model Web.Models.EditarViewModel
 @{
     ViewBag.Title = "Editar";
@@ -67,7 +66,7 @@
     </div>
 </div>
 <div class="tab-pane slideUp xs-dashboard xs-add-to-chart-form" id="editor" role="tabpanel">
-    @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign", enctype="multipart/form-data"}))
+    @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign", enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary()
@@ -81,7 +80,7 @@
 
         <div class="form-group">
             <h4 class="h4">Descrição curta</h4>
-            @Html.TextBoxFor(model => model.Descricao,new {@class = "form-control form-control-sm"})
+            @Html.TextBoxFor(model => model.Descricao, new {@class = "form-control form-control-sm"})
             <small class="form-text">
                 Sabe, voçê conhece seu projecto mais do que ninguém. Tente transmitir a sua paixão. É importante apresentar a forma como o dinheiro será usado, quais as pessoas por trás do mesmo e os prazos do mesmo. Quanto mais transparentes fores mais apoiadores atrairás.
                 Lembre sempre, estamos te dando a oportunidade de fazer com que pessoas decidam apoiar o seu projecto. Seja criativo!
@@ -123,7 +122,7 @@
         <div class="form-group">
             <h4 class="h4">Imagem da campanha</h4>
             <div class="custom-file">
-                <input type="file" class="custom-file-input" name="ficherofoto" id="ficherofoto" acept="image/*" />
+                <input type="file" class="custom-file-input" name="ficherofoto" id="ficherofoto" acept="image/*"/>
                 <label class="custom-file-label" for="ficherofoto"></label>
                 <span class="file-name"></span>
                 <small class="form-text">
@@ -133,7 +132,7 @@
         </div>
         <div class="form-group">
             <h4 class="h4">Video</h4>
-            @Html.TextBoxFor(model => model.Video, new {type="url", @class= "form-control", placeholder="http://" })
+            @Html.TextBoxFor(model => model.Video, new {type = "url", @class = "form-control", placeholder = "http://"})
             @*<input type="url" class="form-control" id="campaign_video" placeholder="http://">*@
             <small class="form-text">Coloque aqui o video da sua campanha</small>
         </div>
@@ -166,11 +165,11 @@
         </div>
         <div class="form-group">
             <h4 class="h4">Objectivo do fundo</h4>
-            @Html.EditorFor(model => model.Objectivofundo, new { htmlAttributes = new { @class = "form-control form-control-sm", rows = "2" } })
+            @Html.EditorFor(model => model.Objectivofundo, new {htmlAttributes = new {@class = "form-control form-control-sm", rows = "2"}})
             <small class="form-text">
                 Tente dizer como o dinheiro será usado. Mostre transparências às pessoas
             </small>
-            @Html.ValidationMessageFor(model => model.Objectivofundo, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Objectivofundo, "", new {@class = "text-danger"})
         </div>
         <div class="xs-campaing-from-submit-wraper">
             <hr>
@@ -244,7 +243,7 @@
                 <div class="xs-dashboard-header">
                     <h3 class="dashboard-title">@recompensa.Item</h3>
                     <div class="xs-btn-wraper">
-                        @Html.ActionLink("Eliminar", "EliminarRecompensa", "Projectos", new { id = recompensa.Id }, new { @class = "btn btn-outline-success" })
+                        @Html.ActionLink("Eliminar", "EliminarRecompensa", "Projectos", new {id = recompensa.Id}, new {@class = "btn btn-outline-success"})
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -275,8 +274,8 @@
                 </div>
             </div>
         </div>
-            <!-- info cards -->
-            <hr>
+        <!-- info cards -->
+        <hr>
     }
     @using (Html.BeginForm("Editar", "Projectos", FormMethod.Post, new {@class = "xs-campaign"}))
     {
@@ -313,7 +312,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4 class="h4">Data de entrega estimada</h4>
-                            @Html.TextBoxFor(model => model.PrazoEntregaEstimado, new {@type = "Date", @class= "form-control" })
+                            @Html.TextBoxFor(model => model.PrazoEntregaEstimado, new {@type = "Date", @class = "form-control"})
                             <small class="form-text">Dê uma estimativa de quando é que entregarás a recompensa</small>
                         </div>
                     </div>
@@ -331,7 +330,7 @@
                 </div>
                 <div class="form-group">
                     <h4 class="h4">Local de Entrega</h4>
-                    @Html.TextBoxFor(model => model.LugarEntrega, new { @class = "form-control form-control-sm" })
+                    @Html.TextBoxFor(model => model.LugarEntrega, new {@class = "form-control form-control-sm"})
                     <small class="form-text">Onde é que se efectuará a entrega da recompensa</small>
                 </div>
             </div>
@@ -350,21 +349,14 @@
         <div class="col-md-12 col-sm-12 col-lg-7">
             <div class="xs-sync-slider-wraper xs-mb-50">
                 <div class="xs-sync-slider-preview-content">
-                    <img src="/Content/images/product/product_1.jpg" alt="">
+                    <img src="/Content/images/campaigns/@Model.Foto" alt="">
                 </div>
             </div><!-- xs-sync-slider-wraper -->
-            <h5 class="color-navy-blue xs-mb-30">We are a group of 41 leaders from Ascension Leadership Academy. As a team we are committed to creating a world of Freedom, Love, and Transformation.</h5>
+            <h5 class="color-navy-blue xs-mb-30">@Model.Descricao</h5>
             <p class="xs-content-description fundpress-content-description xs-mb-30">
-                Why I am supporting Safelight's cause... It took me a long time to admit outloud that I had been in an abusive relationship for roughly the last year an d half of my college career. I studied domestic violence/interpersonal <span class="color-navy-blue">partner violence during that time</span>, but continued to do what many people trapped in those relationships do...
+                @Html.Raw(Model.Sobre)
             </p>
-            <p class="xs-content-description fundpress-content-description xs-mb-30">I"is it worth it?", "do you really think that's what love is?", and yes, even when said "you study this stuff, you know what this is, why do you let yourself go through this?"</p>
-            <h3 class="bold color-green xs-post-title fundpress-post-title xs-mb-30">Our Mission:</h3>
-            <p class="xs-content-description fundpress-content-description xs-mb-30">To raise AOA 85,000 by October 14, 2017, in support of the Coalition to Abolish Slavery and Trafficking Los Angeles (CAST LA) and it's mission to build a future where Human Trafficking exists.</p>
-            <p class="xs-content-description fundpress-content-description xs-mb-40">NYC Marathon 2016 was the most awesome race of all to date. The day was beautiful, the crowd fantastic, and I had a great day in the Big Apple even after taking a spill at Mile 13. Now, seriously ~ who breaks an arm running a marathon? And who keeps running because 'broken' didn't cross her mind? That would be me. What a learning curve!</p>
-            <h3 class="bold color-green xs-post-title fundpress-post-title xs-mb-30">Our Vission:</h3>
-            <p class="xs-content-description fundpress-content-description xs-mb-0">
-                Why I am supporting Safelight's cause... <span class="color-green">It took me a long time to admit outloud that</span> I had been in an abusive relationship for roughly the last year an d half of my college career. I studied domestic violence/interpersonal partner violence during that time, but continued to do what many people trapped in those relationships do... I stayed; even when asked "why?", "is it worth it?", "do you really think that's what love is?", and yes, even when said "you study this stuff, you know what this is, why do you let yourself go through this?"
-            </p>
+
         </div>
         <div class="col-md-12 col-sm-12 col-lg-5">
             <div class="xs-sidebar-wraper">
@@ -379,7 +371,7 @@
                     <div class="xs-single-sidebar xs-mb-50">
                         <div class="xs-spilit-container">
                             <div class="xs-btn-wraper">
-                                @Html.ActionLink("Enviar para revisão", "EviarRevisao", "Projectos", new {id = 1}, new {@class = "xs-btn radius-btn green-btn xs-btn-medium"})
+                                @Html.ActionLink("Enviar para revisão", "EviarRevisao", "Projectos", new {id = Model.ProjectoId}, new {@class = "xs-btn radius-btn green-btn xs-btn-medium"})
                                 @*<a href="#" class="xs-btn radius-btn green-btn xs-btn-medium">Enviar para revisão</a>*@
                             </div>
                             <div class="xs-social-list-wraper">
@@ -407,38 +399,33 @@
                         <div class="xs-sidebar-title fundpress-sidebar-title xs-mb-30">
                             <h3 class="color-navy-blue">Recompensas</h3>
                         </div>
-                        <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white">
-                            <h3 class="xs-mb-30">Pledge AOA 500 or more</h3>
-                            <h4 class="xs-mb-20">HIS and HERS (or For Parents)</h4>
-                            <p class="xs-mb-20 xs-content-description fundpress-content-description">Two XpeedX Smart Systems beautifully packaged (will retail for AOA 500 for two). </p>
-                            <span class="xs-mb-40">Free access to DynoLife App.</span>
-                            <div class="xs-spilit-container">
-                                <div class="xs-info-card-times">
-                                    <h5>Estimated Delivery</h5>
-                                    <h6>17Th Aug 2017</h6>
+                        @if (@Model.Recompensas.Any())
+                        {
+                            foreach (var recompensa in Model.Recompensas)
+                            {
+                                <div class="xs-info-card xs-purple-bg fundpress-info-card xs-box-shadow xs-mb-30 color-white">
+                                    <h3 class="xs-mb-30">Apoia com AOA @recompensa.ValorDoado ou mais</h3>
+                                    <h4 class="xs-mb-20">@recompensa.Item</h4>
+                                    <p class="xs-mb-20 xs-content-description fundpress-content-description">
+                                        @recompensa.RecDescricao
+                                    </p>
+                                    <div class="xs-spilit-container">
+                                        <div class="xs-info-card-times">
+                                            <h5>Tempo de entrega estimado</h5>
+                                            <h6>@recompensa.PrazoEntregaEstimado</h6>
+                                        </div>
+                                        <div class="xs-info-card-times">
+                                            <h5>Local de entrega</h5>
+                                            <h6>@recompensa.LugarEntrega</h6>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="xs-info-card-times">
-                                    <h5>Ships To</h5>
-                                    <h6>Anywhere in the world</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="xs-info-card xs-pink-bg fundpress-info-card xs-box-shadow color-white">
-                            <h3 class="xs-mb-30">Pledge AOA 700 or more</h3>
-                            <h4 class="xs-mb-20">Trainer Special</h4>
-                            <p class="xs-mb-20 xs-content-description fundpress-content-description">Ten XpeedX Smart Systems beautifully packaged individually for each of your trainees (will retail for AOA 1380 for ten). </p>
-                            <span class="xs-mb-40">Free access to DynoLife App.</span>
-                            <div class="xs-spilit-container">
-                                <div class="xs-info-card-times">
-                                    <h5>Estimated Delivery</h5>
-                                    <h6>20Th Jun 2017</h6>
-                                </div>
-                                <div class="xs-info-card-times">
-                                    <h5>Ships To</h5>
-                                    <h6>Anywhere in the world</h6>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                        }
+                        else
+                        {
+                            <h6 class="xs-mb-30">Esta campanha não tem nunhuma campanha configurada</h6>
+                        }
                     </div>
                 </div>
 
@@ -462,7 +449,7 @@
                 console.log(id);
                 var v = "<option>Selecione a província</option>";
                 $.each(data, function(i, v1) {
-                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                    v += `<option value=${v1.Value}>${v1.Text}</option>`;
                 });
 
                 $("#ProvinciaSelecionada").html(v);
@@ -470,12 +457,12 @@
         });
 
         $("#ProvinciaSelecionada").change(function() {
-            var id = $(this).val();
+            const id = $(this).val();
             $("#MunicipioSelecionado").empty();
             $.get("ListaMunicipios", { idProvincia: id }, function(data) {
                 var v = "<option>Selecione o municipio</option>";
                 $.each(data, function(i, v1) {
-                    v += "<option value=" + v1.Value + ">" + v1.Text + "</option>";
+                    v += `<option value=${v1.Value}>${v1.Text}</option>`;
                 });
                 $("#MunicipioSelecionado").html(v);
             });
@@ -486,5 +473,4 @@
     }, false);
 
 
-    
 </script>

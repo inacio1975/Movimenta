@@ -1,7 +1,9 @@
-﻿@model Web.Models.DetalheViewModel
+﻿@using Domain.Concrete
+@model Web.Models.DetalheViewModel
 
 @{
     ViewBag.Title = "Detalhe";
+    var Projectos = new ProjectoRepository().ListaProjectosUsuario();
 }
 
 <!-- welcome section -->
@@ -377,62 +379,66 @@
                 <p>Te apresentamos projetos que te podem interessar.</p>
             </div><!-- .xs-heading-title .fundpress-heading-title .xs-col-9 END -->
             <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-                <a href="#" class="xs-btn round-btn navy-blue-btn">Todos os projectos</a>
+                @Html.ActionLink("Todos os projectos","Index","Projectos",null,new {@class= "xs-btn round-btn navy-blue-btn" })
+                @*<a href="#" class="xs-btn round-btn navy-blue-btn">Todos os projectos</a>*@
             </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
         </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-        @*<div class="row">
+        <div class="row">
             @foreach (var campanha in Model.Projectos)
             {
-                if (campanha == null)
+                if (@campanha == null)
                 {
                     continue;
                 }
                 <div class="col-lg-4">
-                    <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
-                        <div class="fundpress-item-header">
-                            <img src="/Content/images/campaigns/@campanha.Foto" alt="">
-                            <div class="xs-item-header-content">
-                                <div class="xs-skill-bar">
-                                    <div class="xs-skill-track">
-                                        <p>
-                                            <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>%
-                                        </p>
-                                    </div>
+                <div class="xs-box-shadow fundpress-popular-item xs-bg-white">
+                    <div class="fundpress-item-header">
+                        <a href="/projectos/detalhe/@campanha.ProjectoId"><img src="/Content/images/campaigns/@campanha.Foto" alt=""></a>
+                        <div class="xs-item-header-content">
+                            <div class="xs-skill-bar">
+                                <div class="xs-skill-track">
+                                    <p>
+                                        <span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>%
+                                    </p>
                                 </div>
                             </div>
-                        </div><!-- .xs-item-header .fundpress-item-header END -->
-                        <div class="fundpress-item-content xs-content-padding bg-color-white">
-                            <ul class="xs-simple-tag fundpress-simple-tag">
-                                @foreach (var keyword in campanha.GetKeywords())
-                                {
-                                    <li>
-                                        <a href="">@keyword</a>
-                                    </li>
-                                }
-
-                            </ul>
-                            <a href="#" class="d-block color-navy-blue fundpress-post-title">@campanha.Titulo</a>
-                            <ul class="xs-list-with-content fundpress-list-item-content">
-                                <li>@campanha.Arrecadado AOA<span>Arrecadado</span></li>
-                                <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>% <span>Financiado</span></li>
+                        </div>
+                    </div><!-- .xs-item-header .fundpress-item-header END -->
+                    <div class="fundpress-item-content xs-content-padding bg-color-white">
+                        <ul class="xs-simple-tag fundpress-simple-tag">
+                            @foreach (var keyword in campanha.GetKeywords())
+                            {
                                 <li>
-                                    @campanha.DiasRestantes()<span>Dias restantes</span></li>
-                            </ul>
-                            <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
-                            <div class="row xs-margin-0">
-                                <div class="full-round fundpress-avatar">
-                                    <img src="@campanha.Criador.Foto" alt="Avatar">
-                                </div>
-                                <div class="xs-avatar-title">
-                                    <a href="#">
-                                        <span>Por</span>@campanha.Criador.Nome</a>
-                                </div>
+                                    <a href="">@keyword</a>
+                                </li>
+                            }
+
+                        </ul>
+                        @Html.ActionLink(campanha.Titulo,"Detalhe","Projectos",new {Id = campanha.ProjectoId},new {@class="d-block color-navy-blue fundpress-post-title"})
+                        @*<a href="/Projecto" class="d-block color-navy-blue fundpress-post-title">@campanha.Titulo</a>*@
+                        <ul class="xs-list-with-content fundpress-list-item-content">
+                            <li>@campanha.Arrecadado AOA<span>Arrecadado</span></li>
+                            <li><span class="number-percentage-count number-percentage" data-value="@campanha.GetProgresso()" data-animation-duration="3000">0</span>% <span>Financiado</span></li>
+                            <li>
+                                @campanha.DiasRestantes()<span>Dias restantes</span>
+                            </li>
+                        </ul>
+                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor"></span>
+                        <div class="row xs-margin-0">
+                            <div class="full-round fundpress-avatar">
+                                <a href="/usuarios/@campanha.GetCriador().MembroId"><img src="@campanha.GetCriador().Foto" alt="Avatar"></a>
+</div>
+                            <div class="xs-avatar-title">
+                                <a href="/usuarios/@campanha.GetCriador().MembroId">
+                                    <span>Por</span>@campanha.GetCriador().Nome
+                                </a>
                             </div>
-                        </div><!-- .fundpress-item-content END -->
-                    </div>
+                        </div>
+                    </div><!-- .fundpress-item-content END -->
+                </div>
                 </div>
             }
-        </div>*@
+        </div>
     </div>
 </section> <!-- End popular campaigns -->
 </main>

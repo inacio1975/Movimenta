@@ -232,7 +232,9 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\site.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\back_other_bg.jpg" />
     <Content Include="Content\images\back_other_bg1.jpg" />
+    <Content Include="Content\images\get_funded_bg1.jpg" />
     <Content Include="Content\img\Ativo 15.svg" />
     <Content Include="Content\img\avatar_1.jpg" />
     <Content Include="Content\img\avatar_2.jpg" />
@@ -359,6 +361,8 @@
     <Content Include="Views\Support\Faq.cshtml" />
     <Content Include="Views\Support\Terms.cshtml" />
     <Content Include="Views\Support\Rules.cshtml" />
+    <Content Include="Views\Dashboard\Projectos.cshtml" />
+    <Content Include="Views\Dashboard\DetalheProjecto.cshtml" />
     <None Include="Web.Default Settings %283%29.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

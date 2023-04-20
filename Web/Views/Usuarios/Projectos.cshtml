@@ -33,7 +33,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="row">
-                @if (Model.Count() != 0)
+                @if (Model.Any())
                 {
                     foreach (var projecto in Model)
                     {
@@ -42,7 +42,17 @@
                                 <div class="xs-dashboard-header">
                                     <h3 class="dashboard-title">@projecto.Titulo | Estado: @projecto.Estado.ToString() <span>@projecto.Autor</span></h3>
                                     <div class="xs-btn-wraper">
-                                        @(projecto.Estado == Estado.Publicado ? Html.ActionLink("Ver", "Detalhe", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"}) : Html.ActionLink("Editar", "Editar", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"}))
+                                        @if (projecto.Estado == Estado.Rascunho)
+                                        {
+                                            @Html.ActionLink("Editar", "Editar", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"})
+                                            <button type="button" class="@("btn btn-outline-danger deleteCampanha")" data-bs-toggle="modal" data-bs-target="#deleteCampanha" data-path="@Url.Action("Eliminar", "Projectos", new {id = projecto.Id})">Eliminar</button>
+                                        }
+
+                                        @if (projecto.Estado == Estado.Publicado)
+                                        {
+                                            @Html.ActionLink("Ver", "Detalhe", "Projectos", new {id = projecto.Id}, new {@class = "btn btn-outline-success"})
+                                        }
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -85,5 +95,26 @@
                 }
             </div>
         </div>
+
+        <div class="modal fade" id="deleteCampanha" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteCampanhaLabel" aria-hidden="true" style="margin-top: 104.444px;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteCampanhaLabel">Confirmação</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tens a certeza de que queres eliminar esse elemento?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-bs-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+                        <button id="btnContinueDelete" data-bs-dismiss="modal" type="button" class="btn btn-primary">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+
 </main>
+

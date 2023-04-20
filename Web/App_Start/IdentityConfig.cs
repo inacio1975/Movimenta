@@ -24,8 +24,8 @@ namespace Web
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-
-            
+            var mail = new MailMovimenta(message.Destination,message.Subject,new StringBuilder(message.Body));
+            mail.Send();
 
             return Task.FromResult(0);
         }
@@ -33,11 +33,11 @@ namespace Web
 
     public class MailMovimenta
     {
-        private string from, subject, message;
+        private readonly string to, subject, message;
 
-        public MailMovimenta(string from, string subject, StringBuilder message)
+        public MailMovimenta(string to, string subject, StringBuilder message)
         {
-            this.from = from;
+            this.to = to;
             this.subject = subject;
             this.message = message.ToString();
         }
@@ -53,8 +53,8 @@ namespace Web
 
                     var logInfo = new NetworkCredential(email, password);
 
-                    mail.From = new MailAddress(from);
-                    mail.To.Add(new MailAddress("info@movimenta.ao"));
+                    mail.From = new MailAddress(email);
+                    mail.To.Add(new MailAddress(to));
                     mail.Subject = subject;
                     mail.Body = message;
                     mail.IsBodyHtml = true;

@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Domain.Concrete;
+using Domain.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Web.Models;
@@ -59,7 +60,8 @@ namespace Web.Controllers
             {
                 ProjectoId = projecto.ProjectoId,
                 Projecto = projecto,
-                Recompensas = projecto.GetRecompensas().ToList()
+                Recompensas = projecto.GetRecompensas().ToList(),
+                MetodosPagamentos = DbInitializer.GetMetodosPagamento()
             };
             return View(model);
         }

@@ -1,0 +1,19 @@
+﻿@model Web.Models.ProjectoViewModel
+@{
+    ViewBag.Title = "Dados do projecto";
+}
+
+<!-- welcome section -->
+<!--breadcumb start here-->
+<section class="xs-inner-welcome-section fundpress-inner-welcome-section fundpress-inner-bg-1 parallax-window" data-parallax="scroll" data-image-src="/Content/images/background/about_us_bg.png">
+    <div class="xs-solid-overlay xs-bg-black"></div>
+    <div class="container">
+        <div class="fundpress-inner-welcome-content">
+            <h2 class="color-white">@Model.Titulo</h2>
+            <ul class="xs-breadcumb fundpress-breadcumb">
+                <li><a href="/Dashboard" class="color-white"> Início /</a> <a href="/Dashboard/Projectos" class="color-white"> Campanhas /</a> Dados do projecto</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--breadcumb end here--><!-- End welcome section -->

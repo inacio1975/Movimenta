@@ -54,11 +54,11 @@ namespace Web.Controllers
             if (page != null) intpage = page.Value;
 
             Debug.WriteLine("page: " + intpage);
-            var projectos = projectoRepository.GetProjectosWithPage(intpage, 6).ToList();
+            var projectos = projectoRepository.GetProjectosWithPage(intpage, 6,projectoRepository.ListaProjectosUsuario()).ToList();
             var model = new CampanhaViewModel
             {
                 Projectos = projectos,
-                paginator = new CampanhaViewModel.Paginator(intpage, projectoRepository.GetProjectos())
+                paginator = new CampanhaViewModel.Paginator(intpage, projectoRepository.ListaProjectosUsuario())
             };
             return View(model);
         }
@@ -97,12 +97,51 @@ namespace Web.Controllers
                 Movimentadores = db.Movimentadores.Where(mov => mov.ProjectoId == projecto.ProjectoId),
                 Recompensas = db.Recompensas.Where(rec => rec.ProjectoId == projecto.ProjectoId),
                 Autor = db.Membros.Find(projecto.MembroId),
-                Projectos = new MovimentaContext().Projectos.Take(3)
+                Projectos = projectoRepository.GetRelatedProjects(projecto).Take(3).ToList()
             };
-            model.Projectos = new MovimentaContext().Projectos.ToList().Take(3);
-            Debug.WriteLine("Debug detalhe: " + model.Projectos.Count());
             
             return View(model);
+        }
+
+        [Authorize(Roles = "adm")]
+        public ActionResult Previsualizar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null)
+            {
+                return HttpNotFound();
+            }
+
+            var model = new DetalheViewModel
+            {
+                ProjectoId = projecto.ProjectoId,
+                Titulo = projecto.Titulo,
+                Keywords = projecto.Keywords,
+                FotoUrl = projecto.Foto,
+                Video = projecto.Video,
+                DescricaoCurta = projecto.Descricao,
+                SobreCampanha = projecto.Sobre,
+                UsoFundo = projecto.Objectivofundo,
+                Progresso = projecto.GetProgresso(),
+                Arrecadado = projecto.Arrecadado ?? 0,
+                Meta = projecto.Meta ?? 0,
+                DataFim = projecto.DataFim ?? DateTime.Today,
+                DataInicio = projecto.DataInicio ?? DateTime.Today,
+                Novidades = db.Novidades.Where(nov => nov.ProjectoId == projecto.ProjectoId),
+                Comentarios = db.Comentarios.Where(com => com.ProjectoId == projecto.ProjectoId).OrderByDescending(com => com.Data).Take(7),
+                Movimentadores = db.Movimentadores.Where(mov => mov.ProjectoId == projecto.ProjectoId),
+                Recompensas = db.Recompensas.Where(rec => rec.ProjectoId == projecto.ProjectoId),
+                Autor = db.Membros.Find(projecto.MembroId),
+                Projectos = new MovimentaContext().Projectos.Take(3).ToList()
+            };
+            model.Projectos = new MovimentaContext().Projectos.Take(3).ToList();
+            
+            return View("Detalhe", model);
         }
 
         // GET: Projectos/Criar
@@ -178,11 +217,16 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
+            if (!projecto.MembroId.Equals(GetUserLogedIn().MembroId))
+            {
+                return HttpNotFound();
+            }
 
             var enderecocampanha = projecto.GetEnderecoCampanha();
 
             var model = new EditarViewModel
             {
+                ProjectoId = projecto.ProjectoId,
                 Titulo = projecto.Titulo,
                 Foto = projecto.Foto,
                 Video = projecto.Video,
@@ -366,6 +410,7 @@ namespace Web.Controllers
 
                     var model1 = new EditarViewModel
                     {
+                        ProjectoId = projecto.ProjectoId,
                         Titulo = projecto.Titulo,
                         Foto = projecto.Foto,
                         Video = projecto.Video,
@@ -380,13 +425,13 @@ namespace Web.Controllers
                         PaisSelecionado = projecto.GetEnderecoCampanha().IdPais.ToString(),
                         ProvinciaSelecionada = projecto.GetEnderecoCampanha().IdProvincia.ToString(),
                         MunicipioSelecionado = projecto.GetEnderecoCampanha().IdMunicipio.ToString(),
-                        Rua = projecto.GetEnderecoCampanha().Rua
+                        Rua = projecto.GetEnderecoCampanha().Rua,
+                        Categoria = new SelectList(categorias, "Value", "Text", model.CategoriaSelecionada),
+                        Campanha = new SelectList(campanhas, "Value", "Text", model.CampanhaSelecionada),
+                        Pais = new SelectList(paises, "Value", "Text", model.PaisSelecionado),
+                        Provincia = new SelectList(provincias, "Value", "Text", model.ProvinciaSelecionada),
+                        Municipio = new SelectList(municipios, "Value", "Text", model.MunicipioSelecionado)
                     };
-                    model1.Categoria = new SelectList(categorias, "Value", "Text", model.CategoriaSelecionada);
-                    model1.Campanha = new SelectList(campanhas, "Value", "Text", model.CampanhaSelecionada);
-                    model1.Pais = new SelectList(paises, "Value", "Text", model.PaisSelecionado);
-                    model1.Provincia = new SelectList(provincias, "Value", "Text", model.ProvinciaSelecionada);
-                    model1.Municipio = new SelectList(municipios, "Value", "Text", model.MunicipioSelecionado);
                     RedirectToAction("Editar", id);
                     return View(model1);
                 }
@@ -433,9 +478,27 @@ namespace Web.Controllers
 
         // GET: Projectos/EviarRevisao
         [Authorize]
-        public ActionResult EviarRevisao(int id)
+        public ActionResult EviarRevisao(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var projecto = db.Projectos.Find(id);
+            if (projecto == null || !projecto.MembroId.Equals(getUserLogedIn().MembroId))
+            {
+                return HttpNotFound();
+            }
+
+            projecto.Estado = Estado.Analise;
+
+            db.Entry(projecto).State = EntityState.Modified;
+            db.SaveChanges();
+
+            ViewBag.State = 1;
+
+            return RedirectToAction("Projectos","Usuarios");
         }
 
         // GET: Projectos/Delete/5
@@ -540,6 +603,11 @@ namespace Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

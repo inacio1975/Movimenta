@@ -20,7 +20,9 @@ namespace Domain.Abstract
         List<Projecto> GetProjectosByCategory(int categoriaId);
         List<Comentario> GetComentarios(Projecto projecto);
         List<Novidade> GetNovidades(Projecto projecto);
-        List<Projecto> GetProjectosWithPage(int start, int productPerPage);
+        List<Projecto> GetProjectosWithPage(int start, int productPerPage, List<Projecto> projectosSrc);
         List<Projecto> GetPopularProjects();
+        List<Projecto> ListaProjectosUsuario();
+        List<Projecto> ListaProjectosGestao();
     }
 }

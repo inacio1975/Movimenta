@@ -12,6 +12,7 @@ namespace Web.Models
         public IEnumerable<Projecto> Projectos { get; set; }
         public IEnumerable<Projecto> CampanhasPopulares { get; set; } 
         public List<Sucesso> Sucessos { get; set; }
+        public IEnumerable<PartnersViewHelp> Parceiros { get; set; } 
         public List<Categoria> Categorias { get; set; } 
     }
 
@@ -27,4 +28,6 @@ namespace Web.Models
         public string Webpage { get; set; }
         public string Citacao { get; set; }
     }
+
+    
 }

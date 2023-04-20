@@ -121,7 +121,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-lg-6 xs-padding-0">
-                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/back_other_bg1.jpeg)">
+                <div class="fundpress-full-width-wraper-v2" style="background-image: url(/Content/images/back_other_bg.jpg)">
                     <div class="fundpress-product-hover-content-v2">
                         <div class="fundpress-sub-title">
                             <h2>Financia projectos</h2>
@@ -168,7 +168,7 @@
         <p>A MOVIMENTA foi desenhada por angolanos para angolanos o que significa uma melhor esperiencia de usuário, tanto para os apoiadores, os arrecadadores de fundo, clientes assim como o pessoal de apoio</p>
     </div><!-- .fundpress-heading-title .xs-col-9 END -->
     <div class="xs-btn-wraper xs-padding-0 col-xl-3 col-md-3 d-flex-center-end">
-        @Html.ActionLink("Todos os projectos", "Index", "Projectos", null, new { @class = "xs-btn btn xs-box-shadow btn-primary btn-lg round-btn" })
+        @Html.ActionLink("Todos os projectos", "Index", "Projectos", null, new { @class = "xs-btn btn xs-box-shadow navy-blue-btn btn-lg round-btn" })
     </div><!-- .xs-btn-wraper .xs-col-3 .d-flex-center-end END -->
 </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
 <div class="xs-tab-wraper fundpress-tab-wraper">
@@ -419,177 +419,111 @@
                 <a href="news-feed.html" class="xs-btn round-btn navy-blue-btn">Blog</a>
             </div><!-- .xs-btn-wraper .d-flex-center-end .xs-col-3 END -->
         </div><!-- .xs-section-heading .fundpress-section-heading .xs-spilit-container END -->
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-lg-4">
-                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                        <img src="/Content/images/journal/journal-1.jpg" alt="">
-                        <div class="xs-item-header-content">
-                            <a href="#" class="full-round icon-identify-btn green-btn">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                    </div><!-- .xs-item-header .fundpress-item-header END -->
-                    <div class="fundpress-item-content xs-content-padding bg-color-white">
-                        <div class="entry-header xs-mb-30">
-                            <div class="post-author">
-                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                    <li>
-                                        <span>Por</span><a href="#" rel="author">Rose</a>
-                                    </li>
-                                </ul>
+        <div class="xs-content-section-padding xs-testimonial-section fundpress-testimonial-section">
+            <div class="container">
+                <div class="xs-testimonial-slider slider-double-item xs-owl-dot owl-carousel">
+                    <div class="xs-testimonial-item">
+                        <blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
+                            <span class="xs-blockquote-icon fundpress-blockquote-icon">
+                                <img src="/Content/images/quote-left.png" alt="">
+                            </span>
+                            " We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+                        </blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
+                        <div class="xs-spilit-container xs-testimonial-bio content-center width-70">
+                            <div class="xs-avatar full-round fundpress-avatar-big">
+                                <img src="/Content/images/avatar/testimonial-1.jpg" alt="" class="xs-box-shadow-2">
                             </div>
-                            <h4 class="entry-title">
-                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">Professional Soundcard</a>
-                            </h4>
-                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
-                        </div>
-
-                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                        <div class="entry-content xs-spilit-container xs-footer-content">
-                            <div class="xs-col-6 text-left">
-                                <span class="date">
-                                    <a href="" title="" rel="bookmark">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
-                                    </a>
-                                </span>
+                            <div class="xs-item-footer fundpress-team-details fundpress-testimonial-details text-left">
+                                <a href="#" class="color-navy-blue">
+                                    Mark Williamson
+                                </a>
+                                <h5 class="color-orange">Founder, UI Hub Inc.</h5>
                             </div>
-                            <div class="xs-col-6 text-right">
-                                <span class="categories-links">
-                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Project</a>
-                                </span>
+                        </div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
+                    </div><!-- xs-testimonial-item END -->
+                    <div class="xs-testimonial-item">
+                        <blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
+                            <span class="xs-blockquote-icon fundpress-blockquote-icon">
+                                <img src="/Content/images/quote-left.png" alt="">
+                            </span>
+                            " We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+                        </blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
+                        <div class="xs-spilit-container xs-testimonial-bio content-center width-70">
+                            <div class="xs-avatar full-round fundpress-avatar-big">
+                                <img src="/Content/images/avatar/testimonial-2.jpg" alt="" class="xs-box-shadow-2">
                             </div>
-                        </div>
-                    </div>
+                            <div class="xs-item-footer fundpress-team-details fundpress-testimonial-details text-left">
+                                <a href="#" class="color-navy-blue">
+                                    Mark Henricks
+                                </a>
+                                <h5 class="color-orange">CEO, Pranklin Agency</h5>
+                            </div>
+                        </div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
+                    </div><!-- xs-testimonial-item END -->
+                    <div class="xs-testimonial-item">
+                        <blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
+                            <span class="xs-blockquote-icon fundpress-blockquote-icon">
+                                <img src="/Content/images/quote-left.png" alt="">
+                            </span>
+                            " We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+                        </blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
+                        <div class="xs-spilit-container xs-testimonial-bio content-center width-70">
+                            <div class="xs-avatar full-round fundpress-avatar-big">
+                                <img src="/Content/images/avatar/testimonial-3.jpg" alt="" class="xs-box-shadow-2">
+                            </div>
+                            <div class="xs-item-footer fundpress-team-details fundpress-testimonial-details text-left">
+                                <a href="#" class="color-navy-blue">
+                                    Mark Henricks
+                                </a>
+                                <h5 class="color-orange">Founder, UI Hub Inc.</h5>
+                            </div>
+                        </div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
+                    </div><!-- xs-testimonial-item END -->
+                    <div class="xs-testimonial-item">
+                        <blockquote class="xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote">
+                            <span class="xs-blockquote-icon fundpress-blockquote-icon">
+                                <img src="/Content/images/quote-left.png" alt="">
+                            </span>
+                            " We are so glad that we made the switch to use FundPress this year and our results were fantastic. Our 8th Annual Race For Grace raised $457,000, which is a new record for us."
+                        </blockquote><!-- xs-blockquote bg-color-white xs-box-shadow xs-content-padding fundpress-blockquote END -->
+                        <div class="xs-spilit-container xs-testimonial-bio content-center width-70">
+                            <div class="xs-avatar full-round fundpress-avatar-big">
+                                <img src="/Content/images/avatar/testimonial-4.jpg" alt="" class="xs-box-shadow-2">
+                            </div>
+                            <div class="xs-item-footer fundpress-team-details fundpress-testimonial-details text-left">
+                                <a href="#" class="color-navy-blue">
+                                    Mark Williamson
+                                </a>
+                                <h5 class="color-orange">CEO, Pranklin Agency</h5>
+                            </div>
+                        </div><!-- xs-spilit-container xs-testimonial-bio content-center width-70 END -->
+                    </div><!-- xs-testimonial-item END -->
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-lg-4">
-                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                        <img src="/Content/images/journal/journal-2.jpg" alt="">
-                        <div class="xs-item-header-content">
-                            <a href="#" class="full-round icon-identify-btn green-btn">
-                                <i class="fa fa-image"></i>
-                            </a>
-                        </div>
-                    </div><!-- .xs-item-header .fundpress-item-header END -->
-                    <div class="fundpress-item-content xs-content-padding bg-color-white">
-                        <div class="entry-header xs-mb-30">
-                            <div class="post-author">
-                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                    <li>
-                                        <span>Por</span><a href="#" rel="author">Rose</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="entry-title">
-                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">A New Album by Rebecca</a>
-                            </h4>
-                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
-                        </div>
-
-                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                        <div class="entry-content xs-spilit-container xs-footer-content">
-                            <div class="xs-col-6 text-left">
-                                <span class="date">
-                                    <a href="" title="" rel="bookmark">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="xs-col-6 text-right">
-                                <span class="categories-links">
-                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Adoption</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-lg-4">
-                <div class="fundpress-grid-item-content xs-box-shadow fundpress-from-journal">
-                    <div class="xs-item-header fundpress-item-header entry-thumbnail">
-                        <img src="/Content/images/journal/journal-3.jpg" alt="">
-                        <div class="xs-item-header-content">
-                            <a href="#" class="full-round icon-identify-btn green-btn">
-                                <i class="fa fa-video-camera"></i>
-                            </a>
-                        </div>
-                    </div><!-- .xs-item-header .fundpress-item-header END -->
-                    <div class="fundpress-item-content xs-content-padding bg-color-white">
-                        <div class="entry-header xs-mb-30">
-                            <div class="post-author">
-                                <ul class="xs-simple-tag xs-simple-tag-v2 fundpress-simple-tag author-links">
-                                    <li>
-                                        <span>Por</span><a href="#" rel="author">Rose</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="entry-title">
-                                <a href="#" class="xs-mb-0 xs-post-title color-navy-blue fundpress-post-title">First Bionic Wireless</a>
-                            </h4>
-                            <p>Founded by berlin’s clubcommissioner alongside amsterdam’s with nightori mayor, the creative footprint.</p>
-                        </div>
-
-                        <span class="xs-separetor border-separetor xs-separetor-v2 fundpress-separetor xs-mb-20"></span>
-
-                        <div class="entry-content xs-spilit-container xs-footer-content">
-                            <div class="xs-col-6 text-left">
-                                <span class="date">
-                                    <a href="" title="" rel="bookmark">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span class="entry-date xs-entry-date">March 15, 2018</span>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="xs-col-6 text-right">
-                                <span class="categories-links">
-                                    <a href="#" class="xs-blog-meta-tag green-bg bold color-white xs-border-radius" rel="category tag">Film</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>	<!-- testimonial section end -->
     </div>
 </section><!-- End journal section -->
 <!-- sponsor section -->
-<section class="xs-bg xs-section-padding fundpress-sponsor-section" style="background-image: url(/Content/images/background/sponsor_section_bg.jpg);">
+<section class="xs-bg xs-section-padding fundpress-sponsor-section" style="background-image: url(/Content/images/background/about_us_bg.png);">
     <div class="xs-solid-overlay xs-bg-white"></div>
     <div class="container fundpress-partners-wraper" id="partners">
         <div class="fundpress-heading-title">
-            <h2 class="color-navy-blue xs-mb-0">Nossos pareciros e colaboradores</h2>
+            <h2 class="color-navy-blue xs-mb-0">Nossos parceiros e colaboradores</h2>
         </div><!-- .xs-heading-title .fundpress-heading-title END -->
         <div class="content-center">
             <ul class="fundpress-partners">
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-1.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-2.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-3.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-4.png" alt="">
-                    </a>
-                </li>
+                @foreach (var parceiro in Model.Parceiros)
+                {
+                    <li>
+                        <a href="@parceiro.Link" class="full-round fundpress-single-partner" target="_blank">
+                            <img src="/Content/images/partner/@parceiro.Logo" alt="@parceiro.Entidade">
+                        </a>
+                    </li>
+                }
+                
             </ul><!-- .fundpress-partners END -->
         </div>
-        <div class="content-center">
+        @*<div class="content-center">
             <ul class="fundpress-partners">
                 <li>
                     <a href="#" class="full-round fundpress-single-partner">
@@ -606,17 +540,7 @@
                         <img src="/Content/images/partner/partner-7.png" alt="">
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-8.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="full-round fundpress-single-partner">
-                        <img src="/Content/images/partner/partner-9.png" alt="">
-                    </a>
-                </li>
-            </ul><!-- .fundpress-partners END -->
-        </div>
+            </ul> .fundpress-partners END 
+        </div>*@
     </div>
 </section><!-- End sponsor section -->

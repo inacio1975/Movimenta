@@ -4,13 +4,9 @@
 }
 
 <style>
-    .form-group {
-        display: none;
-    }
+    .form-group { display: none; }
 
-    .selected .form-group {
-        display: block;
-    }
+    .selected .form-group { display: block; }
 </style>
 
 <!-- welcome section -->
@@ -44,32 +40,39 @@
                         </div>
                     </div>
                     <div class="row option-pagamentos">
-
-                        <div class="option selected xs-box-shadow xs-mb-30 col-lg-6">
-                            <img src="/Content/images/pagamentos/referencias.png" alt="pagamento por referencia"/>
-                            <div class="descricao">Pagamentos por referências</div>
-                            <input type="hidden" name="pagamentoId" id="pagamentoId" value="1"/>
-                        </div>
-                        <div class="xs-box-shadow xs-mb-30 col-lg-6 option">
-                            <img src="/Content/images/pagamentos/transferencias.jpeg" alt="transferências interbancárias"/>
-                            <div class="descricao">Transferências interbancárias</div>
-                            <input type="hidden" name="pagamentoId" id="pagamentoId" value="2" />
-                        </div>
-                        <div class="xs-box-shadow xs-mb-30 col-lg-6 option">
-                            <img src="/Content/images/pagamentos/paykz.png" alt="transferências interbancárias"/>
-                            <div class="descricao">PAYKZ</div>
-                            <input type="hidden" name="pagamentoId" id="pagamentoId" value="3" />
-                        </div>
+                        @foreach (var metodo in Model.MetodosPagamentos)
+                        {
+                            <div class="option xs-box-shadow xs-mb-30 col-lg-6">
+                                <img src="/Content/images/pagamentos/@metodo.Foto" alt="@metodo.Descricao"/>
+                                <div class="descricao">@metodo.Descricao</div>
+                                <input type="hidden" name="pagamentoId" id="pagamentoId" value="@metodo.PagamentoId"/>
+                            </div>
+                        }
+                        @*<div class="option selected xs-box-shadow xs-mb-30 col-lg-6">
+                                    <img src="/Content/images/pagamentos/referencias.png" alt="pagamento por referencia" />
+                                    <div class="descricao">Pagamentos por referências</div>
+                                    <input type="hidden" name="pagamentoId" id="pagamentoId" value="1" />
+                                </div>
+                                <div class="xs-box-shadow xs-mb-30 col-lg-6 option">
+                                    <img src="/Content/images/pagamentos/transferencias.jpeg" alt="transferências interbancárias" />
+                                    <div class="descricao">Transferências interbancárias</div>
+                                    <input type="hidden" name="pagamentoId" id="pagamentoId" value="2" />
+                                </div>
+                                <div class="xs-box-shadow xs-mb-30 col-lg-6 option">
+                                    <img src="/Content/images/pagamentos/paykz.png" alt="transferências interbancárias" />
+                                    <div class="descricao">PAYKZ</div>
+                                    <input type="hidden" name="pagamentoId" id="pagamentoId" value="3" />
+                                </div>*@
                     </div>
                 </div>
-                
+
                 <div class="col-md-12 col-sm-12 col-lg-7">
                     <div>
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary()
-                            
+
                             <div class="radio-group">
                                 <div class="radio selected color-white">
                                     Sem Recompensa
@@ -78,7 +81,7 @@
                                             <div class="moeda">
                                                 AOA
                                             </div>
-                                            <input type="text" id="valor" name="valor" value="1000" />
+                                            <input type="text" id="valor" name="valor" value="1000"/>
                                             <div class="clearfix">
                                                 <button type="submit" class="btn btn-primary float-right rounded">Avançar</button>
                                             </div>
@@ -96,7 +99,7 @@
                                                 <div class="moeda">
                                                     AOA
                                                 </div>
-                                                <input type="text" id="valor" name="valor" value="@recompensa.ValorDoado" />
+                                                <input type="text" id="valor" name="valor" value="@recompensa.ValorDoado"/>
                                                 <div class="clearfix">
                                                     <button type="submit" class="btn btn-primary float-right rounded">Avançar</button>
                                                 </div>
@@ -107,7 +110,7 @@
                                         <p class="xs-mb-20 xs-content-description fundpress-content-description">
                                             @recompensa.Descricao
                                         </p>
-                                        <input type="hidden" name="idrecompensa" id="idrecompensa" value="@recompensa.IdRecompensa" />
+                                        <input type="hidden" name="idrecompensa" id="idrecompensa" value="@recompensa.IdRecompensa"/>
                                         <span class="xs-mb-40">Quantidade: @recompensa.Quantidade</span>
                                         <div class="xs-spilit-container">
                                             <div class="xs-info-card-times">
@@ -119,15 +122,14 @@
                                                 <h6>@recompensa.LugarEntrega</h6>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="IdRecompensa" id="IdRecompensa" value="@recompensa.IdRecompensa" />
+                                        <input type="hidden" name="IdRecompensa" id="IdRecompensa" value="@recompensa.IdRecompensa"/>
                                     </div>
                                     <div class="separator"></div>
-
                                 }
                                 @Html.HiddenFor(model => model.ProjectoId)
-                                <input type="hidden" name="recompensaId" id="recompensaId" value="" />
+                                <input type="hidden" name="recompensaId" id="recompensaId" value=""/>
                                 <input type="hidden" name="pagamentoSelecionado" id="pagamentoSelecionado" value=""/>
-                                
+
                             </div>
                         }
                     </div>
@@ -144,18 +146,17 @@
             $(this).parent().find('.radio').removeClass('selected');
             $(this).addClass('selected');
             //var inputsel = $(this).find('#IdRecompensa');
-            var val = $(this).find('#IdRecompensa').val();
+            const val = $(this).find('#IdRecompensa').val();
             console.log(val);
             $('form').find('#recompensaId').val(val);
 
         });
 
-        $('.option-pagamentos .option').click(function () {
+        $('.option-pagamentos .option').click(function() {
             $(this).parent().find('.option').removeClass('selected');
             $(this).addClass('selected');
             //var inputsel = $(this).find('#IdRecompensa');
-            var val = $(this).find('#pagamentoId').val();
-
+            const val = $(this).find('#pagamentoId').val();
             $('form').find('#pagamentoSelecionado').val(val);
 
         });

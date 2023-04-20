@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Domain.Abstract;
 using Domain.Concrete;
+using Domain.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Web.Models;
@@ -54,6 +55,7 @@ namespace Web.Controllers
             model.Sucessos = sucessoRepository.GetSucessos();
             model.CampanhasPopulares = projectRepository.GetPopularProjects().Take(3);
             model.Categorias = new MovimentaContext().Categorias.ToList();
+            model.Parceiros = DbInitializer.GetPartners();
             return View(model);
         }
 

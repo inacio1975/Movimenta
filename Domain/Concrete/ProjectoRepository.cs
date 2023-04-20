@@ -79,11 +79,66 @@ namespace Domain.Concrete
             }
         }
 
+        public List<Projecto> ProjetosTermiados()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var busca = from projecto in context.Projectos where projecto.Estado==Estado.Terminado select projecto;
+                return busca.ToList();
+            }
+        }
+
+        public List<Projecto> ProjetosPublicados()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var busca = from projecto in context.Projectos where projecto.Estado == Estado.Publicado select projecto;
+                return busca.ToList();
+            }
+        }
+
+        public List<Projecto> ProjetosRascunhos()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var busca = from projecto in context.Projectos where projecto.Estado == Estado.Rascunho select projecto;
+                return busca.ToList();
+            }
+        }
+
+        public List<Projecto> ListaProjectosGestao()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var busca = from projecto in context.Projectos select projecto;
+
+                busca =
+                    busca.Where(s => s.Estado == Estado.Analise || s.Estado == Estado.Publicado || s.Estado == Estado.Terminado || s.Estado == Estado.Ocultado);
+                return busca.ToList();
+            }
+        }
+
+        public List<Projecto> ListaProjectosUsuario()
+        {
+            using (var context = new MovimentaContext())
+            {
+                var busca = from projecto in context.Projectos select projecto;
+
+                busca =
+                    busca.Where(s => s.Estado == Estado.Publicado || s.Estado == Estado.Terminado);
+                return busca.ToList();
+            }
+        }
+
         public List<Projecto> GetRelatedProjects(Projecto projecto)
         {
             using (var context = new MovimentaContext())
             {
-                var projectos = context.Projectos.Where(p => p.MembroId == projecto.MembroId).ToList();
+                var projectos = ListaProjectosUsuario().Where(p => 
+                                                        p.MembroId == projecto.MembroId
+                                                        ).ToList();
+
+                projectos.Remove(projecto);
                 
                 return projectos;
             }
@@ -100,14 +155,14 @@ namespace Domain.Concrete
             }
         } 
 
-        public List<Projecto> GetProjectosWithPage(int start, int productPerPage)
+        public List<Projecto> GetProjectosWithPage(int start, int productPerPage, List<Projecto> projectosSrc)
         {
             using (var context = new MovimentaContext())
             {
-                var projectos = context.Projectos.ToList()
-                                                 .OrderBy(p => p.ProjectoId)
-                                                 .Skip((start-1)*productPerPage)
-                                                 .Take(productPerPage).ToList();
+                var projectos = projectosSrc
+                                           .OrderBy(p => p.ProjectoId)
+                                           .Skip((start-1)*productPerPage)
+                                           .Take(productPerPage).ToList();
                 return projectos;
             }
         }

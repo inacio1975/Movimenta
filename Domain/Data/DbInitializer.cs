@@ -9,6 +9,58 @@ namespace Domain.Data
 {
     public static class DbInitializer
     {
+
+        public static List<MetodoPagamentoViewHelp> GetMetodosPagamento()
+        {
+            var list = new List<MetodoPagamentoViewHelp>
+            {
+                new MetodoPagamentoViewHelp
+                {
+                    PagamentoId = MetodoPagamentoViewHelp.MetodoPagamento.Transferencias,
+                    Foto = "referencias.png",
+                    Descricao = "Pagamentos por referências"
+                },
+                //new MetodoPagamentoViewHelp
+                //{
+                //    PagamentoId = MetodoPagamentoViewHelp.MetodoPagamento.Paykwz,
+                //    Foto = "paykz.png",
+                //    Descricao = "PAYKZ"
+                //}
+            };
+            return list;
+        }
+
+        public static List<PartnersViewHelp> GetPartners()
+        {
+            var list = new List<PartnersViewHelp>
+            {
+                new PartnersViewHelp
+                {
+                    Entidade = "NOpcoes",
+                    Logo = "logo-nopcoes.png",
+                    Link = "https://facebook.com/opcoesn/"
+                },
+                new PartnersViewHelp
+                {
+                    Entidade = "NOpcoes",
+                    Logo = "logo-nopcoes.png",
+                    Link = "https://facebook.com/opcoesn/"
+                },
+                new PartnersViewHelp
+                {
+                    Entidade = "NOpcoes",
+                    Logo = "logo-nopcoes.png",
+                    Link = "https://facebook.com/opcoesn/"
+                },
+                new PartnersViewHelp
+                {
+                    Entidade = "NOpcoes",
+                    Logo = "logo-nopcoes.png",
+                    Link = "https://facebook.com/opcoesn/"
+                },
+            };
+            return list;
+        } 
         public static void Initialize(MovimentaContext context)
         {
             context.Database.CreateIfNotExists();
@@ -219,14 +271,12 @@ namespace Domain.Data
                     var municipiosProv = municipiosStr[i].Split(',').ToList();
                     municipios.AddRange(municipiosProv.Select(mun => new Municipio {Nome = mun, IdProvincia = provincias[i].IdProvincia}));
                 }
-
                 foreach (var element in municipios)
                 {
                     context.Municipios.Add(element);
                 }
                 context.SaveChanges();
             }
-
         }
     }
 }
