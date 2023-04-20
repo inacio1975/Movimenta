@@ -33,7 +33,7 @@ Plataforma de financiamento colaborativo
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/inacio1975/Movimenta/blob/master/Web/Content/images/logo0.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
