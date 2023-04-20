@@ -36,19 +36,19 @@ Plataforma de financiamento colaborativo
     <img src="https://github.com/inacio1975/Movimenta/blob/master/Web/Content/images/logo0.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">MOVIMENTA</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Plataforma de financiamento colaborativo
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/inacio1975/Movimenta"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://www.movimenta.ao">Abrir a Página</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/inacio1975/Movimenta/issues">Reportar Bug's</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/inacio1975/Movimenta/issues">Solicitar uma Funcionalidade</a>
   </p>
 </div>
 
